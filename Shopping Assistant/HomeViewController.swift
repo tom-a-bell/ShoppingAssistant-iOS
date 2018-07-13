@@ -1,14 +1,8 @@
-//
-//  ViewController.swift
-//  Shopping Assistant
-//
-//  Created by Tom Bell on 13/07/2018.
-//  Copyright © 2018 Tom Bell. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
+
+    @IBOutlet weak var shoppingListButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +14,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func showShoppingList() {
+    }
 }
-
