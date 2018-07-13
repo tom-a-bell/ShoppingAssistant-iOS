@@ -82,6 +82,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173415B720F9350F00080C48 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17B3E03E20F920CF002F670D /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		173415B820F9352400080C48 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17B3E04320F920D1002F670D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		173415B920F9354200080C48 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				17B3E04020F920CF002F670D /* Main.storyboard */,
+				17B3E04520F920D1002F670D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		173415BA20F935D400080C48 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		17B3E03020F920CF002F670D = {
 			isa = PBXGroup;
 			children = (
@@ -107,12 +139,12 @@
 		17B3E03B20F920CF002F670D /* Shopping Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				17B3E03C20F920CF002F670D /* AppDelegate.swift */,
-				17B3E03E20F920CF002F670D /* HomeViewController.swift */,
-				17B3E04020F920CF002F670D /* Main.storyboard */,
-				17B3E04320F920D1002F670D /* Assets.xcassets */,
-				17B3E04520F920D1002F670D /* LaunchScreen.storyboard */,
 				17B3E04820F920D1002F670D /* Info.plist */,
+				17B3E03C20F920CF002F670D /* AppDelegate.swift */,
+				173415B720F9350F00080C48 /* Controllers */,
+				173415BA20F935D400080C48 /* ViewModels */,
+				173415B920F9354200080C48 /* Storyboards */,
+				173415B820F9352400080C48 /* Resources */,
 			);
 			path = "Shopping Assistant";
 			sourceTree = "<group>";
