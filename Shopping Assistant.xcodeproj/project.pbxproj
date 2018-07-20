@@ -94,6 +94,9 @@
 		17B3E06B20F924DA002F670D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E06A20F924DA002F670D /* Cartfile */; };
 		17B3E06E20F9282F002F670D /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B3E06D20F9282F002F670D /* Promises.framework */; };
 		17B3E07120F92A5F002F670D /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B3E07020F92A5F002F670D /* FBLPromises.framework */; };
+		17D6E71A210166C80000AFCE /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D6E719210166C80000AFCE /* LoginWithAmazon.framework */; };
+		17D6E71C210167650000AFCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D6E71B210167650000AFCE /* Security.framework */; };
+		17D6E71E210167960000AFCE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D6E71D210167960000AFCE /* SafariServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +223,9 @@
 		17B3E06A20F924DA002F670D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		17B3E06D20F9282F002F670D /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
 		17B3E07020F92A5F002F670D /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
+		17D6E719210166C80000AFCE /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginWithAmazon.framework; path = Frameworks/LoginWithAmazon.framework; sourceTree = "<group>"; };
+		17D6E71B210167650000AFCE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		17D6E71D210167960000AFCE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +233,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D6E71C210167650000AFCE /* Security.framework in Frameworks */,
+				17D6E71E210167960000AFCE /* SafariServices.framework in Frameworks */,
 				1701D4AC210143DB00A24025 /* AWSCloudWatch.framework in Frameworks */,
 				1701D4C0210143DB00A24025 /* AWSCore.framework in Frameworks */,
 				1701D4BE210143DB00A24025 /* AWSLex.framework in Frameworks */,
@@ -265,6 +273,7 @@
 				1701D4A4210143DB00A24025 /* AWSIoT.framework in Frameworks */,
 				1701D4A8210143DB00A24025 /* AWSUserPoolsSignIn.framework in Frameworks */,
 				1701D4B2210143DB00A24025 /* AWSFacebookSignIn.framework in Frameworks */,
+				17D6E71A210166C80000AFCE /* LoginWithAmazon.framework in Frameworks */,
 				17B3E07120F92A5F002F670D /* FBLPromises.framework in Frameworks */,
 				17B3E06E20F9282F002F670D /* Promises.framework in Frameworks */,
 			);
@@ -376,6 +385,9 @@
 		17B3E06C20F9282F002F670D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17D6E71D210167960000AFCE /* SafariServices.framework */,
+				17D6E71B210167650000AFCE /* Security.framework */,
+				17D6E719210166C80000AFCE /* LoginWithAmazon.framework */,
 				1701D484210143D700A24025 /* AWSAPIGateway.framework */,
 				1701D496210143DA00A24025 /* AWSAuthCore.framework */,
 				1701D485210143D800A24025 /* AWSAuthUI.framework */,
@@ -769,6 +781,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "Shopping Assistant/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -792,6 +805,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "Shopping Assistant/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
