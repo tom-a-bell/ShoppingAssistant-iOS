@@ -18,6 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUD-bp-YBi" userLabel="Login Button">
+                                <rect key="frame" x="120" y="280" width="134" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log in with Amazon"/>
+                                <connections>
+                                    <action selector="performLogin" destination="BYZ-38-t0r" eventType="touchUpInside" id="QMJ-aZ-0XU"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEN-oJ-6Cb">
                                 <rect key="frame" x="119" y="318" width="136" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -32,6 +40,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="fac-es-6Ad"/>
                     <connections>
+                        <outlet property="loginButton" destination="HUD-bp-YBi" id="ajU-L3-fzD"/>
                         <outlet property="shoppingListButton" destination="BEN-oJ-6Cb" id="40Z-dt-Tbg"/>
                         <segue destination="3Hp-sM-Qzh" kind="show" identifier="ShowShoppingList" id="7BO-Lk-MV5"/>
                     </connections>
