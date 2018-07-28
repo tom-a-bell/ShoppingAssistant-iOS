@@ -2,8 +2,13 @@ import UIKit
 
 class ShoppingListViewController: UITableViewController {
 
+    private let viewModel = ShoppingListViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        viewModel.delegate = self
+        viewModel.onViewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -19,18 +24,17 @@ class ShoppingListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.items.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingListItemCell", for: indexPath)
 
-        // Configure the cell...
+        let item = viewModel.items[indexPath.row]
+        cell.textLabel?.text = item?.value.capitalized ?? "Invalid Item"
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -76,4 +80,19 @@ class ShoppingListViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+extension ShoppingListViewController: ShoppingListViewModelDelegate {
+    func itemsDidLoad() {
+        tableView.reloadData()
+    }
+
+    func showErrorMessage(_ message: String) {
+        let errorAlert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default)
+
+        errorAlert.addAction(dismissAction)
+
+        self.present(errorAlert, animated: true, completion: nil)
+    }
 }

@@ -84,6 +84,8 @@
 		1701D4E8210143DC00A24025 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1701D49D210143DB00A24025 /* AWSDynamoDB.framework */; };
 		1701D4E9210143DC00A24025 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1701D49D210143DB00A24025 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		173415BC20F937E600080C48 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173415BB20F937E600080C48 /* ShoppingListViewController.swift */; };
+		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
+		17867275210657FA003B906D /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17867274210657FA003B906D /* ShoppingListItem.swift */; };
 		17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03C20F920CF002F670D /* AppDelegate.swift */; };
 		17B3E03F20F920CF002F670D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03E20F920CF002F670D /* HomeViewController.swift */; };
 		17B3E04220F920CF002F670D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04020F920CF002F670D /* Main.storyboard */; };
@@ -209,6 +211,8 @@
 		1701D49C210143DB00A24025 /* AWSComprehend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSComprehend.framework; path = Carthage/Build/iOS/AWSComprehend.framework; sourceTree = "<group>"; };
 		1701D49D210143DB00A24025 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = Carthage/Build/iOS/AWSDynamoDB.framework; sourceTree = "<group>"; };
 		173415BB20F937E600080C48 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
+		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		17B3E03920F920CF002F670D /* Shopping Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B3E03C20F920CF002F670D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B3E03E20F920CF002F670D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -332,8 +336,17 @@
 		173415BA20F935D400080C48 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1786727121064684003B906D /* ShoppingListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		17867273210657A8003B906D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17867274210657FA003B906D /* ShoppingListItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		17B3E03020F920CF002F670D = {
@@ -368,6 +381,7 @@
 				17D6E71421014F340000AFCE /* Configuration */,
 				173415B720F9350F00080C48 /* Controllers */,
 				173415BA20F935D400080C48 /* ViewModels */,
+				17867273210657A8003B906D /* Models */,
 				173415B920F9354200080C48 /* Storyboards */,
 				173415B820F9352400080C48 /* Resources */,
 			);
@@ -623,7 +637,9 @@
 				17B3E03F20F920CF002F670D /* HomeViewController.swift in Sources */,
 				17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */,
 				17D6E718210154830000AFCE /* AWSConfiguration.swift in Sources */,
+				17867275210657FA003B906D /* ShoppingListItem.swift in Sources */,
 				17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */,
+				1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */,
 				173415BC20F937E600080C48 /* ShoppingListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
