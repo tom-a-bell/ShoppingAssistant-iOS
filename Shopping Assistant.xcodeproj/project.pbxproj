@@ -83,7 +83,10 @@
 		1701D4E7210143DB00A24025 /* AWSComprehend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1701D49C210143DB00A24025 /* AWSComprehend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1701D4E8210143DC00A24025 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1701D49D210143DB00A24025 /* AWSDynamoDB.framework */; };
 		1701D4E9210143DC00A24025 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1701D49D210143DB00A24025 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		171BF57120F96B5700E4378E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171BF57020F96B5600E4378E /* Alamofire.framework */; };
+		171BF57320F96C0300E4378E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171BF57220F96C0300E4378E /* Result.framework */; };
 		173415BC20F937E600080C48 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173415BB20F937E600080C48 /* ShoppingListViewController.swift */; };
+		173415C020F94C2B00080C48 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173415BF20F94C2B00080C48 /* Moya.framework */; };
 		17417F90210D2D3F00AF3539 /* GoogleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */; };
 		17417F93210D2F2000AF3539 /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F92210D2F2000AF3539 /* GoogleMapsService.swift */; };
 		17417F95210D31B500AF3539 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F94210D31B500AF3539 /* MapViewController.swift */; };
@@ -234,7 +237,10 @@
 		1701D49B210143DB00A24025 /* AWSKMS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSKMS.framework; path = Carthage/Build/iOS/AWSKMS.framework; sourceTree = "<group>"; };
 		1701D49C210143DB00A24025 /* AWSComprehend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSComprehend.framework; path = Carthage/Build/iOS/AWSComprehend.framework; sourceTree = "<group>"; };
 		1701D49D210143DB00A24025 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = Carthage/Build/iOS/AWSDynamoDB.framework; sourceTree = "<group>"; };
+		171BF57020F96B5600E4378E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		171BF57220F96C0300E4378E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		173415BB20F937E600080C48 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		173415BF20F94C2B00080C48 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleConfiguration.swift; sourceTree = "<group>"; };
 		17417F92210D2F2000AF3539 /* GoogleMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsService.swift; sourceTree = "<group>"; };
 		17417F94210D31B500AF3539 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +359,9 @@
 				17E7DBA8210D210F00E79942 /* GoogleMaps.framework in Frameworks */,
 				17B3E07120F92A5F002F670D /* FBLPromises.framework in Frameworks */,
 				17B3E06E20F9282F002F670D /* Promises.framework in Frameworks */,
+				171BF57120F96B5700E4378E /* Alamofire.framework in Frameworks */,
+				171BF57320F96C0300E4378E /* Result.framework in Frameworks */,
+				173415C020F94C2B00080C48 /* Moya.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +566,9 @@
 				17E7DBA5210D210F00E79942 /* GoogleMaps.framework */,
 				17B3E07020F92A5F002F670D /* FBLPromises.framework */,
 				17B3E06D20F9282F002F670D /* Promises.framework */,
+				171BF57020F96B5600E4378E /* Alamofire.framework */,
+				171BF57220F96C0300E4378E /* Result.framework */,
+				173415BF20F94C2B00080C48 /* Moya.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -728,6 +740,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/GoogleMapsBase.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GoogleMapsCore.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GoogleMaps.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
