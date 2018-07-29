@@ -417,6 +417,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		17417F9C210DE4B000AF3539 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17B3E04820F920D1002F670D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		17867273210657A8003B906D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,7 +460,6 @@
 		17B3E03B20F920CF002F670D /* Shopping Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				17B3E04820F920D1002F670D /* Info.plist */,
 				17B3E03C20F920CF002F670D /* AppDelegate.swift */,
 				17D6E712210149BC0000AFCE /* AmazonClientManager.swift */,
 				17D6E71F2101684D0000AFCE /* BridgingHeader.h */,
@@ -462,6 +469,7 @@
 				17867273210657A8003B906D /* Models */,
 				17417F91210D2EF400AF3539 /* Services */,
 				173415B920F9354200080C48 /* Storyboards */,
+				17417F9C210DE4B000AF3539 /* Supporting Files */,
 				173415B820F9352400080C48 /* Resources */,
 			);
 			path = "Shopping Assistant";
