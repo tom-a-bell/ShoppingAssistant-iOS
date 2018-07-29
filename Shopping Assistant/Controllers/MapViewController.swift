@@ -5,10 +5,13 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
 
+    private let viewModel = MapViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        viewModel.delegate = self
+        viewModel.onViewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,4 +28,16 @@ class MapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+// MARK: - MapViewModelDelegate
+extension MapViewController: MapViewModelDelegate {
+    func enableCurrentLocation() {
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+    }
+
+    func centreMapOn(_ location: CLLocation) {
+        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+    }
 }

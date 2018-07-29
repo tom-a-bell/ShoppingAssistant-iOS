@@ -87,6 +87,7 @@
 		17417F90210D2D3F00AF3539 /* GoogleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */; };
 		17417F93210D2F2000AF3539 /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F92210D2F2000AF3539 /* GoogleMapsService.swift */; };
 		17417F95210D31B500AF3539 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F94210D31B500AF3539 /* MapViewController.swift */; };
+		17417F97210D3EFD00AF3539 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F96210D3EFD00AF3539 /* MapViewModel.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
 		17867275210657FA003B906D /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17867274210657FA003B906D /* ShoppingListItem.swift */; };
 		17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03C20F920CF002F670D /* AppDelegate.swift */; };
@@ -235,6 +236,7 @@
 		17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleConfiguration.swift; sourceTree = "<group>"; };
 		17417F92210D2F2000AF3539 /* GoogleMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsService.swift; sourceTree = "<group>"; };
 		17417F94210D31B500AF3539 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		17417F96210D3EFD00AF3539 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		17B3E03920F920CF002F670D /* Shopping Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,6 +399,7 @@
 		173415BA20F935D400080C48 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				17417F96210D3EFD00AF3539 /* MapViewModel.swift */,
 				1786727121064684003B906D /* ShoppingListViewModel.swift */,
 			);
 			path = ViewModels;
@@ -732,6 +735,7 @@
 				17417F95210D31B500AF3539 /* MapViewController.swift in Sources */,
 				17D6E718210154830000AFCE /* AWSConfiguration.swift in Sources */,
 				17417F93210D2F2000AF3539 /* GoogleMapsService.swift in Sources */,
+				17417F97210D3EFD00AF3539 /* MapViewModel.swift in Sources */,
 				17867275210657FA003B906D /* ShoppingListItem.swift in Sources */,
 				17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */,
 				1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */,
