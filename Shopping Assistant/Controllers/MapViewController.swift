@@ -10,6 +10,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mapView.delegate = self
+
         viewModel.delegate = self
         viewModel.onViewDidLoad()
     }
@@ -30,6 +32,18 @@ class MapViewController: UIViewController {
     */
 }
 
+// MARK: - GMSMapViewDelegate
+extension MapViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
+        guard let placeMarker = marker as? PlaceMarker else { return nil }
+        guard let infoView = UIView.viewFromNib(named: "MarkerInfoView") as? MarkerInfoView else { return nil }
+
+        infoView.nameLabel.text = placeMarker.place.name
+
+        return infoView
+    }
+}
+
 // MARK: - MapViewModelDelegate
 extension MapViewController: MapViewModelDelegate {
     func enableCurrentLocation() {
@@ -39,5 +53,14 @@ extension MapViewController: MapViewModelDelegate {
 
     func centreMapOn(_ location: CLLocation) {
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+        viewModel.findNearbyPlaces(coordinate: location.coordinate)
+    }
+
+    func markPlaces(_ places: [GooglePlace]) {
+        mapView.clear()
+        places.forEach {
+            let marker = PlaceMarker(place: $0)
+            marker.map = mapView
+        }
     }
 }

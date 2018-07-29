@@ -4,6 +4,7 @@ import CoreLocation
 protocol MapViewModelDelegate {
     func enableCurrentLocation()
     func centreMapOn(_ location: CLLocation)
+    func markPlaces(_ places: [GooglePlace])
 }
 
 class MapViewModel: NSObject {
@@ -12,9 +13,21 @@ class MapViewModel: NSObject {
 
     private let locationManager = CLLocationManager()
 
+    private let searchTypes = ["grocery_or_supermarket"]
+    private let searchRadius: Double = 1000
+
     public func onViewDidLoad() {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+    }
+
+    public func findNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+        GoogleMapsService.shared.getNearbyPlaces(coordinate: coordinate, radius: searchRadius, types: searchTypes)
+            .then { places in
+                self.delegate?.markPlaces(places)
+            }.catch { error in
+                print(error)
+        }
     }
 }
 
