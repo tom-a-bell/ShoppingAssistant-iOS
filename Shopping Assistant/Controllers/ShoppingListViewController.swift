@@ -82,6 +82,7 @@ class ShoppingListViewController: UITableViewController {
     */
 }
 
+// MARK: - ShoppingListViewModelDelegate
 extension ShoppingListViewController: ShoppingListViewModelDelegate {
     func itemsDidLoad() {
         tableView.reloadData()

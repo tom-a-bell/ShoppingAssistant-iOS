@@ -82,7 +82,7 @@ class AmazonClientManager: NSObject {
     }
 }
 
-// MARK:- AIAuthenticationDelegate
+// MARK: - AIAuthenticationDelegate
 extension AmazonClientManager: AIAuthenticationDelegate {
     func requestDidSucceed(_ apiResult: APIResult!) {
         if apiResult.api == API.authorizeUser {
@@ -100,7 +100,7 @@ extension AmazonClientManager: AIAuthenticationDelegate {
     }
 }
 
-// MARK:- AWSIdentityProviderManager
+// MARK: - AWSIdentityProviderManager
 class AmazonIdentityProviderManager: NSObject, AWSIdentityProviderManager {
     private let token: Any
 

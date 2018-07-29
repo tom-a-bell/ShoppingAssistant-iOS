@@ -3,5 +3,5 @@ import AWSCore
 
 struct AWSConfiguration {
     static let regionType = AWSRegionType.EUWest1
-    static let identityPoolId = "CognitoIdentityPoolId"
+    static let identityPoolId = <#Cognito Identity Pool ID#>
 }
