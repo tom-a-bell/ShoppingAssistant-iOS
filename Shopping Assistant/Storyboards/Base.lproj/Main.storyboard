@@ -90,7 +90,7 @@
         <!--Locations-->
         <scene sceneID="ym1-Zg-D10">
             <objects>
-                <viewController title="Locations" id="qG8-E2-nxN" customClass="MapViewController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Locations" id="qG8-E2-nxN" customClass="LocationsViewController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tPf-Pl-naw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

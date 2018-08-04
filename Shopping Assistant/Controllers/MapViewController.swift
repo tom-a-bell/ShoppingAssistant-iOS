@@ -57,7 +57,6 @@ extension MapViewController: MapViewModelDelegate {
     }
 
     func markPlaces(_ places: [GooglePlace]) {
-        mapView.clear()
         places.forEach {
             let marker = PlaceMarker(place: $0)
             marker.map = mapView

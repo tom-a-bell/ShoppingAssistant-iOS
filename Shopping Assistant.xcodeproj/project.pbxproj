@@ -83,6 +83,10 @@
 		1701D4E7210143DB00A24025 /* AWSComprehend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1701D49C210143DB00A24025 /* AWSComprehend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1701D4E8210143DC00A24025 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1701D49D210143DB00A24025 /* AWSDynamoDB.framework */; };
 		1701D4E9210143DC00A24025 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1701D49D210143DB00A24025 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1714D40B2115B9C6006E2D8C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714D40A2115B9C6006E2D8C /* Location.swift */; };
+		1714D4102115BDD7006E2D8C /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714D40E2115BDD7006E2D8C /* LocationsViewController.swift */; };
+		1714D4112115BDD7006E2D8C /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714D40F2115BDD7006E2D8C /* LocationsViewModel.swift */; };
+		1714D4132115D509006E2D8C /* LocationMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714D4122115D509006E2D8C /* LocationMarker.swift */; };
 		171BF57120F96B5700E4378E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171BF57020F96B5600E4378E /* Alamofire.framework */; };
 		171BF57320F96C0300E4378E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171BF57220F96C0300E4378E /* Result.framework */; };
 		173415BC20F937E600080C48 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173415BB20F937E600080C48 /* ShoppingListViewController.swift */; };
@@ -244,6 +248,10 @@
 		1701D49B210143DB00A24025 /* AWSKMS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSKMS.framework; path = Carthage/Build/iOS/AWSKMS.framework; sourceTree = "<group>"; };
 		1701D49C210143DB00A24025 /* AWSComprehend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSComprehend.framework; path = Carthage/Build/iOS/AWSComprehend.framework; sourceTree = "<group>"; };
 		1701D49D210143DB00A24025 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = Carthage/Build/iOS/AWSDynamoDB.framework; sourceTree = "<group>"; };
+		1714D40A2115B9C6006E2D8C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		1714D40E2115BDD7006E2D8C /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		1714D40F2115BDD7006E2D8C /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
+		1714D4122115D509006E2D8C /* LocationMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMarker.swift; sourceTree = "<group>"; };
 		171BF57020F96B5600E4378E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		171BF57220F96C0300E4378E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		173415BB20F937E600080C48 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +409,7 @@
 			children = (
 				17B3E03E20F920CF002F670D /* HomeViewController.swift */,
 				17417F94210D31B500AF3539 /* MapViewController.swift */,
+				1714D40E2115BDD7006E2D8C /* LocationsViewController.swift */,
 				173415BB20F937E600080C48 /* ShoppingListViewController.swift */,
 			);
 			path = Controllers;
@@ -427,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				17417F96210D3EFD00AF3539 /* MapViewModel.swift */,
+				1714D40F2115BDD7006E2D8C /* LocationsViewModel.swift */,
 				1786727121064684003B906D /* ShoppingListViewModel.swift */,
 			);
 			path = ViewModels;
@@ -475,6 +485,8 @@
 				17417FA6210E01BF00AF3539 /* GooglePlacesResponse.swift */,
 				17417F98210DDEC300AF3539 /* PlaceMarker.swift */,
 				17867274210657FA003B906D /* ShoppingListItem.swift */,
+				1714D40A2115B9C6006E2D8C /* Location.swift */,
+				1714D4122115D509006E2D8C /* LocationMarker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -806,11 +818,15 @@
 				17417FA5210DFCBD00AF3539 /* ResponseError.swift in Sources */,
 				17417F97210D3EFD00AF3539 /* MapViewModel.swift in Sources */,
 				17417FA1210DF48E00AF3539 /* GooglePlacesService.swift in Sources */,
+				1714D40B2115B9C6006E2D8C /* Location.swift in Sources */,
 				17417F9E210DE51900AF3539 /* GooglePlace.swift in Sources */,
+				1714D4102115BDD7006E2D8C /* LocationsViewController.swift in Sources */,
 				17417FA3210DF50700AF3539 /* String+Extension.swift in Sources */,
 				17417FAE210E0DA400AF3539 /* UIView+Extension.swift in Sources */,
 				17417FA7210E01BF00AF3539 /* GooglePlacesResponse.swift in Sources */,
 				17867275210657FA003B906D /* ShoppingListItem.swift in Sources */,
+				1714D4132115D509006E2D8C /* LocationMarker.swift in Sources */,
+				1714D4112115BDD7006E2D8C /* LocationsViewModel.swift in Sources */,
 				17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */,
 				1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */,
 				17417FAA210E08C800AF3539 /* MarkerInfoView.swift in Sources */,
