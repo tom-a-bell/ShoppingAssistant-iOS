@@ -14,6 +14,7 @@ class GoogleMapsService {
     }
 
     func getNearbyPlaces(coordinate: CLLocationCoordinate2D, radius: Double, types: [String]) -> Promise<[GooglePlace]> {
+        print("Finding nearby places...")
         let getNearbyPlaces = GooglePlacesService.getNearbyPlaces(coordinate: coordinate, radius: radius, types: types, apiKey: GoogleConfiguration.apiKey)
         return Promise<[GooglePlace]> { fulfill, reject in
             self.placesProvider.request(getNearbyPlaces) { result in

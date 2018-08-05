@@ -99,26 +99,127 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="izl-nd-3lU" userLabel="Spinner">
+                                <rect key="frame" x="169" y="347.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bpm-ki-8MS" firstAttribute="leading" secondItem="1Qd-K0-N2f" secondAttribute="leading" id="BeI-wc-hBw"/>
                             <constraint firstItem="bpm-ki-8MS" firstAttribute="top" secondItem="1Qd-K0-N2f" secondAttribute="top" id="KWi-VV-iLT"/>
                             <constraint firstItem="1Qd-K0-N2f" firstAttribute="trailing" secondItem="bpm-ki-8MS" secondAttribute="trailing" id="e1N-t8-QYW"/>
+                            <constraint firstItem="izl-nd-3lU" firstAttribute="centerY" secondItem="1Qd-K0-N2f" secondAttribute="centerY" id="oCN-vN-hyA"/>
+                            <constraint firstItem="izl-nd-3lU" firstAttribute="centerX" secondItem="1Qd-K0-N2f" secondAttribute="centerX" id="s5b-70-VGI"/>
                             <constraint firstItem="1Qd-K0-N2f" firstAttribute="bottom" secondItem="bpm-ki-8MS" secondAttribute="bottom" id="sTV-k1-eXG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Qd-K0-N2f"/>
                     </view>
                     <navigationItem key="navigationItem" title="Locations" id="nNo-Cr-Y04" userLabel="Navigation Item">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Kgg-hy-Ebc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kgg-hy-Ebc">
+                            <connections>
+                                <action selector="addLocation" destination="qG8-E2-nxN" id="F9s-wY-gVu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="bpm-ki-8MS" id="iUm-so-8ei"/>
+                        <outlet property="spinner" destination="izl-nd-3lU" id="VyO-ef-Cbt"/>
+                        <segue destination="pbx-yO-eTm" kind="show" identifier="FindLocations" id="W8X-bJ-SBa"/>
+                        <segue destination="jZX-wY-ZO7" kind="show" identifier="AddLocation" id="Vio-Qe-K7Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXb-JN-NKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1910" y="1066"/>
+        </scene>
+        <!--Find Locations-->
+        <scene sceneID="Rm4-pX-vxF">
+            <objects>
+                <viewController title="Find Locations" id="pbx-yO-eTm" customClass="FindLocationViewController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0zi-hO-6hB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huN-Br-0fJ" userLabel="Map View" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bQd-iP-cS7" userLabel="Spinner">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bQd-iP-cS7" firstAttribute="centerX" secondItem="2n9-Me-dmC" secondAttribute="centerX" id="O2I-wp-aup"/>
+                            <constraint firstItem="2n9-Me-dmC" firstAttribute="bottom" secondItem="huN-Br-0fJ" secondAttribute="bottom" id="gSg-kM-4v6"/>
+                            <constraint firstItem="2n9-Me-dmC" firstAttribute="trailing" secondItem="huN-Br-0fJ" secondAttribute="trailing" id="opZ-Md-ufo"/>
+                            <constraint firstItem="huN-Br-0fJ" firstAttribute="leading" secondItem="2n9-Me-dmC" secondAttribute="leading" id="rMt-Jd-gJY"/>
+                            <constraint firstItem="bQd-iP-cS7" firstAttribute="centerY" secondItem="2n9-Me-dmC" secondAttribute="centerY" id="vgd-GO-5KL"/>
+                            <constraint firstItem="huN-Br-0fJ" firstAttribute="top" secondItem="2n9-Me-dmC" secondAttribute="top" id="ywy-u6-MxP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2n9-Me-dmC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Find Locations" id="PaW-Ww-s1c" userLabel="Navigation Item">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="kBh-bb-IMC">
+                            <connections>
+                                <action selector="searchNearby" destination="pbx-yO-eTm" id="Vdt-Ze-ldM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="huN-Br-0fJ" id="YrJ-Jf-kDA"/>
+                        <outlet property="searchButton" destination="kBh-bb-IMC" id="NXE-ht-1eM"/>
+                        <outlet property="spinner" destination="bQd-iP-cS7" id="1XZ-tk-maI"/>
+                        <segue destination="jZX-wY-ZO7" kind="show" identifier="AddLocation" id="dDh-ll-8J7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ic-AK-oqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2969" y="1066"/>
+        </scene>
+        <!--Add Location-->
+        <scene sceneID="osZ-gI-5qg">
+            <objects>
+                <viewController title="Add Location" id="jZX-wY-ZO7" customClass="AddLocationViewController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mCl-ba-83z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZP-aK-5Bz" userLabel="Map View" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SnW-CO-XeN" userLabel="Spinner">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SnW-CO-XeN" firstAttribute="centerX" secondItem="j7h-g1-XCz" secondAttribute="centerX" id="ILy-oq-XxQ"/>
+                            <constraint firstItem="WZP-aK-5Bz" firstAttribute="top" secondItem="j7h-g1-XCz" secondAttribute="top" id="NIY-i5-UX0"/>
+                            <constraint firstItem="WZP-aK-5Bz" firstAttribute="leading" secondItem="j7h-g1-XCz" secondAttribute="leading" id="YwS-U1-3ao"/>
+                            <constraint firstItem="j7h-g1-XCz" firstAttribute="trailing" secondItem="WZP-aK-5Bz" secondAttribute="trailing" id="iA7-5t-C0j"/>
+                            <constraint firstItem="j7h-g1-XCz" firstAttribute="bottom" secondItem="WZP-aK-5Bz" secondAttribute="bottom" id="jGr-vi-9To"/>
+                            <constraint firstItem="SnW-CO-XeN" firstAttribute="centerY" secondItem="j7h-g1-XCz" secondAttribute="centerY" id="zH6-Gw-JyY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j7h-g1-XCz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Location" id="u6V-SZ-dLR" userLabel="Navigation Item">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2F4-va-c1S">
+                            <connections>
+                                <action selector="addLocation" destination="jZX-wY-ZO7" id="awM-M9-U2a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addLocationButton" destination="2F4-va-c1S" id="oQ0-el-aUA"/>
+                        <outlet property="mapView" destination="WZP-aK-5Bz" id="sA2-Ax-keH"/>
+                        <outlet property="spinner" destination="SnW-CO-XeN" id="Z26-X4-fMt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgA-kV-mJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2460" y="1934"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F5F-ZW-qnR">
@@ -139,4 +240,7 @@
             <point key="canvasLocation" x="60" y="690.40479760119945"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dDh-ll-8J7"/>
+    </inferredMetricsTieBreakers>
 </document>

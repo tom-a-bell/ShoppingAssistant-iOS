@@ -1,9 +1,13 @@
 import Foundation
 import CoreLocation
 
-struct Coordinate: Decodable {
+struct Coordinate: Codable {
     let latitude: Double
     let longitude: Double
+
+    static func from(_ coordinate: CLLocationCoordinate2D) -> Coordinate {
+        return Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
+    }
 
     enum CodingKeys: String, CodingKey {
         case latitude = "lat"
@@ -13,6 +17,10 @@ struct Coordinate: Decodable {
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2DMake(latitude, longitude)
     }
+
+    func asCLLocation() -> CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
 }
 
 struct GooglePlace {
@@ -21,7 +29,7 @@ struct GooglePlace {
     let address: String
     let location: Coordinate
     let placeTypes: [String]
-    let iconUrl: URL
+    let iconUrl: URL?
 }
 
 extension GooglePlace: Decodable {
@@ -49,5 +57,11 @@ extension GooglePlace: Decodable {
 
         let geometry = try values.nestedContainer(keyedBy: GeometryKeys.self, forKey: .geometry)
         location = try geometry.decode(Coordinate.self, forKey: .location)
+    }
+}
+
+extension GooglePlace {
+    static func from(_ location: Location) -> GooglePlace {
+        return GooglePlace(id: location.placeId, name: location.name, address: "", location: location.coordinate, placeTypes: [], iconUrl: nil)
     }
 }

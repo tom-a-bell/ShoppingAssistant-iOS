@@ -5,29 +5,36 @@ protocol MapViewModelDelegate {
     func enableCurrentLocation()
     func centreMapOn(_ location: CLLocation)
     func markPlaces(_ places: [GooglePlace])
+
+    func showLoadingSpinner()
+    func hideLoadingSpinner()
+
+    func showErrorMessage(_: String)
 }
 
 class MapViewModel: NSObject {
 
     public var delegate: MapViewModelDelegate?
 
+    public var mapCentre: CLLocation?
+
     private let locationManager = CLLocationManager()
 
-    private let searchTypes = ["grocery_or_supermarket"]
-    private let searchRadius: Double = 1000
+    init(centredAt location: CLLocation? = nil) {
+        mapCentre = location
+    }
 
     public func onViewDidLoad() {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+
+        if let location = mapCentre {
+            delegate?.centreMapOn(location)
+        }
     }
 
-    public func findNearbyPlaces(coordinate: CLLocationCoordinate2D) {
-        GoogleMapsService.shared.getNearbyPlaces(coordinate: coordinate, radius: searchRadius, types: searchTypes)
-            .then { places in
-                self.delegate?.markPlaces(places)
-            }.catch { error in
-                print(error)
-        }
+    public func mapDidCentreAt(_ location: CLLocation) {
+        mapCentre = location
     }
 }
 
@@ -44,6 +51,6 @@ extension MapViewModel: CLLocationManagerDelegate {
         guard let location = locations.first else { return }
 
         locationManager.stopUpdatingLocation()
-        delegate?.centreMapOn(location)
+        delegate?.centreMapOn(mapCentre ?? location)
     }
 }
