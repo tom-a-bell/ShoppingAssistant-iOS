@@ -661,6 +661,7 @@
 				17B3E06F20F92875002F670D /* Copy Carthage Frameworks */,
 				1701D4EA210143DC00A24025 /* Embed Frameworks */,
 				1701D4EB2101448700A24025 /* Remove Unused AWS Frameworks */,
+				1714D41A21179FEA006E2D8C /* Check For Outdated Dependencies */,
 			);
 			buildRules = (
 			);
@@ -793,6 +794,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh\"";
+		};
+		1714D41A21179FEA006E2D8C /* Check For Outdated Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check For Outdated Dependencies";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
 		};
 		17B3E06F20F92875002F670D /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
