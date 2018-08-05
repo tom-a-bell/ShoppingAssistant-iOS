@@ -60,6 +60,7 @@ class MapViewController<ViewModel: MapViewModel>: UIViewController, GMSMapViewDe
 
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String, name: String, location: CLLocationCoordinate2D) {
         _ = self.mapView(mapView, didTap: PlaceMarker(withId: placeID, name: name, location: location))
+        mapView.animate(toLocation: location)
     }
 }
 
