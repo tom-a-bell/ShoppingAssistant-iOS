@@ -294,7 +294,7 @@
 		17B3E05820F920D1002F670D /* Shopping AssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopping AssistantUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B3E05C20F920D1002F670D /* Shopping_AssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping_AssistantUITests.swift; sourceTree = "<group>"; };
 		17B3E05E20F920D1002F670D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		17B3E06A20F924DA002F670D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		17B3E06A20F924DA002F670D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
 		17B3E06D20F9282F002F670D /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
 		17B3E07020F92A5F002F670D /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
 		17D6E712210149BC0000AFCE /* AmazonClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonClientManager.swift; sourceTree = "<group>"; };
@@ -459,6 +459,7 @@
 		17417F91210D2EF400AF3539 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				17D6E712210149BC0000AFCE /* AmazonClientManager.swift */,
 				17417F92210D2F2000AF3539 /* GoogleMapsService.swift */,
 				1714D41421170541006E2D8C /* LocationsService.swift */,
 			);
@@ -468,6 +469,7 @@
 		17417F9C210DE4B000AF3539 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				17B3E06A20F924DA002F670D /* Cartfile */,
 				17B3E04820F920D1002F670D /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -514,7 +516,6 @@
 				17B3E05B20F920D1002F670D /* Shopping AssistantUITests */,
 				17B3E06C20F9282F002F670D /* Frameworks */,
 				17B3E03A20F920CF002F670D /* Products */,
-				17B3E06A20F924DA002F670D /* Cartfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -532,7 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				17B3E03C20F920CF002F670D /* AppDelegate.swift */,
-				17D6E712210149BC0000AFCE /* AmazonClientManager.swift */,
 				17D6E71F2101684D0000AFCE /* BridgingHeader.h */,
 				17D6E71421014F340000AFCE /* Configuration */,
 				173415B720F9350F00080C48 /* Controllers */,
