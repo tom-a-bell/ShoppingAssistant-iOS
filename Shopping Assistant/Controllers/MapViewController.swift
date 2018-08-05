@@ -6,7 +6,7 @@ class MapViewController<ViewModel: MapViewModel>: UIViewController, GMSMapViewDe
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var mapView: GMSMapView!
 
-    private var infoView: MarkerInfoView?
+    lazy private var infoView: MarkerInfoView? = { UIView.viewFromNib(named: "MarkerInfoView") as? MarkerInfoView }()
 
     public var viewModel: ViewModel!
 
@@ -31,8 +31,7 @@ class MapViewController<ViewModel: MapViewModel>: UIViewController, GMSMapViewDe
     // MARK: - GMSMapViewDelegate
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        guard let placeMarker = marker as? PlaceMarker else { return true }
-        guard let infoView = infoView ?? UIView.viewFromNib(named: "MarkerInfoView") as? MarkerInfoView else { return true }
+        guard let placeMarker = marker as? PlaceMarker, let infoView = infoView else { return false }
 
         infoView.center = mapView.projection.point(for: placeMarker.position)
         infoView.place = placeMarker.place
@@ -56,7 +55,7 @@ class MapViewController<ViewModel: MapViewModel>: UIViewController, GMSMapViewDe
 
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         infoView?.removeFromSuperview()
-        infoView = nil
+        infoView?.place = nil
     }
 
     func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String, name: String, location: CLLocationCoordinate2D) {
