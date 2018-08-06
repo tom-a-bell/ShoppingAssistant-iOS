@@ -1,85 +1,103 @@
 import UIKit
 
-class ShoppingListViewController: UITableViewController {
+class ShoppingListViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
 
     private let viewModel = ShoppingListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = self
+        tableView.delegate = self
+
         viewModel.delegate = self
         viewModel.onViewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationItem.rightBarButtonItem = editButtonItem
     }
 
-    // MARK: - Table view data source
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(!tableView.isEditing, animated: true)
+    }
+}
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+// MARK: - UITableViewDataSource
+extension ShoppingListViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.items.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingListItemCell", for: indexPath)
 
         let item = viewModel.items[indexPath.row]
         cell.textLabel?.text = item.name.capitalized
+        cell.detailTextLabel?.text = "Sainsburys"
+        cell.accessoryType = item.isCompleted ? .checkmark : .none
+
+        cell.editingAccessoryType = .none
+        cell.selectionStyle = .none
 
         return cell
     }
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+// MARK: - UITableViewDelegate
+extension ShoppingListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            viewModel.items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedItem = viewModel.items[sourceIndexPath.row]
+        viewModel.items.remove(at: sourceIndexPath.row)
+        viewModel.items.insert(movedItem, at: destinationIndexPath.row)
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let completeAction = self.contextualToggleDoneAction(forRowAtIndexPath: indexPath)
+        return UISwipeActionsConfiguration(actions: [completeAction])
     }
-    */
 
-    // MARK: - Navigation
-
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = self.contextualDeleteAction(forRowAtIndexPath: indexPath)
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    */
+
+    private func contextualToggleDoneAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        var item = viewModel.items[indexPath.row]
+        let title = item.isCompleted ? "Undo" : "Done"
+        let action = UIContextualAction(style: .normal, title: title)
+        { (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+            item.toggleStatus()
+            self.viewModel.items[indexPath.row] = item
+            self.tableView.reloadRows(at: [indexPath], with: .none)
+            completionHandler(true)
+        }
+
+        action.image = UIImage(named: "Checkmark")
+        action.backgroundColor = item.isCompleted ? UIColor.gray : UIColor.purple
+        return action
+    }
+
+    private func contextualDeleteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        return UIContextualAction(style: .destructive, title: "Delete")
+        { (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+            self.viewModel.items.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .left)
+            completionHandler(true)
+        }
+    }
 }
 
 // MARK: - ShoppingListViewModelDelegate

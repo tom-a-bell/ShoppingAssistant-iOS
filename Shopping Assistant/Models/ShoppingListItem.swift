@@ -8,6 +8,14 @@ struct ShoppingListItem: Codable {
         case name = "value"
         case status
     }
+
+    var isCompleted: Bool {
+        return status == .completed
+    }
+
+    mutating func toggleStatus() {
+        status = status == .active ? .completed : .active
+    }
 }
 
 enum Status: String, Codable {
