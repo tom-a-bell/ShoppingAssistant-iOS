@@ -31,7 +31,7 @@ class ShoppingListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingListItemCell", for: indexPath)
 
         let item = viewModel.items[indexPath.row]
-        cell.textLabel?.text = item?.value.capitalized ?? "Invalid Item"
+        cell.textLabel?.text = item.name.capitalized
 
         return cell
     }

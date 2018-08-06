@@ -111,6 +111,7 @@
 		17417FAE210E0DA400AF3539 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417FAD210E0DA400AF3539 /* UIView+Extension.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
 		17867275210657FA003B906D /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17867274210657FA003B906D /* ShoppingListItem.swift */; };
+		179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */; };
 		17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03C20F920CF002F670D /* AppDelegate.swift */; };
 		17B3E03F20F920CF002F670D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03E20F920CF002F670D /* HomeViewController.swift */; };
 		17B3E04220F920CF002F670D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04020F920CF002F670D /* Main.storyboard */; };
@@ -281,6 +282,7 @@
 		17417FAD210E0DA400AF3539 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
+		179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListService.swift; sourceTree = "<group>"; };
 		17B3E03920F920CF002F670D /* Shopping Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B3E03C20F920CF002F670D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B3E03E20F920CF002F670D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				17D6E712210149BC0000AFCE /* AmazonClientManager.swift */,
 				17417F92210D2F2000AF3539 /* GoogleMapsService.swift */,
 				1714D41421170541006E2D8C /* LocationsService.swift */,
+				179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -501,9 +504,9 @@
 				17417F9D210DE51900AF3539 /* GooglePlace.swift */,
 				17417FA6210E01BF00AF3539 /* GooglePlacesResponse.swift */,
 				17417F98210DDEC300AF3539 /* PlaceMarker.swift */,
-				17867274210657FA003B906D /* ShoppingListItem.swift */,
 				1714D40A2115B9C6006E2D8C /* Location.swift */,
 				1714D4122115D509006E2D8C /* LocationMarker.swift */,
+				17867274210657FA003B906D /* ShoppingListItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -858,6 +861,7 @@
 				1714D4082115B822006E2D8C /* AddLocationViewController.swift in Sources */,
 				17417F97210D3EFD00AF3539 /* MapViewModel.swift in Sources */,
 				17417FA1210DF48E00AF3539 /* GooglePlacesService.swift in Sources */,
+				179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */,
 				1714D419211723E0006E2D8C /* FindLocationViewModel.swift in Sources */,
 				1714D418211723E0006E2D8C /* FindLocationViewController.swift in Sources */,
 				1714D40B2115B9C6006E2D8C /* Location.swift in Sources */,

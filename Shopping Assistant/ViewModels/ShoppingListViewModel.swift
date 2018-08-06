@@ -11,36 +11,26 @@ class ShoppingListViewModel {
 
     public var delegate: ShoppingListViewModelDelegate?
 
-    public var isLoading: Bool = false
-    public var items: [ShoppingListItem?] = []
-
-    private var shoppingList: AWSCognitoDataset?
+    public var isLoading = false
+    public var items: [ShoppingListItem] = []
 
     public func onViewDidLoad() {
         fetchItems()
     }
 
+
+
+
     private func fetchItems() {
         isLoading = true
-
-        shoppingList = AWSCognito.default().openOrCreateDataset("ShoppingList")
-        shoppingList?.synchronize().continueWith { task in
-            self.isLoading = false
-
-            if let error = task.error {
-                self.delegate?.showErrorMessage(error.localizedDescription)
-            } else {
-                self.items = (self.shoppingList?.getAll().map { (key, value) in self.createItem(from: value) })!
-            }
-
-            DispatchQueue.main.async() {
+        ShoppingListService.shared.fetchItems()
+            .then { items in
+                self.items = items
                 self.delegate?.itemsDidLoad()
-            }
-            return nil
+            }.catch { error in
+                self.delegate?.showErrorMessage(error.localizedDescription)
+            }.always {
+                self.isLoading = false
         }
-    }
-
-    private func createItem(from json: String) -> ShoppingListItem? {
-        return try? JSONDecoder().decode(ShoppingListItem.self, from: json.data(using: .utf8)!)
     }
 }
