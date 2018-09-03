@@ -1,7 +1,7 @@
 import Foundation
 
 struct ShoppingListItem: Codable {
-    var id: UUID?
+    var id: UUID
     var name: String
     var status: Status
     var locationId: UUID?
@@ -73,4 +73,10 @@ extension ShoppingListItem {
 
 enum Status: String, Codable {
     case active, completed
+}
+
+extension UUID {
+    var stringValue: String {
+        return uuidString.lowercased()
+    }
 }

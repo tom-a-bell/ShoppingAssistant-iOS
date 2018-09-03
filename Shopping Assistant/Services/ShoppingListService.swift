@@ -16,7 +16,7 @@ class ShoppingListService {
                 if let error = task.error {
                     reject(error)
                 } else {
-                    let items = self.dataset.getAll().map { (key, value) in self.createItem(from: value, with: key) }
+                    let items = self.dataset.getAll().map { (key, value) in self.createItem(from: value) }
                     fulfill(items)
                 }
                 return nil
@@ -27,7 +27,7 @@ class ShoppingListService {
     public func addItem(_ item: ShoppingListItem) -> Promise<Void> {
         guard let record = createRecord(from: item) else { return Promise.init(ParsingError()) }
         return Promise { fulfill, reject in
-            self.dataset.setString(record, forKey: item.id?.uuidString)
+            self.dataset.setString(record, forKey: item.id.stringValue)
             self.dataset.synchronize().continueWith { task in
                 if let error = task.error {
                     reject(error)
@@ -39,10 +39,6 @@ class ShoppingListService {
         }
     }
 
-    private func createItem(from json: String, with id: String) -> ShoppingListItem {
-        var item = createItem(from: json)
-        item.id = UUID(uuidString: id)
-        return item
     }
 
     private func createItem(from json: String) -> ShoppingListItem {
