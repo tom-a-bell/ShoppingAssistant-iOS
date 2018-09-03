@@ -27,7 +27,7 @@ class LocationsService {
     public func addLocation(_ location: Location) -> Promise<Void> {
         guard let record = createRecord(from: location) else { return Promise.init(ParsingError()) }
         return Promise { fulfill, reject in
-            self.dataset.setString(record, forKey: location.id.uuidString)
+            self.dataset.setString(record, forKey: location.id.stringValue)
             self.dataset.synchronize().continueWith { task in
                 if let error = task.error {
                     reject(error)
