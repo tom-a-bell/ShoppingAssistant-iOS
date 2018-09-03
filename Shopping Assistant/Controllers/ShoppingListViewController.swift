@@ -107,6 +107,10 @@ extension ShoppingListViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        viewModel.didEndEditing()
+    }
+
     private func contextualToggleDoneAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
         var item = viewModel.items[indexPath.row]
         let title = item.isCompleted ? "Undo" : "Done"

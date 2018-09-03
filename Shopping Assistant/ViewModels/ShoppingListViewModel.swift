@@ -29,6 +29,16 @@ class ShoppingListViewModel {
         selectedItem = nil
     }
 
+    public func didEndEditing() {
+        print("Saving shopping list items...")
+        isLoading = true
+        ShoppingListService.shared.updateItems(items)
+            .catch { error in
+                self.delegate?.showErrorMessage(error.localizedDescription)
+            }.always {
+                self.isLoading = false
+        }
+    }
 
     private func fetchItems() {
         isLoading = true
