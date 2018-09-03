@@ -39,6 +39,18 @@ class ShoppingListService {
         }
     }
 
+    public func deleteItem(_ item: ShoppingListItem) -> Promise<Void> {
+        return Promise { fulfill, reject in
+            self.dataset.removeObject(forKey: item.id.stringValue)
+            self.dataset.synchronize().continueWith { task in
+                if let error = task.error {
+                    reject(error)
+                } else {
+                    fulfill(())
+                }
+                return nil
+            }
+        }
     }
 
     public func updateItems(_ items: [ShoppingListItem]) -> Promise<Void> {
