@@ -105,7 +105,11 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="P6j-0N-KfT"/>
-                                    <barButtonItem systemItem="compose" id="9PO-xt-fyD" userLabel="Add Button"/>
+                                    <barButtonItem systemItem="compose" id="9PO-xt-fyD" userLabel="Add Button">
+                                        <connections>
+                                            <action selector="addItem" destination="3Hp-sM-Qzh" id="EDF-cf-cNd"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -125,7 +129,9 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="pYL-xW-913" userLabel="Edit Button"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="9PO-xt-fyD" id="Got-c1-f5P"/>
                         <outlet property="tableView" destination="69D-5G-9lW" id="qTD-5W-Ujq"/>
+                        <segue destination="Mhz-q2-5h4" kind="show" identifier="AddItem" id="cpe-kF-lOH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dvo-rf-yXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,6 +183,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXb-JN-NKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1910" y="1066"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="qUq-m2-KBw">
+            <objects>
+                <viewController title="Add Item" id="Mhz-q2-5h4" customClass="AddShoppingListItemViewController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dGb-IF-XpC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60h-47-AvI" userLabel="Background">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-Il-RU7" userLabel="Name Field">
+                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-kB-VVn" userLabel="Location Background">
+                                <rect key="frame" x="0.0" y="126" width="375" height="47"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me at a specific location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsg-ro-Knb" userLabel="Location Label">
+                                <rect key="frame" x="16" y="139" width="247" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BwO-dV-iVe" userLabel="Location Switch">
+                                <rect key="frame" x="310" y="134" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchToggled" destination="Mhz-q2-5h4" eventType="valueChanged" id="Diu-VX-NXn"/>
+                                </connections>
+                            </switch>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ao0-Q3-Obk" userLabel="Location Picker">
+                                <rect key="frame" x="0.0" y="189" width="375" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ao0-Q3-Obk" firstAttribute="leading" secondItem="oFP-62-kt4" secondAttribute="leading" id="2fp-UZ-Q2N"/>
+                            <constraint firstItem="Ao0-Q3-Obk" firstAttribute="top" secondItem="Yem-kB-VVn" secondAttribute="bottom" constant="16" id="3J2-X8-Rxa"/>
+                            <constraint firstItem="Gsg-ro-Knb" firstAttribute="leading" secondItem="oFP-62-kt4" secondAttribute="leading" constant="16" id="5to-V8-mPb"/>
+                            <constraint firstItem="Ao0-Q3-Obk" firstAttribute="trailing" secondItem="oFP-62-kt4" secondAttribute="trailing" id="6vK-8w-dta"/>
+                            <constraint firstItem="BwO-dV-iVe" firstAttribute="top" secondItem="wrl-Il-RU7" secondAttribute="bottom" constant="24" id="8kM-z1-v3f"/>
+                            <constraint firstItem="60h-47-AvI" firstAttribute="bottom" secondItem="oFP-62-kt4" secondAttribute="bottom" id="A87-WI-9a1"/>
+                            <constraint firstItem="oFP-62-kt4" firstAttribute="trailing" secondItem="BwO-dV-iVe" secondAttribute="trailing" constant="16" id="B32-iP-y4m"/>
+                            <constraint firstItem="Yem-kB-VVn" firstAttribute="trailing" secondItem="oFP-62-kt4" secondAttribute="trailing" id="POI-AC-TJb"/>
+                            <constraint firstItem="BwO-dV-iVe" firstAttribute="centerY" secondItem="Gsg-ro-Knb" secondAttribute="centerY" id="UQE-LX-Zsp"/>
+                            <constraint firstItem="Ao0-Q3-Obk" firstAttribute="top" secondItem="BwO-dV-iVe" secondAttribute="bottom" constant="24" id="WMI-cY-P3R"/>
+                            <constraint firstItem="Yem-kB-VVn" firstAttribute="top" secondItem="wrl-Il-RU7" secondAttribute="bottom" constant="16" id="d1X-5o-fOh"/>
+                            <constraint firstItem="oFP-62-kt4" firstAttribute="trailing" secondItem="wrl-Il-RU7" secondAttribute="trailing" constant="16" id="gSA-qe-VyS"/>
+                            <constraint firstItem="60h-47-AvI" firstAttribute="top" secondItem="oFP-62-kt4" secondAttribute="top" id="gSl-8Z-UlL"/>
+                            <constraint firstItem="Yem-kB-VVn" firstAttribute="leading" secondItem="oFP-62-kt4" secondAttribute="leading" id="jHB-Fz-fBt"/>
+                            <constraint firstItem="60h-47-AvI" firstAttribute="leading" secondItem="oFP-62-kt4" secondAttribute="leading" id="kFc-lY-7Kw"/>
+                            <constraint firstItem="wrl-Il-RU7" firstAttribute="top" secondItem="oFP-62-kt4" secondAttribute="top" constant="16" id="sLo-Qm-28D"/>
+                            <constraint firstItem="wrl-Il-RU7" firstAttribute="leading" secondItem="oFP-62-kt4" secondAttribute="leading" constant="16" id="ubW-N5-Gt6"/>
+                            <constraint firstItem="60h-47-AvI" firstAttribute="trailing" secondItem="oFP-62-kt4" secondAttribute="trailing" id="vKt-5H-oz1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oFP-62-kt4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Item" id="NZq-br-NTl" userLabel="Navigation Item">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HaO-6d-yKH" userLabel="Cancel Button">
+                            <connections>
+                                <action selector="cancelChanges" destination="Mhz-q2-5h4" id="K5E-vx-ZdW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="j9V-Yq-iSU" userLabel="Save Button">
+                            <connections>
+                                <action selector="saveItem" destination="Mhz-q2-5h4" id="g6Q-2W-TQD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="HaO-6d-yKH" id="6IF-Xa-fYg"/>
+                        <outlet property="locationPicker" destination="Ao0-Q3-Obk" id="RB2-ur-Ke9"/>
+                        <outlet property="locationSwitch" destination="BwO-dV-iVe" id="aZd-G5-SeD"/>
+                        <outlet property="nameField" destination="wrl-Il-RU7" id="le1-kW-xuc"/>
+                        <outlet property="saveButton" destination="j9V-Yq-iSU" id="nCW-4i-n0M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yrk-qh-b3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2969" y="354"/>
         </scene>
         <!--Find Locations-->
         <scene sceneID="Rm4-pX-vxF">

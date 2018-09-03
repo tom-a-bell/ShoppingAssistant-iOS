@@ -3,6 +3,7 @@ import UIKit
 class ShoppingListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIBarButtonItem!
 
     private let viewModel = ShoppingListViewModel()
 
@@ -22,6 +23,22 @@ class ShoppingListViewController: UIViewController {
         super.setEditing(editing, animated: animated)
         tableView.setEditing(!tableView.isEditing, animated: true)
     }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? AddShoppingListItemViewController else { return }
+
+        let item = viewModel.selectedItem ?? ShoppingListItem.newItem()
+        destination.viewModel = AddShoppingListItemViewModel(withItem: item)
+    }
+
+    // MARK: - Actions
+
+    @IBAction func addItem() {
+        viewModel.didDeselectItem()
+        performSegue(withIdentifier: "AddItem", sender: self)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -39,7 +56,7 @@ extension ShoppingListViewController: UITableViewDataSource {
 
         let item = viewModel.items[indexPath.row]
         cell.textLabel?.text = item.name.capitalized
-        cell.detailTextLabel?.text = "Sainsburys"
+        cell.detailTextLabel?.text = item.location?.name
         cell.accessoryType = item.isCompleted ? .checkmark : .none
 
         cell.editingAccessoryType = .none
@@ -51,6 +68,17 @@ extension ShoppingListViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension ShoppingListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = viewModel.items[indexPath.row]
+        viewModel.didSelectItem(item)
+
+        performSegue(withIdentifier: "AddItem", sender: self)
+    }
+
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        viewModel.didDeselectItem()
+    }
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             viewModel.items.remove(at: indexPath.row)

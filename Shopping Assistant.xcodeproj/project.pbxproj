@@ -112,6 +112,8 @@
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
 		17867275210657FA003B906D /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17867274210657FA003B906D /* ShoppingListItem.swift */; };
 		179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */; };
+		179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */; };
+		179FCAB52118C2E300C20258 /* AddShoppingListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */; };
 		17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03C20F920CF002F670D /* AppDelegate.swift */; };
 		17B3E03F20F920CF002F670D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03E20F920CF002F670D /* HomeViewController.swift */; };
 		17B3E04220F920CF002F670D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04020F920CF002F670D /* Main.storyboard */; };
@@ -283,6 +285,8 @@
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListService.swift; sourceTree = "<group>"; };
+		179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewController.swift; sourceTree = "<group>"; };
+		179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewModel.swift; sourceTree = "<group>"; };
 		17B3E03920F920CF002F670D /* Shopping Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B3E03C20F920CF002F670D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B3E03E20F920CF002F670D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -425,6 +429,7 @@
 				1714D4062115B822006E2D8C /* AddLocationViewController.swift */,
 				1714D416211723E0006E2D8C /* FindLocationViewController.swift */,
 				173415BB20F937E600080C48 /* ShoppingListViewController.swift */,
+				179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 				1714D4072115B822006E2D8C /* AddLocationViewModel.swift */,
 				1714D417211723E0006E2D8C /* FindLocationViewModel.swift */,
 				1786727121064684003B906D /* ShoppingListViewModel.swift */,
+				179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -868,6 +874,7 @@
 				17417F9E210DE51900AF3539 /* GooglePlace.swift in Sources */,
 				1714D41521170541006E2D8C /* LocationsService.swift in Sources */,
 				1714D4102115BDD7006E2D8C /* LocationsViewController.swift in Sources */,
+				179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */,
 				17417FA3210DF50700AF3539 /* String+Extension.swift in Sources */,
 				17417FAE210E0DA400AF3539 /* UIView+Extension.swift in Sources */,
 				17417FA7210E01BF00AF3539 /* GooglePlacesResponse.swift in Sources */,
@@ -875,6 +882,7 @@
 				1714D4132115D509006E2D8C /* LocationMarker.swift in Sources */,
 				1714D4112115BDD7006E2D8C /* LocationsViewModel.swift in Sources */,
 				17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */,
+				179FCAB52118C2E300C20258 /* AddShoppingListItemViewModel.swift in Sources */,
 				1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */,
 				17417FAA210E08C800AF3539 /* MarkerInfoView.swift in Sources */,
 				173415BC20F937E600080C48 /* ShoppingListViewController.swift in Sources */,
