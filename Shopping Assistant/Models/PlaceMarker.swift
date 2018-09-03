@@ -18,3 +18,9 @@ class PlaceMarker: GMSMarker {
         self.init(place: place)
     }
 }
+
+extension CLLocationCoordinate2D {
+    func asCLLocation() -> CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+}

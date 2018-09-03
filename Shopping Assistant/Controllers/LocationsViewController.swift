@@ -15,10 +15,12 @@ class LocationsViewController: MapViewController<LocationsViewModel> {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? FindLocationViewController,
-            let location = viewModel.mapCentre else { return }
-
-        destination.viewModel = FindLocationViewModel(centredAt: location)
+        if let destination = segue.destination as? FindLocationViewController {
+            let location = viewModel.mapCentre ?? mapView.camera.target.asCLLocation()
+            destination.viewModel = FindLocationViewModel(centredAt: location)
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
     }
 
     // MARK: - Actions
