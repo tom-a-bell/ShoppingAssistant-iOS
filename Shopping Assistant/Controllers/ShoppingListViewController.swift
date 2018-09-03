@@ -135,7 +135,7 @@ extension ShoppingListViewController: UITableViewDelegate {
 
 // MARK: - ShoppingListViewModelDelegate
 extension ShoppingListViewController: ShoppingListViewModelDelegate {
-    func itemsDidLoad() {
+    func didLoadItems() {
         tableView.reloadData()
     }
 

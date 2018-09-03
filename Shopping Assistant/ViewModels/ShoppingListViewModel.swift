@@ -2,7 +2,7 @@ import Foundation
 import Promises
 
 protocol ShoppingListViewModelDelegate {
-    func itemsDidLoad()
+    func didLoadItems()
     func showErrorMessage(_: String)
 }
 
@@ -37,7 +37,7 @@ class ShoppingListViewModel {
                 self.populateItems(items)
             }.then { items in
                 self.items = items
-                self.delegate?.itemsDidLoad()
+                self.delegate?.didLoadItems()
             }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
