@@ -14,6 +14,9 @@ class LocationsViewModel: MapViewModel {
 
     public override func onViewDidLoad() {
         super.onViewDidLoad()
+    }
+
+    public func onViewWillAppear() {
         fetchLocations()
     }
 

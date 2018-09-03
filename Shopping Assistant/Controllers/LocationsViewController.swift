@@ -7,6 +7,11 @@ class LocationsViewController: MapViewController<LocationsViewModel> {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.onViewWillAppear()
+    }
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -26,6 +31,7 @@ class LocationsViewController: MapViewController<LocationsViewModel> {
 // MARK: - LocationsViewModelDelegate
 extension LocationsViewController: LocationsViewModelDelegate {
     func markLocations(_ locations: [Location]) {
+        mapView.clear()
         locations.forEach {
             let marker = LocationMarker(location: $0)
             marker.map = mapView
