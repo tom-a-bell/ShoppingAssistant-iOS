@@ -46,6 +46,8 @@ class ShoppingListViewModel {
             .then { items in
                 self.populateItems(items)
             }.then { items in
+                self.sortItems(items)
+            }.then { items in
                 self.items = items
                 self.delegate?.didLoadItems()
             }.catch { error in
@@ -64,6 +66,14 @@ class ShoppingListViewModel {
                 return item
             }
         }
+    }
+
+    private func sortItems(_ items: [ShoppingListItem]) -> Promise<[ShoppingListItem]> {
+        let completedThenByLastUpdated: (ShoppingListItem, ShoppingListItem) -> (Bool) = {
+            return $0.isCompleted == $1.isCompleted ? $0.updatedTime > $1.updatedTime : $1.isCompleted
+        }
+        let sortedItems = items.sorted(by: completedThenByLastUpdated)
+        return Promise(sortedItems)
     }
 
     private func fetchLocationsById() -> Promise<[UUID:Location]> {
