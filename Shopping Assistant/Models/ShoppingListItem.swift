@@ -9,6 +9,7 @@ struct ShoppingListItem: Codable {
     var createdTime: Date
     var updatedTime: Date
     var version: Int
+    var userId: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -18,6 +19,7 @@ struct ShoppingListItem: Codable {
         case locationId
         case createdTime
         case updatedTime
+        case userId
     }
 }
 
@@ -53,6 +55,7 @@ extension ShoppingListItem {
             createdTime: Date(),
             updatedTime: Date(),
             version: 1
+            userId: nil
         )
     }
 }
