@@ -1,5 +1,4 @@
 import Foundation
-import CoreLocation
 
 class FindLocationViewModel: MapViewModel {
 

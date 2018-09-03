@@ -1,5 +1,4 @@
 import Foundation
-import CoreLocation
 
 protocol AddLocationViewModelDelegate: MapViewModelDelegate {
     func didAddLocation()
