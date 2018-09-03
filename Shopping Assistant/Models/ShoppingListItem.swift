@@ -54,7 +54,7 @@ extension ShoppingListItem {
             location: nil,
             createdTime: Date(),
             updatedTime: Date(),
-            version: 1
+            version: 0,
             userId: nil
         )
     }
