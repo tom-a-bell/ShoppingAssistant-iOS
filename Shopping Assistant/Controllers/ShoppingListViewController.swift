@@ -19,6 +19,11 @@ class ShoppingListViewController: UIViewController {
         navigationItem.rightBarButtonItem = editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.onViewWillAppear()
+    }
+
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.setEditing(!tableView.isEditing, animated: true)

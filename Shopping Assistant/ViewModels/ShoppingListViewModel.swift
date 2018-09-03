@@ -15,6 +15,9 @@ class ShoppingListViewModel {
     public var selectedItem: ShoppingListItem?
 
     public func onViewDidLoad() {
+    }
+
+    public func onViewWillAppear() {
         fetchItems()
     }
 
