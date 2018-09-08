@@ -289,6 +289,10 @@
 		17417FAB210E08E300AF3539 /* MarkerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
 		17417FAD210E0DA400AF3539 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1774B9F6214325E400D1BF9A /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		1774B9F92143373600D1BF9A /* Waitrose.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Waitrose.gpx; path = "Shopping AssistantUITests/Waitrose.gpx"; sourceTree = SOURCE_ROOT; };
+		1774B9FA21433DB600D1BF9A /* Sainsburys.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Sainsburys.gpx; path = "Shopping AssistantUITests/Sainsburys.gpx"; sourceTree = SOURCE_ROOT; };
+		1774B9FB21433E1200D1BF9A /* Supermarket.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Supermarket.gpx; path = "Shopping AssistantUITests/Supermarket.gpx"; sourceTree = SOURCE_ROOT; };
+		1774B9FC21433EFA00D1BF9A /* Sainsburys Local.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Sainsburys Local.gpx"; path = "Shopping AssistantUITests/Sainsburys Local.gpx"; sourceTree = SOURCE_ROOT; };
 		1774B9FD2143BDB500D1BF9A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
@@ -499,6 +503,10 @@
 			children = (
 				17B3E06A20F924DA002F670D /* Cartfile */,
 				17B3E04820F920D1002F670D /* Info.plist */,
+				1774B9FA21433DB600D1BF9A /* Sainsburys.gpx */,
+				1774B9FC21433EFA00D1BF9A /* Sainsburys Local.gpx */,
+				1774B9FB21433E1200D1BF9A /* Supermarket.gpx */,
+				1774B9F92143373600D1BF9A /* Waitrose.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
