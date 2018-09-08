@@ -7,6 +7,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GoogleMapsService.shared.initialize()
+        LocationManager.shared.initialize()
+
+        NotificationsManager.shared.requestAuthorization()
+            .then(handleAuthorizationResponse)
+            .catch(handleError)
+
         return true
     }
 
@@ -34,5 +40,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+}
+
+extension AppDelegate {
+    func handleAuthorizationResponse(authorizationIsGranted: Bool) {
+        if authorizationIsGranted { return }
+
+        let message = "To enable notifications later, visit Settings > Shopping List > Notifications"
+        let warningAlert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default)
+
+        warningAlert.addAction(dismissAction)
+
+        window?.rootViewController?.present(warningAlert, animated: true, completion: nil)
+    }
+
+    func handleError(error: Error) {
+        let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default)
+
+        errorAlert.addAction(dismissAction)
+
+        window?.rootViewController?.present(errorAlert, animated: true, completion: nil)
     }
 }

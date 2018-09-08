@@ -33,7 +33,9 @@ class ShoppingListViewModel {
         print("Saving shopping list items...")
         isLoading = true
         ShoppingListService.shared.updateItems(items)
-            .catch { error in
+            .then {
+                GeofenceService.shared.updateLocationMonitoring(for: self.items)
+            }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
                 self.isLoading = false
