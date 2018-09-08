@@ -4,6 +4,7 @@ import AWSCore
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var locationsButton: UIButton!
     @IBOutlet weak var shoppingListButton: UIButton!
 
@@ -19,7 +20,14 @@ class HomeViewController: UIViewController {
         AmazonClientManager.shared.login()
             .always(refreshUI)
             .catch(handleError)
-        }
+    }
+
+    @IBAction func performLogout() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        disableUI()
+        AmazonClientManager.shared.logout()
+            .always(refreshUI)
+            .catch(handleError)
     }
 
     @IBAction func showLocations() {
@@ -32,6 +40,7 @@ class HomeViewController: UIViewController {
 
     private func disableUI() {
         loginButton.isEnabled = false
+        logoutButton.isEnabled = false
         locationsButton.isEnabled = false
         shoppingListButton.isEnabled = false
     }
@@ -43,7 +52,12 @@ class HomeViewController: UIViewController {
 
     private func updateButtonStates() {
         let isLoggedIn = AmazonClientManager.shared.isLoggedIn()
+
+        loginButton.isHidden = isLoggedIn
+        logoutButton.isHidden = !isLoggedIn
+
         loginButton.isEnabled = !isLoggedIn
+        logoutButton.isEnabled = isLoggedIn
         locationsButton.isEnabled = isLoggedIn
         shoppingListButton.isEnabled = isLoggedIn
     }
