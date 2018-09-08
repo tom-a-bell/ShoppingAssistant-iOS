@@ -10,6 +10,6 @@ struct Location: Codable {
 
 extension Location {
     static func from(_ place: GooglePlace) -> Location {
-        return Location(id: UUID(), name: place.name, placeId: place.id, coordinate: place.location, radius: 100)
+        return Location(id: UUID(), name: place.name, placeId: place.id, coordinate: place.location, radius: 50)
     }
 }
