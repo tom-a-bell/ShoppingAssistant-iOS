@@ -15,8 +15,9 @@ class HomeViewController: UIViewController {
     @IBAction func performLogin() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         disableUI()
-        AmazonClientManager.shared.login() {_ in
-            self.refreshUI()
+        AmazonClientManager.shared.login()
+            .always(refreshUI)
+            .catch(handleError)
         }
     }
 
@@ -28,13 +29,13 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "ShowShoppingList", sender: self)
     }
 
-    func disableUI() {
+    private func disableUI() {
         loginButton.isEnabled = false
         locationsButton.isEnabled = false
         shoppingListButton.isEnabled = false
     }
 
-    func refreshUI() {
+    private func refreshUI() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         updateButtonStates()
     }
@@ -44,5 +45,14 @@ class HomeViewController: UIViewController {
         loginButton.isEnabled = !isLoggedIn
         locationsButton.isEnabled = isLoggedIn
         shoppingListButton.isEnabled = isLoggedIn
+    }
+
+    private func handleError(error: Error) {
+        let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default)
+
+        errorAlert.addAction(dismissAction)
+
+        present(errorAlert, animated: true, completion: nil)
     }
 }

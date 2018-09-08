@@ -1,13 +1,16 @@
 import Foundation
 import AWSCore
 import AWSCognito
+import Promises
 
 class AmazonClientManager: NSObject {
 
     static let shared = AmazonClientManager()
 
-    private var completionHandler: ((AWSTask<NSString>) -> Void)?
     private var credentialsProvider: AWSCognitoCredentialsProvider?
+
+    private var loginPromise: Promise<Void>?
+    private var logoutPromise: Promise<Void>?
 
     // Sends the appropriate URL
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -19,51 +22,69 @@ class AmazonClientManager: NSObject {
         return credentialsProvider?.identityId != nil
     }
 
-    func login(completionHandler: @escaping (AWSTask<NSString>) -> Void) {
-        self.completionHandler = completionHandler
+    func login() -> Promise<Void> {
+        guard logoutPromise == nil else { return Promise(LogoutInProgressError()) }
+        if let loginPromise = loginPromise { return loginPromise }
+
+        loginPromise = Promise<Void>.pending()
         loginWithAmazon()
+
+        return loginPromise!
     }
 
-    func logout(completionHandler: @escaping (AWSTask<NSString>) -> Void) {
+    func logout() -> Promise<Void> {
+        guard loginPromise == nil else { return Promise(LoginInProgressError()) }
+        if let logoutPromise = logoutPromise { return logoutPromise }
+
+        logoutPromise = Promise<Void>.pending()
         logoutFromAmazon()
 
-        // Wipe credentials
-//        credentialsProvider?.logins = nil
-        AWSCognito.default().wipe()
-        credentialsProvider?.clearKeychain()
-
-        AWSTask(result: nil).continueWith(block: completionHandler)
+        return logoutPromise!
     }
 
-    func resumeSession(completionHandler: @escaping (AWSTask<NSString>) -> Void) {
-        self.completionHandler = completionHandler
+    func resumeSession() -> Promise<Void> {
+        guard logoutPromise == nil else { return Promise(LogoutInProgressError()) }
+        if let loginPromise = loginPromise { return loginPromise }
+
+        loginPromise = Promise<Void>.pending()
         loginWithAmazon()
 
         if credentialsProvider == nil {
             completeLogin(withToken: "")
         }
+
+        return loginPromise!
     }
 
-    func loginWithAmazon() {
+    private func loginWithAmazon() {
         print("Logging in with Amazon...")
         AIMobileLib.authorizeUser(forScopes: ["profile"], delegate: self)
     }
 
-    func logoutFromAmazon() {
+    private func logoutFromAmazon() {
+        print("Logging out from Amazon...")
         AIMobileLib.clearAuthorizationState(self)
     }
 
-    func completeLogin(withToken token: Any) {
+    private func completeLogin(withToken token: Any) {
         if credentialsProvider == nil {
             credentialsProvider = initializeClient(withToken: token)
-            credentialsProvider?.getIdentityId().continueWith(block: completionHandler!)
+            credentialsProvider?.getIdentityId().continueWith { _ in self.loginPromise?.fulfill(()) }
         } else {
             credentialsProvider?.setIdentityProviderManagerOnce(AmazonIdentityProviderManager(withToken: token))
-//            credentialsProvider?.refresh().continueWith(block: completionHandler!)
         }
     }
 
-    func initializeClient(withToken token: Any) -> AWSCognitoCredentialsProvider {
+    private func completeLogout() {
+        // Wipe credentials from cache and keychain
+        AWSCognito.default().wipe()
+        credentialsProvider?.clearKeychain()
+        credentialsProvider?.clearCredentials()
+
+        logoutPromise?.fulfill(())
+    }
+
+    private func initializeClient(withToken token: Any) -> AWSCognitoCredentialsProvider {
         print("Initializing client...")
 
         AWSDDLog.sharedInstance.logLevel = .verbose
@@ -85,18 +106,30 @@ class AmazonClientManager: NSObject {
 // MARK: - AIAuthenticationDelegate
 extension AmazonClientManager: AIAuthenticationDelegate {
     func requestDidSucceed(_ apiResult: APIResult!) {
-        if apiResult.api == API.authorizeUser {
+        switch apiResult.api {
+        case .authorizeUser:
             AIMobileLib.getAccessToken(forScopes: ["profile"], withOverrideParams: nil, delegate: self)
-        } else if apiResult.api == API.getAccessToken {
+        case .getAccessToken:
             if let token = apiResult.result {
                 completeLogin(withToken: token)
             }
+        case .clearAuthorizationState:
+            completeLogout()
+        default:
+            return
         }
     }
 
     func requestDidFail(_ errorResponse: APIError!) {
         print("Error logging in with Amazon: " + errorResponse.description)
-        AWSTask(result: nil).continueWith(block: completionHandler!)
+        let error = AmazonApiResponseError(errorResponse)
+
+        if let loginPromise = loginPromise {
+            loginPromise.reject(error)
+        }
+        if let logoutPromise = logoutPromise {
+            logoutPromise.reject(error)
+        }
     }
 }
 
@@ -110,5 +143,30 @@ class AmazonIdentityProviderManager: NSObject, AWSIdentityProviderManager {
 
     func logins() -> AWSTask<NSDictionary> {
         return AWSTask<NSDictionary>(result: [AWSIdentityProviderLoginWithAmazon: token])
+    }
+}
+
+// MARK: - AmazonApiResponseError
+struct AmazonApiResponseError: LocalizedError {
+    let error: AIError
+    let errorDescription: String
+
+    init(_ apiError: APIError) {
+        error = apiError.error
+        errorDescription = apiError.description
+    }
+}
+
+// MARK: - LoginInProgressError
+struct LoginInProgressError: LocalizedError {
+    public var errorDescription: String? {
+        return "Cannot logout while login is in progress"
+    }
+}
+
+// MARK: - LogoutInProgressError
+struct LogoutInProgressError: LocalizedError {
+    public var errorDescription: String? {
+        return "Cannot login while logout is in progress"
     }
 }
