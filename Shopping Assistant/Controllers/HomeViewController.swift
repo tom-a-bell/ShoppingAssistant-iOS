@@ -10,6 +10,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateButtonStates()
+        AmazonClientManager.shared.resumeSession().always(refreshUI)
     }
 
     @IBAction func performLogin() {
