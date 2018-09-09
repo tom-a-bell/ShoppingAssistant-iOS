@@ -1,6 +1,6 @@
 import UIKit
 
-class AddShoppingListItemViewController: UIViewController {
+class AddShoppingListItemViewController: BaseViewController {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var locationSwitch: UISwitch!
@@ -117,3 +117,6 @@ extension AddShoppingListItemViewController: AddShoppingListItemViewModelDelegat
         self.present(errorAlert, animated: true, completion: nil)
     }
 }
+
+// MARK: - ActivityIndicatable
+extension AddShoppingListItemViewController: ActivityIndicatable {}

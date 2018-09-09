@@ -113,6 +113,8 @@
 		17417FAE210E0DA400AF3539 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417FAD210E0DA400AF3539 /* UIView+Extension.swift */; };
 		1774B9F7214325E400D1BF9A /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9F6214325E400D1BF9A /* NotificationsManager.swift */; };
 		1774B9FE2143BDB500D1BF9A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9FD2143BDB500D1BF9A /* String+Extension.swift */; };
+		1774BA002144AB5200D1BF9A /* ActivityIndicatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */; };
+		1774BA022144B33400D1BF9A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA012144B33400D1BF9A /* BaseViewController.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
 		17867275210657FA003B906D /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17867274210657FA003B906D /* ShoppingListItem.swift */; };
 		179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */; };
@@ -294,6 +296,8 @@
 		1774B9FB21433E1200D1BF9A /* Supermarket.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Supermarket.gpx; path = "Shopping AssistantUITests/Supermarket.gpx"; sourceTree = SOURCE_ROOT; };
 		1774B9FC21433EFA00D1BF9A /* Sainsburys Local.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Sainsburys Local.gpx"; path = "Shopping AssistantUITests/Sainsburys Local.gpx"; sourceTree = SOURCE_ROOT; };
 		1774B9FD2143BDB500D1BF9A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatable.swift; sourceTree = "<group>"; };
+		1774BA012144B33400D1BF9A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListService.swift; sourceTree = "<group>"; };
@@ -443,6 +447,7 @@
 		173415B720F9350F00080C48 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1774BA012144B33400D1BF9A /* BaseViewController.swift */,
 				17B3E03E20F920CF002F670D /* HomeViewController.swift */,
 				17417F94210D31B500AF3539 /* MapViewController.swift */,
 				1714D40E2115BDD7006E2D8C /* LocationsViewController.swift */,
@@ -524,6 +529,7 @@
 		17417FA8210E082900AF3539 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */,
 				17417FA9210E08C800AF3539 /* MarkerInfoView.swift */,
 				17417FAB210E08E300AF3539 /* MarkerInfoView.xib */,
 				17417FAD210E0DA400AF3539 /* UIView+Extension.swift */,
@@ -888,11 +894,13 @@
 				17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */,
 				17417F99210DDEC300AF3539 /* PlaceMarker.swift in Sources */,
 				171722EF213F47B40024AA6B /* LocationManager.swift in Sources */,
+				1774BA002144AB5200D1BF9A /* ActivityIndicatable.swift in Sources */,
 				1714D4092115B822006E2D8C /* AddLocationViewModel.swift in Sources */,
 				17417F95210D31B500AF3539 /* MapViewController.swift in Sources */,
 				17D6E718210154830000AFCE /* AWSConfiguration.swift in Sources */,
 				1774B9FE2143BDB500D1BF9A /* String+Extension.swift in Sources */,
 				17417F93210D2F2000AF3539 /* GoogleMapsService.swift in Sources */,
+				1774BA022144B33400D1BF9A /* BaseViewController.swift in Sources */,
 				17417FA5210DFCBD00AF3539 /* ResponseError.swift in Sources */,
 				1714D4082115B822006E2D8C /* AddLocationViewController.swift in Sources */,
 				17417F97210D3EFD00AF3539 /* MapViewModel.swift in Sources */,

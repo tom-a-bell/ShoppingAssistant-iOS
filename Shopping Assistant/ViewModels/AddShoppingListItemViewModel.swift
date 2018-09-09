@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AddShoppingListItemViewModelDelegate {
+protocol AddShoppingListItemViewModelDelegate: ActivityIndicatable {
     func didLoadLocations()
     func didSaveItem()
     func didCancelChanges()
@@ -12,7 +12,6 @@ class AddShoppingListItemViewModel {
 
     public var delegate: AddShoppingListItemViewModelDelegate?
 
-    public var isLoading = false
     public var item: ShoppingListItem
     public var locations: [Location] = []
 
@@ -33,14 +32,14 @@ class AddShoppingListItemViewModel {
     }
 
     public func didSaveItem() {
-        isLoading = true
+        delegate?.activityDidStart()
         ShoppingListService.shared.addItem(item)
             .then { _ in
                 self.delegate?.didSaveItem()
             }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
-                self.isLoading = false
+                self.delegate?.activityDidStop()
         }
     }
 
@@ -49,7 +48,7 @@ class AddShoppingListItemViewModel {
     }
 
     private func fetchLocations() {
-        isLoading = true
+        delegate?.activityDidStart()
         LocationsService.shared.fetchLocations()
             .then { locations in
                 self.locations = locations
@@ -57,7 +56,7 @@ class AddShoppingListItemViewModel {
             }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
-                self.isLoading = false
+                self.delegate?.activityDidStop()
         }
     }
 }

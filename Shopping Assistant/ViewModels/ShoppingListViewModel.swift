@@ -1,7 +1,7 @@
 import Foundation
 import Promises
 
-protocol ShoppingListViewModelDelegate {
+protocol ShoppingListViewModelDelegate: ActivityIndicatable {
     func didLoadItems()
     func showErrorMessage(_: String)
 }
@@ -10,7 +10,6 @@ class ShoppingListViewModel {
 
     public var delegate: ShoppingListViewModelDelegate?
 
-    public var isLoading = false
     public var items: [ShoppingListItem] = []
     public var selectedItem: ShoppingListItem?
 
@@ -31,19 +30,19 @@ class ShoppingListViewModel {
 
     public func didEndEditing() {
         print("Saving shopping list items...")
-        isLoading = true
+        delegate?.activityDidStart()
         ShoppingListService.shared.updateItems(items)
             .then {
                 GeofenceService.shared.updateLocationMonitoring(for: self.items)
             }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
-                self.isLoading = false
+                self.delegate?.activityDidStop()
         }
     }
 
     private func fetchItems() {
-        isLoading = true
+        delegate?.activityDidStart()
         ShoppingListService.shared.fetchItems()
             .then { items in
                 self.populateItems(items)
@@ -55,7 +54,7 @@ class ShoppingListViewModel {
             }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
-                self.isLoading = false
+                self.delegate?.activityDidStop()
         }
     }
 

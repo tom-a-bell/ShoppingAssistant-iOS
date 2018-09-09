@@ -1,6 +1,6 @@
 import UIKit
 
-class ShoppingListViewController: UIViewController {
+class ShoppingListViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -152,3 +152,6 @@ extension ShoppingListViewController: ShoppingListViewModelDelegate {
         self.present(errorAlert, animated: true, completion: nil)
     }
 }
+
+// MARK: - ActivityIndicatable
+extension ShoppingListViewController: ActivityIndicatable {}
