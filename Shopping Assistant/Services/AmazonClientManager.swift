@@ -10,7 +10,10 @@ class AmazonClientManager: NSObject {
     private var credentialsProvider: AWSCognitoCredentialsProvider?
 
     private var loginPromise: Promise<Void>?
+    private var loginInProgress = false
+
     private var logoutPromise: Promise<Void>?
+    private var logoutInProgress = false
 
     // Sends the appropriate URL
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -23,37 +26,42 @@ class AmazonClientManager: NSObject {
     }
 
     func login() -> Promise<Void> {
-        guard logoutPromise == nil else { return Promise(LogoutInProgressError()) }
-        if let loginPromise = loginPromise { return loginPromise }
+        guard !loginInProgress, !logoutInProgress else { return Promise(LoginRequestInProgressError()) }
 
-        loginPromise = Promise<Void>.pending()
+        let promise = pendingLoginPromise()
         loginWithAmazon()
 
-        return loginPromise!
+        return promise
     }
 
     func logout() -> Promise<Void> {
-        guard loginPromise == nil else { return Promise(LoginInProgressError()) }
-        if let logoutPromise = logoutPromise { return logoutPromise }
+        guard !loginInProgress, !logoutInProgress else { return Promise(LoginRequestInProgressError()) }
 
-        logoutPromise = Promise<Void>.pending()
+        let promise = pendingLogoutPromise()
         logoutFromAmazon()
 
-        return logoutPromise!
+        return promise
     }
 
     func resumeSession() -> Promise<Void> {
-        guard logoutPromise == nil else { return Promise(LogoutInProgressError()) }
-        if let loginPromise = loginPromise { return loginPromise }
+        guard !loginInProgress, !logoutInProgress else { return Promise(LoginRequestInProgressError()) }
 
+        let promise = pendingLoginPromise()
+        getAccessToken()
+
+        return promise
+    }
+
+    private func pendingLoginPromise() -> Promise<Void> {
+        loginInProgress = true
         loginPromise = Promise<Void>.pending()
-        loginWithAmazon()
+        return loginPromise!.always { [weak self] in self?.loginInProgress = false }
+    }
 
-        if credentialsProvider == nil {
-            completeLogin(withToken: "")
-        }
-
-        return loginPromise!
+    private func pendingLogoutPromise() -> Promise<Void> {
+        logoutInProgress = true
+        logoutPromise = Promise<Void>.pending()
+        return logoutPromise!.always { [weak self] in self?.logoutInProgress = false }
     }
 
     private func loginWithAmazon() {
@@ -66,12 +74,14 @@ class AmazonClientManager: NSObject {
         AIMobileLib.clearAuthorizationState(self)
     }
 
+    private func getAccessToken() {
+        AIMobileLib.getAccessToken(forScopes: ["profile"], withOverrideParams: nil, delegate: self)
+    }
+
     private func completeLogin(withToken token: Any) {
-        if credentialsProvider == nil {
-            credentialsProvider = initializeClient(withToken: token)
-            credentialsProvider?.getIdentityId().continueWith { _ in self.loginPromise?.fulfill(()) }
-        } else {
-            credentialsProvider?.setIdentityProviderManagerOnce(AmazonIdentityProviderManager(withToken: token))
+        initializeOrUpdateCredentialsProvider(token)
+        credentialsProvider?.getIdentityId().continueWith { task in
+            task.isFaulted ? self.loginPromise?.reject(task.error!) : self.loginPromise?.fulfill(())
         }
     }
 
@@ -82,6 +92,14 @@ class AmazonClientManager: NSObject {
         credentialsProvider?.clearCredentials()
 
         logoutPromise?.fulfill(())
+    }
+
+    private func initializeOrUpdateCredentialsProvider(_ token: Any) {
+        if let credentialsProvider = credentialsProvider {
+            credentialsProvider.setIdentityProviderManagerOnce(AmazonIdentityProviderManager(withToken: token))
+        } else {
+            credentialsProvider = initializeClient(withToken: token)
+        }
     }
 
     private func initializeClient(withToken token: Any) -> AWSCognitoCredentialsProvider {
@@ -108,11 +126,9 @@ extension AmazonClientManager: AIAuthenticationDelegate {
     func requestDidSucceed(_ apiResult: APIResult!) {
         switch apiResult.api {
         case .authorizeUser:
-            AIMobileLib.getAccessToken(forScopes: ["profile"], withOverrideParams: nil, delegate: self)
+            getAccessToken()
         case .getAccessToken:
-            if let token = apiResult.result {
-                completeLogin(withToken: token)
-            }
+            completeLogin(withToken: apiResult.result)
         case .clearAuthorizationState:
             completeLogout()
         default:
@@ -121,13 +137,14 @@ extension AmazonClientManager: AIAuthenticationDelegate {
     }
 
     func requestDidFail(_ errorResponse: APIError!) {
-        print("Error logging in with Amazon: " + errorResponse.description)
+        print("Error logging in with Amazon:", errorResponse.error.message)
         let error = AmazonApiResponseError(errorResponse)
 
-        if let loginPromise = loginPromise {
+        if loginInProgress, let loginPromise = loginPromise {
             loginPromise.reject(error)
         }
-        if let logoutPromise = logoutPromise {
+
+        if logoutInProgress, let logoutPromise = logoutPromise {
             logoutPromise.reject(error)
         }
     }
@@ -149,24 +166,19 @@ class AmazonIdentityProviderManager: NSObject, AWSIdentityProviderManager {
 // MARK: - AmazonApiResponseError
 struct AmazonApiResponseError: LocalizedError {
     let error: AIError
-    let errorDescription: String
 
     init(_ apiError: APIError) {
         error = apiError.error
-        errorDescription = apiError.description
+    }
+
+    public var errorDescription: String? {
+        return error.message
     }
 }
 
-// MARK: - LoginInProgressError
-struct LoginInProgressError: LocalizedError {
+// MARK: - LoginRequestInProgressError
+struct LoginRequestInProgressError: LocalizedError {
     public var errorDescription: String? {
-        return "Cannot logout while login is in progress"
-    }
-}
-
-// MARK: - LogoutInProgressError
-struct LogoutInProgressError: LocalizedError {
-    public var errorDescription: String? {
-        return "Cannot login while logout is in progress"
+        return "Login request is currently in progress"
     }
 }
