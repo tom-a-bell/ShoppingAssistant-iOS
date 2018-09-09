@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         disableUI()
         AmazonClientManager.shared.login()
             .always(refreshUI)
-            .catch(handleError)
+            .catch(showError)
     }
 
     @IBAction func performLogout() {
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         disableUI()
         AmazonClientManager.shared.logout()
             .always(refreshUI)
-            .catch(handleError)
+            .catch(showError)
     }
 
     @IBAction func showLocations() {
@@ -61,13 +61,7 @@ class HomeViewController: UIViewController {
         locationsButton.isEnabled = isLoggedIn
         shoppingListButton.isEnabled = isLoggedIn
     }
-
-    private func handleError(error: Error) {
-        let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .default)
-
-        errorAlert.addAction(dismissAction)
-
-        present(errorAlert, animated: true, completion: nil)
-    }
 }
+
+// MARK: - ErrorPresentable
+extension HomeViewController: ErrorPresentable {}

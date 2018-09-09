@@ -107,16 +107,10 @@ extension AddShoppingListItemViewController: AddShoppingListItemViewModelDelegat
             locationPicker.fadeIn(0.5)
         }
     }
-
-    func showErrorMessage(_ message: String) {
-        let errorAlert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .default)
-
-        errorAlert.addAction(dismissAction)
-
-        self.present(errorAlert, animated: true, completion: nil)
-    }
 }
 
 // MARK: - ActivityIndicatable
 extension AddShoppingListItemViewController: ActivityIndicatable {}
+
+// MARK: - ErrorPresentable
+extension AddShoppingListItemViewController: ErrorPresentable {}

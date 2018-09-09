@@ -1,11 +1,9 @@
 import Foundation
 
-protocol AddShoppingListItemViewModelDelegate: ActivityIndicatable {
+protocol AddShoppingListItemViewModelDelegate: ActivityIndicatable, ErrorPresentable {
     func didLoadLocations()
     func didSaveItem()
     func didCancelChanges()
-
-    func showErrorMessage(_: String)
 }
 
 class AddShoppingListItemViewModel {
@@ -37,7 +35,7 @@ class AddShoppingListItemViewModel {
             .then { _ in
                 self.delegate?.didSaveItem()
             }.catch { error in
-                self.delegate?.showErrorMessage(error.localizedDescription)
+                self.delegate?.showError(error)
             }.always {
                 self.delegate?.activityDidStop()
         }
@@ -54,7 +52,7 @@ class AddShoppingListItemViewModel {
                 self.locations = locations
                 self.delegate?.didLoadLocations()
             }.catch { error in
-                self.delegate?.showErrorMessage(error.localizedDescription)
+                self.delegate?.showError(error)
             }.always {
                 self.delegate?.activityDidStop()
         }

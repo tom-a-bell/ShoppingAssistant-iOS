@@ -26,7 +26,7 @@ class LocationsViewModel: MapViewModel {
             .then { locations in
                 self.locationsDelegate?.markLocations(locations)
             }.catch { error in
-                self.delegate?.showErrorMessage(error.localizedDescription)
+                self.delegate?.showError(error)
             }.always {
                 self.delegate?.activityDidStop()
         }

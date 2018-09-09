@@ -142,16 +142,10 @@ extension ShoppingListViewController: ShoppingListViewModelDelegate {
     func didLoadItems() {
         tableView.reloadData()
     }
-
-    func showErrorMessage(_ message: String) {
-        let errorAlert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .default)
-
-        errorAlert.addAction(dismissAction)
-
-        self.present(errorAlert, animated: true, completion: nil)
-    }
 }
 
 // MARK: - ActivityIndicatable
 extension ShoppingListViewController: ActivityIndicatable {}
+
+// MARK: - ErrorPresentable
+extension ShoppingListViewController: ErrorPresentable {}

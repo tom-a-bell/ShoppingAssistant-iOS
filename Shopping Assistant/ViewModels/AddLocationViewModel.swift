@@ -30,7 +30,7 @@ class AddLocationViewModel: MapViewModel {
             .then { _ in
                 self.addLocationDelegate?.didAddLocation()
             }.catch { error in
-                self.delegate?.showErrorMessage(error.localizedDescription)
+                self.delegate?.showError(error)
             }.always {
                 self.delegate?.activityDidStop()
         }

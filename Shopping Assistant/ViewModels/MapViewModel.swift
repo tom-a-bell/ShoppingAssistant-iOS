@@ -1,12 +1,10 @@
 import Foundation
 import CoreLocation
 
-protocol MapViewModelDelegate: ActivityIndicatable {
+protocol MapViewModelDelegate: ActivityIndicatable, ErrorPresentable {
     func enableCurrentLocation()
     func centreMapOn(_ location: CLLocation)
     func markPlaces(_ places: [GooglePlace])
-
-    func showErrorMessage(_: String)
 }
 
 class MapViewModel: NSObject {

@@ -81,15 +81,6 @@ extension MapViewController: MapViewModelDelegate {
             marker.map = mapView
         }
     }
-
-    func showErrorMessage(_ message: String) {
-        let errorAlert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .default)
-
-        errorAlert.addAction(dismissAction)
-
-        self.present(errorAlert, animated: true, completion: nil)
-    }
 }
 
 // MARK: - MarkerInfoViewDelegate
@@ -105,3 +96,6 @@ extension MapViewController: ActivityIndicatable {
         return spinner
     }
 }
+
+// MARK: - ErrorPresentable
+extension MapViewController: ErrorPresentable {}

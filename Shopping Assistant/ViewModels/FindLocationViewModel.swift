@@ -18,7 +18,7 @@ class FindLocationViewModel: MapViewModel {
             .then { places in
                 self.delegate?.markPlaces(places)
             }.catch { error in
-                self.delegate?.showErrorMessage(error.localizedDescription)
+                self.delegate?.showError(error)
             }.always {
                 self.delegate?.activityDidStop()
         }

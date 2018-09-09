@@ -115,6 +115,7 @@
 		1774B9FE2143BDB500D1BF9A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9FD2143BDB500D1BF9A /* String+Extension.swift */; };
 		1774BA002144AB5200D1BF9A /* ActivityIndicatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */; };
 		1774BA022144B33400D1BF9A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA012144B33400D1BF9A /* BaseViewController.swift */; };
+		1774BA042144B88500D1BF9A /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA032144B88500D1BF9A /* ErrorPresentable.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
 		17867275210657FA003B906D /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17867274210657FA003B906D /* ShoppingListItem.swift */; };
 		179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */; };
@@ -298,6 +299,7 @@
 		1774B9FD2143BDB500D1BF9A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatable.swift; sourceTree = "<group>"; };
 		1774BA012144B33400D1BF9A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1774BA032144B88500D1BF9A /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListService.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */,
+				1774BA032144B88500D1BF9A /* ErrorPresentable.swift */,
 				17417FA9210E08C800AF3539 /* MarkerInfoView.swift */,
 				17417FAB210E08E300AF3539 /* MarkerInfoView.xib */,
 				17417FAD210E0DA400AF3539 /* UIView+Extension.swift */,
@@ -899,6 +902,7 @@
 				17417F95210D31B500AF3539 /* MapViewController.swift in Sources */,
 				17D6E718210154830000AFCE /* AWSConfiguration.swift in Sources */,
 				1774B9FE2143BDB500D1BF9A /* String+Extension.swift in Sources */,
+				1774BA042144B88500D1BF9A /* ErrorPresentable.swift in Sources */,
 				17417F93210D2F2000AF3539 /* GoogleMapsService.swift in Sources */,
 				1774BA022144B33400D1BF9A /* BaseViewController.swift in Sources */,
 				17417FA5210DFCBD00AF3539 /* ResponseError.swift in Sources */,

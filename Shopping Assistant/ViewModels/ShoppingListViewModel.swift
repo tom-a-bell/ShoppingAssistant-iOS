@@ -1,9 +1,8 @@
 import Foundation
 import Promises
 
-protocol ShoppingListViewModelDelegate: ActivityIndicatable {
+protocol ShoppingListViewModelDelegate: ActivityIndicatable, ErrorPresentable {
     func didLoadItems()
-    func showErrorMessage(_: String)
 }
 
 class ShoppingListViewModel {
@@ -35,7 +34,7 @@ class ShoppingListViewModel {
             .then {
                 GeofenceService.shared.updateLocationMonitoring(for: self.items)
             }.catch { error in
-                self.delegate?.showErrorMessage(error.localizedDescription)
+                self.delegate?.showError(error)
             }.always {
                 self.delegate?.activityDidStop()
         }
@@ -52,7 +51,7 @@ class ShoppingListViewModel {
                 self.items = items
                 self.delegate?.didLoadItems()
             }.catch { error in
-                self.delegate?.showErrorMessage(error.localizedDescription)
+                self.delegate?.showError(error)
             }.always {
                 self.delegate?.activityDidStop()
         }
