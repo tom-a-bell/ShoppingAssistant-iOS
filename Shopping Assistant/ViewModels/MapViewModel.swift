@@ -1,13 +1,10 @@
 import Foundation
 import CoreLocation
 
-protocol MapViewModelDelegate {
+protocol MapViewModelDelegate: ActivityIndicatable {
     func enableCurrentLocation()
     func centreMapOn(_ location: CLLocation)
     func markPlaces(_ places: [GooglePlace])
-
-    func showLoadingSpinner()
-    func hideLoadingSpinner()
 
     func showErrorMessage(_: String)
 }

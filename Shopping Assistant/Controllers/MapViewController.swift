@@ -82,14 +82,6 @@ extension MapViewController: MapViewModelDelegate {
         }
     }
 
-    func showLoadingSpinner() {
-        spinner.startAnimating()
-    }
-
-    func hideLoadingSpinner() {
-        spinner.stopAnimating()
-    }
-
     func showErrorMessage(_ message: String) {
         let errorAlert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .default)
@@ -104,5 +96,12 @@ extension MapViewController: MapViewModelDelegate {
 extension MapViewController: MarkerInfoViewDelegate {
     func addLocation(for place: GooglePlace) {
         performSegue(withIdentifier: "AddLocation", sender: self)
+    }
+}
+
+// MARK: - ActivityIndicatable
+extension MapViewController: ActivityIndicatable {
+    var activityIndicator: UIActivityIndicatorView {
+        return spinner
     }
 }

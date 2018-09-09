@@ -21,14 +21,14 @@ class LocationsViewModel: MapViewModel {
     }
 
     private func fetchLocations() {
-        delegate?.showLoadingSpinner()
+        delegate?.activityDidStart()
         LocationsService.shared.fetchLocations()
             .then { locations in
                 self.locationsDelegate?.markLocations(locations)
             }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
-                self.delegate?.hideLoadingSpinner()
+                self.delegate?.activityDidStop()
         }
     }
 }

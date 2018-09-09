@@ -13,14 +13,14 @@ class FindLocationViewModel: MapViewModel {
     public func findNearbyPlaces() {
         guard let coordinate = mapCentre?.coordinate else { return }
 
-        delegate?.showLoadingSpinner()
+        delegate?.activityDidStart()
         GoogleMapsService.shared.getNearbyPlaces(coordinate: coordinate, radius: searchRadius, types: searchTypes)
             .then { places in
                 self.delegate?.markPlaces(places)
             }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
-                self.delegate?.hideLoadingSpinner()
+                self.delegate?.activityDidStop()
         }
     }
 }

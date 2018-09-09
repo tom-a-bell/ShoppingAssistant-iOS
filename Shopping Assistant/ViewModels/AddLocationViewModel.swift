@@ -25,14 +25,14 @@ class AddLocationViewModel: MapViewModel {
     }
 
     public func addLocation() {
-        delegate?.showLoadingSpinner()
+        delegate?.activityDidStart()
         LocationsService.shared.addLocation(location)
             .then { _ in
                 self.addLocationDelegate?.didAddLocation()
             }.catch { error in
                 self.delegate?.showErrorMessage(error.localizedDescription)
             }.always {
-                self.delegate?.hideLoadingSpinner()
+                self.delegate?.activityDidStop()
         }
     }
 }
