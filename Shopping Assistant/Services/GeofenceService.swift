@@ -23,36 +23,11 @@ class GeofenceService {
     }
 
     func startMonitoring(_ location: Location, with items: [ShoppingListItem]) {
-        let region = LocationManager.shared.region(for: location)
-        let message = notificationMessage(for: items)
-        let title = notificationTitle(for: location)
-
-        NotificationsManager.shared.addNotication(for: region, with: title, body: message)
+        NotificationsManager.shared.addNotication(for: location, with: items)
     }
 
     func stopMonitoring(_ location: Location) {
         NotificationsManager.shared.removeNotification(with: location.id.stringValue)
-    }
-
-    private func notificationTitle(for location: Location) -> String {
-        return location.name
-    }
-
-    private func notificationMessage(for items: [ShoppingListItem]) -> String {
-        guard let firstItem = items.first else { return "You have items on your shopping list to pick up here." }
-
-        let firstItemName = firstItem.name.sentenceCased()
-        let itemDescription: String
-        switch items.count {
-        case 1:
-            itemDescription = firstItemName
-        case 2:
-            itemDescription = firstItemName + " and 1 other item"
-        default:
-            itemDescription = firstItemName + " and \(items.count - 1) other items"
-        }
-
-        return "\(itemDescription) to pick up here."
     }
 }
 

@@ -116,8 +116,16 @@
 		1774BA002144AB5200D1BF9A /* ActivityIndicatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */; };
 		1774BA022144B33400D1BF9A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA012144B33400D1BF9A /* BaseViewController.swift */; };
 		1774BA042144B88500D1BF9A /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA032144B88500D1BF9A /* ErrorPresentable.swift */; };
+		1781E5BC2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
+		1781E5BD2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
 		17867275210657FA003B906D /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17867274210657FA003B906D /* ShoppingListItem.swift */; };
+		178E6DBF21486E0C006FE914 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7641021472CE700A53861 /* UserNotifications.framework */; };
+		178E6DC021486E0C006FE914 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7641221472CE700A53861 /* UserNotificationsUI.framework */; };
+		178E6DC321486E0C006FE914 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E6DC221486E0C006FE914 /* NotificationViewController.swift */; };
+		178E6DC621486E0C006FE914 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178E6DC421486E0C006FE914 /* MainInterface.storyboard */; };
+		178E6DCA21486E0C006FE914 /* NotificationContent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 178E6DBE21486E0B006FE914 /* NotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		178E6DCF21487B37006FE914 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E6DCE21487B37006FE914 /* Notification.swift */; };
 		179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */; };
 		179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */; };
 		179FCAB52118C2E300C20258 /* AddShoppingListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */; };
@@ -157,6 +165,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		178E6DC821486E0C006FE914 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17B3E03120F920CF002F670D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178E6DBD21486E0B006FE914;
+			remoteInfo = NotificationContent;
+		};
 		17B3E04E20F920D1002F670D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17B3E03120F920CF002F670D /* Project object */;
@@ -220,6 +235,17 @@
 				1701D4D1210143DB00A24025 /* AWSAutoScaling.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17B7642121472CE700A53861 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				178E6DCA21486E0C006FE914 /* NotificationContent.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -300,8 +326,14 @@
 		1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatable.swift; sourceTree = "<group>"; };
 		1774BA012144B33400D1BF9A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1774BA032144B88500D1BF9A /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
+		1781E5BB2149C8B30087D531 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
+		178E6DBE21486E0B006FE914 /* NotificationContent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		178E6DC221486E0C006FE914 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		178E6DC521486E0C006FE914 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		178E6DC721486E0C006FE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178E6DCE21487B37006FE914 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListService.swift; sourceTree = "<group>"; };
 		179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewController.swift; sourceTree = "<group>"; };
 		179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewModel.swift; sourceTree = "<group>"; };
@@ -321,6 +353,8 @@
 		17B3E06A20F924DA002F670D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
 		17B3E06D20F9282F002F670D /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
 		17B3E07020F92A5F002F670D /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
+		17B7641021472CE700A53861 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		17B7641221472CE700A53861 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		17D6E712210149BC0000AFCE /* AmazonClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonClientManager.swift; sourceTree = "<group>"; };
 		17D6E71521014F770000AFCE /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		17D6E71621014FC60000AFCE /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -350,6 +384,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		178E6DBB21486E0B006FE914 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178E6DC021486E0C006FE914 /* UserNotificationsUI.framework in Frameworks */,
+				178E6DBF21486E0C006FE914 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B3E03620F920CF002F670D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,8 +592,20 @@
 				1714D40A2115B9C6006E2D8C /* Location.swift */,
 				1714D4122115D509006E2D8C /* LocationMarker.swift */,
 				17867274210657FA003B906D /* ShoppingListItem.swift */,
+				178E6DCE21487B37006FE914 /* Notification.swift */,
+				1781E5BB2149C8B30087D531 /* NotificationItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		178E6DC121486E0C006FE914 /* NotificationContent */ = {
+			isa = PBXGroup;
+			children = (
+				178E6DC221486E0C006FE914 /* NotificationViewController.swift */,
+				178E6DC421486E0C006FE914 /* MainInterface.storyboard */,
+				178E6DC721486E0C006FE914 /* Info.plist */,
+			);
+			path = NotificationContent;
 			sourceTree = "<group>";
 		};
 		17B3E03020F920CF002F670D = {
@@ -559,6 +614,7 @@
 				17B3E03B20F920CF002F670D /* Shopping Assistant */,
 				17B3E05020F920D1002F670D /* Shopping AssistantTests */,
 				17B3E05B20F920D1002F670D /* Shopping AssistantUITests */,
+				178E6DC121486E0C006FE914 /* NotificationContent */,
 				17B3E06C20F9282F002F670D /* Frameworks */,
 				17B3E03A20F920CF002F670D /* Products */,
 			);
@@ -570,6 +626,7 @@
 				17B3E03920F920CF002F670D /* Shopping Assistant.app */,
 				17B3E04D20F920D1002F670D /* Shopping AssistantTests.xctest */,
 				17B3E05820F920D1002F670D /* Shopping AssistantUITests.xctest */,
+				178E6DBE21486E0B006FE914 /* NotificationContent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -679,6 +736,8 @@
 				171BF57020F96B5600E4378E /* Alamofire.framework */,
 				171BF57220F96C0300E4378E /* Result.framework */,
 				173415BF20F94C2B00080C48 /* Moya.framework */,
+				17B7641021472CE700A53861 /* UserNotifications.framework */,
+				17B7641221472CE700A53861 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -697,6 +756,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		178E6DBD21486E0B006FE914 /* NotificationContent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 178E6DCB21486E0C006FE914 /* Build configuration list for PBXNativeTarget "NotificationContent" */;
+			buildPhases = (
+				178E6DBA21486E0B006FE914 /* Sources */,
+				178E6DBB21486E0B006FE914 /* Frameworks */,
+				178E6DBC21486E0B006FE914 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationContent;
+			productName = NotificationContent;
+			productReference = 178E6DBE21486E0B006FE914 /* NotificationContent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		17B3E03820F920CF002F670D /* Shopping Assistant */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17B3E06120F920D1002F670D /* Build configuration list for PBXNativeTarget "Shopping Assistant" */;
@@ -708,10 +784,12 @@
 				1701D4EA210143DC00A24025 /* Embed Frameworks */,
 				1701D4EB2101448700A24025 /* Remove Unused AWS Frameworks */,
 				1714D41A21179FEA006E2D8C /* Check For Outdated Dependencies */,
+				17B7642121472CE700A53861 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				178E6DC921486E0C006FE914 /* PBXTargetDependency */,
 			);
 			name = "Shopping Assistant";
 			productName = "Shopping Assistant";
@@ -764,6 +842,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Tom Bell";
 				TargetAttributes = {
+					178E6DBD21486E0B006FE914 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 					17B3E03820F920CF002F670D = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -793,11 +874,20 @@
 				17B3E03820F920CF002F670D /* Shopping Assistant */,
 				17B3E04C20F920D1002F670D /* Shopping AssistantTests */,
 				17B3E05720F920D1002F670D /* Shopping AssistantUITests */,
+				178E6DBD21486E0B006FE914 /* NotificationContent */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		178E6DBC21486E0B006FE914 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178E6DC621486E0C006FE914 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B3E03720F920CF002F670D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -888,6 +978,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		178E6DBA21486E0B006FE914 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178E6DC321486E0C006FE914 /* NotificationViewController.swift in Sources */,
+				1781E5BD2149C8B40087D531 /* NotificationItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B3E03520F920CF002F670D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -899,6 +998,7 @@
 				171722EF213F47B40024AA6B /* LocationManager.swift in Sources */,
 				1774BA002144AB5200D1BF9A /* ActivityIndicatable.swift in Sources */,
 				1714D4092115B822006E2D8C /* AddLocationViewModel.swift in Sources */,
+				1781E5BC2149C8B40087D531 /* NotificationItem.swift in Sources */,
 				17417F95210D31B500AF3539 /* MapViewController.swift in Sources */,
 				17D6E718210154830000AFCE /* AWSConfiguration.swift in Sources */,
 				1774B9FE2143BDB500D1BF9A /* String+Extension.swift in Sources */,
@@ -912,6 +1012,7 @@
 				17417FA1210DF48E00AF3539 /* GooglePlacesService.swift in Sources */,
 				179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */,
 				1714D419211723E0006E2D8C /* FindLocationViewModel.swift in Sources */,
+				178E6DCF21487B37006FE914 /* Notification.swift in Sources */,
 				1714D418211723E0006E2D8C /* FindLocationViewController.swift in Sources */,
 				1714D40B2115B9C6006E2D8C /* Location.swift in Sources */,
 				17417F9E210DE51900AF3539 /* GooglePlace.swift in Sources */,
@@ -952,6 +1053,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		178E6DC921486E0C006FE914 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178E6DBD21486E0B006FE914 /* NotificationContent */;
+			targetProxy = 178E6DC821486E0C006FE914 /* PBXContainerItemProxy */;
+		};
 		17B3E04F20F920D1002F670D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 17B3E03820F920CF002F670D /* Shopping Assistant */;
@@ -965,6 +1071,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		178E6DC421486E0C006FE914 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				178E6DC521486E0C006FE914 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		17B3E04020F920CF002F670D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -984,6 +1098,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		178E6DCC21486E0C006FE914 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3XHD9SVKHL;
+				INFOPLIST_FILE = NotificationContent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tombell.ShoppingAssistant.NotificationContent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		178E6DCD21486E0C006FE914 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3XHD9SVKHL;
+				INFOPLIST_FILE = NotificationContent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tombell.ShoppingAssistant.NotificationContent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		17B3E05F20F920D1002F670D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1104,6 +1256,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 17D6E71521014F770000AFCE /* Debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XHD9SVKHL;
@@ -1129,6 +1282,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 17D6E71621014FC60000AFCE /* Release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XHD9SVKHL;
@@ -1235,6 +1389,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		178E6DCB21486E0C006FE914 /* Build configuration list for PBXNativeTarget "NotificationContent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				178E6DCC21486E0C006FE914 /* Debug */,
+				178E6DCD21486E0C006FE914 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		17B3E03420F920CF002F670D /* Build configuration list for PBXProject "Shopping Assistant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

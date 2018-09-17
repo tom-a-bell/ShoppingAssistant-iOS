@@ -20,11 +20,14 @@ class NotificationsManager: NSObject {
         if let authorizationPromise = authorizationPromise { return authorizationPromise }
 
         authorizationPromise = Promise<Bool>.pending()
-        notificationCenter.requestAuthorization(options: [.alert]) { (granted, error) in
+        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if let error = error {
                 self.authorizationPromise?.reject(error)
             } else {
                 self.authorizationPromise?.fulfill(granted)
+            }
+            if granted {
+                self.setNotificationCategories()
             }
         }
 
@@ -39,19 +42,27 @@ class NotificationsManager: NSObject {
             trigger = nil // Deliver the notification immediately.
         }
 
-        let content = notificationContent(for: title, body: body)
-        let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
+        let content = UNMutableNotificationContent()
+        content.categoryIdentifier = NotificationCategory.multipleItems
+        content.title = title
+        content.body = body
 
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        content.userInfo = [
+            "1": ["id": "1", "name": "Test Item 1", "lastUpdated": dateFormatter.date(from: "2018-09-06 10:21:37")!],
+            "2": ["id": "2", "name": "Test Item 2", "lastUpdated": dateFormatter.date(from: "2018-09-01 10:21:37")!],
+            "3": ["id": "3", "name": "Test Item 3", "lastUpdated": dateFormatter.date(from: "2018-08-27 13:18:37")!],
+            "4": ["id": "4", "name": "Test Item 4", "lastUpdated": dateFormatter.date(from: "2018-08-15 10:21:37")!]
+        ]
+
+        let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
         addRequest(request)
     }
 
-    func addNotication(for region: CLRegion, with title: String, body: String) {
-        // Deliver the notification when entering or exiting the region.
-        let trigger = UNLocationNotificationTrigger(region: region, repeats: true)
-
-        let content = notificationContent(for: title, body: body)
-        let request = UNNotificationRequest(identifier: region.identifier, content: content, trigger: trigger)
-
+    func addNotication(for location: Location, with items: [ShoppingListItem]) {
+        let request = Notification.createNotification(for: location, with: items)
         addRequest(request)
     }
 
@@ -59,11 +70,17 @@ class NotificationsManager: NSObject {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 
-    private func notificationContent(for title: String, body: String) -> UNMutableNotificationContent {
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        return content
+    func removeAllNotifications() {
+        notificationCenter.removeAllDeliveredNotifications()
+        notificationCenter.removeAllPendingNotificationRequests()
+    }
+
+    private func setNotificationCategories() {
+        let actions = NotificationAction.allActions()
+        let singleItem = UNNotificationCategory(identifier: NotificationCategory.singleItem, actions: actions, intentIdentifiers: [], options: [])
+        let multipleItems = UNNotificationCategory(identifier: NotificationCategory.multipleItems, actions: actions, intentIdentifiers: [], options: [])
+
+        notificationCenter.setNotificationCategories([singleItem, multipleItems])
     }
 
     private func addRequest(_ request: UNNotificationRequest) {
@@ -71,7 +88,7 @@ class NotificationsManager: NSObject {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                print("Added notification: \(request.content.title)")
+                print("Added notification for: \(request.content.title)")
             }
         }
     }
@@ -85,6 +102,12 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
             print("User opened the app from notification: \(response.notification.request.content.title)")
         case UNNotificationDismissActionIdentifier:
             print("User dismissed the notification: \(response.notification.request.content.title)")
+        case NotificationAction.view.identifier:
+            print("User requested more details for notification: \(response.notification.request.content.title)")
+        case NotificationAction.complete.identifier:
+            print("User completed the item(s) for notification: \(response.notification.request.content.title)")
+        case NotificationAction.postpone.identifier:
+            print("User postponed the notification: \(response.notification.request.content.title)")
         default:
             print("Unknown action (\(response.actionIdentifier)) for notification: \(response.notification.request.content.title)")
         }
