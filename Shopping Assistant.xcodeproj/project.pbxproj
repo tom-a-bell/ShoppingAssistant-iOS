@@ -781,6 +781,7 @@
 			buildConfigurationList = 17B3E06120F920D1002F670D /* Build configuration list for PBXNativeTarget "Shopping Assistant" */;
 			buildPhases = (
 				17B3E03520F920CF002F670D /* Sources */,
+				17B1FFB921A0ADB600063BBC /* Run SwiftLint */,
 				17B3E03620F920CF002F670D /* Frameworks */,
 				17B3E03720F920CF002F670D /* Resources */,
 				17B3E06F20F92875002F670D /* Copy Carthage Frameworks */,
@@ -952,6 +953,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
+		};
+		17B1FFB921A0ADB600063BBC /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"Warning: SwiftLint not installed, run: brew bundle\"\nfi";
 		};
 		17B3E06F20F92875002F670D /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

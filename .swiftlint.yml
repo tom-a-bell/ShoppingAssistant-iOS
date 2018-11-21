@@ -1,0 +1,10 @@
+excluded:
+  - Carthage
+  - Frameworks
+
+# Rule configurations
+line_length: 150
+force_try: warning
+identifier_name:
+  excluded:
+    - id
