@@ -117,6 +117,7 @@
 		1774BA002144AB5200D1BF9A /* ActivityIndicatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */; };
 		1774BA022144B33400D1BF9A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA012144B33400D1BF9A /* BaseViewController.swift */; };
 		1774BA042144B88500D1BF9A /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA032144B88500D1BF9A /* ErrorPresentable.swift */; };
+		177837CB21A602AF00D9ADAE /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837CA21A602AF00D9ADAE /* Dictionary+Extension.swift */; };
 		1781E5BC2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1781E5BD2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
@@ -328,6 +329,7 @@
 		1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatable.swift; sourceTree = "<group>"; };
 		1774BA012144B33400D1BF9A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1774BA032144B88500D1BF9A /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
+		177837CA21A602AF00D9ADAE /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		1781E5BB2149C8B30087D531 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				176D808B214FCC3E003FD696 /* Array+Extension.swift */,
+				177837CA21A602AF00D9ADAE /* Dictionary+Extension.swift */,
 				1774B9FD2143BDB500D1BF9A /* String+Extension.swift */,
 			);
 			path = Extensions;
@@ -1047,6 +1050,7 @@
 				1714D4102115BDD7006E2D8C /* LocationsViewController.swift in Sources */,
 				179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */,
 				17417FA3210DF50700AF3539 /* String+Network.swift in Sources */,
+				177837CB21A602AF00D9ADAE /* Dictionary+Extension.swift in Sources */,
 				17417FAE210E0DA400AF3539 /* UIView+Extension.swift in Sources */,
 				17417FA7210E01BF00AF3539 /* GooglePlacesResponse.swift in Sources */,
 				17867275210657FA003B906D /* ShoppingListItem.swift in Sources */,
