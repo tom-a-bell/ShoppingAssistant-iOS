@@ -24,6 +24,12 @@ class LocationsService {
         }
     }
 
+    public func fetchCachedLocations() -> Promise<[Location]> {
+        print("Fetching cached locations...")
+        let locations = self.dataset.getAll().map { (key, value) in self.createLocation(from: value) }
+        return Promise(locations)
+    }
+
     public func addLocation(_ location: Location) -> Promise<Void> {
         guard let record = createRecord(from: location) else { return Promise.init(ParsingError()) }
         return Promise { fulfill, reject in

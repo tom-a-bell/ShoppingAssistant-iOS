@@ -38,13 +38,13 @@ class GeofenceService {
     }
 
     private func getDetails(for location: Location) -> Promise<Location?> {
-        return LocationsService.shared.fetchLocations().then { locations in
+        return LocationsService.shared.fetchCachedLocations().then { locations in
             locations.first(where: {$0.id == location.id })
         }
     }
 
     private func getActiveItems(for location: Location) -> Promise<[ShoppingListItem]> {
-        return ShoppingListService.shared.fetchItems().then { items in
+        return ShoppingListService.shared.fetchCachedItems().then { items in
             items.filter { $0.locationId == location.id && !$0.isCompleted }
         }
     }

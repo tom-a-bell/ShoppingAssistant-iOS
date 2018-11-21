@@ -24,6 +24,12 @@ class ShoppingListService {
         }
     }
 
+    public func fetchCachedItems() -> Promise<[ShoppingListItem]> {
+        print("Fetching cached shopping list items...")
+        let items = self.dataset.getAll().map { (key, value) in self.createItem(from: value) }
+        return Promise(items)
+    }
+
     public func addItem(_ item: ShoppingListItem) -> Promise<Void> {
         guard let record = createRecord(from: item) else { return Promise.init(ParsingError()) }
         return Promise { fulfill, reject in
