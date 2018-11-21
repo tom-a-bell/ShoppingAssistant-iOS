@@ -1,4 +1,5 @@
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,8 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GoogleMapsService.shared.initialize()
         LocationManager.shared.initialize()
 
+        LocationManager.shared.requestAuthorization()
+            .then(handleLocationAuthorizationResponse)
+            .catch(handleError)
+
         NotificationsManager.shared.requestAuthorization()
-            .then(handleAuthorizationResponse)
+            .then(handleNotificationAuthorizationResponse)
             .catch(handleError)
 
         return true
@@ -44,10 +49,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
-    func handleAuthorizationResponse(authorizationIsGranted: Bool) {
+    func handleLocationAuthorizationResponse(authorizationStatus: CLAuthorizationStatus) {
+        if authorizationStatus == .authorizedAlways { return }
+
+        let message = "To enable background location tracking in the future, visit:\nSettings > Shopping List > Location"
+        let warningAlert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default)
+
+        warningAlert.addAction(dismissAction)
+
+        window?.rootViewController?.present(warningAlert, animated: true, completion: nil)
+    }
+
+    func handleNotificationAuthorizationResponse(authorizationIsGranted: Bool) {
         if authorizationIsGranted { return }
 
-        let message = "To enable notifications later, visit Settings > Shopping List > Notifications"
+        let message = "To enable notifications in the future, visit:\nSettings > Shopping List > Notifications"
         let warningAlert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .default)
 

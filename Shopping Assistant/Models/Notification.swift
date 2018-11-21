@@ -3,10 +3,19 @@ import UserNotifications
 
 struct Notification {
 
-    static func createNotification(for location: Location, with items: [ShoppingListItem]) -> UNNotificationRequest {
+    static func createLocalNotification(for location: Location, with items: [ShoppingListItem]) -> UNNotificationRequest {
+        return notificationRequest(for: location, with: items, trigger: nil) // Deliver the notification immediately.
+    }
+
+    static func createRegionNotification(for location: Location, with items: [ShoppingListItem]) -> UNNotificationRequest {
+        let trigger = notificationTrigger(for: location)
+        return notificationRequest(for: location, with: items, trigger: trigger)
+    }
+
+    private static func notificationRequest(for location: Location, with items: [ShoppingListItem],
+                                            trigger: UNNotificationTrigger?) -> UNNotificationRequest {
         let identifier = notificationIdentifier(for: location)
         let content = notificationContent(for: location, with: items)
-        let trigger = notificationTrigger(for: location)
 
         return UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
     }

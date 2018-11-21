@@ -6,39 +6,55 @@ class GeofenceService {
     static let shared = GeofenceService()
 
     func updateLocationMonitoring(for items:[ShoppingListItem]) -> Promise<Void> {
-        let itemsWithLocations = items.filter { $0.hasLocation && !$0.isCompleted }
-        let locationsWithItems = Dictionary(grouping: itemsWithLocations, by: { $0.location! })
+        let locationsWithItems = items.compactMap { $0.location }.removingDuplicates()
         let updateMonitoringForLocations = { locations in self.updateMonitoring(for: locations, locationsToMonitor: locationsWithItems) }
         return LocationsService.shared.fetchLocations().then(updateMonitoringForLocations)
     }
 
-    private func updateMonitoring(for locations: [Location], locationsToMonitor: [Location : [ShoppingListItem]]) {
+    private func updateMonitoring(for locations: [Location], locationsToMonitor: [Location]) {
         locations.forEach { location in
-            if let items = locationsToMonitor[location] {
-                self.startMonitoring(location, with: items)
+            if locationsToMonitor.contains(location) {
+                LocationManager.shared.startMonitoring(location)
             } else {
-                self.stopMonitoring(location)
+                LocationManager.shared.stopMonitoring(location)
             }
         }
     }
 
-    func startMonitoring(_ location: Location, with items: [ShoppingListItem]) {
-        NotificationsManager.shared.addNotication(for: location, with: items)
+    func didEnter(_ location: Location) {
+        print("Entering location with ID: \(location.id)")
+        getDetailsAndItems(for: location)
+            .then(displayNotification)
+            .catch(handleError)
     }
 
-    func stopMonitoring(_ location: Location) {
-        NotificationsManager.shared.removeNotification(with: location.id.stringValue)
+    func didExit(_ location: Location) {
+        print("Exiting location with ID: \(location.id)")
+        NotificationsManager.shared.removeNotification(for: location)
     }
-}
 
-extension Location: Hashable {
-    var hashValue: Int {
-        return id.hashValue
+    private func getDetailsAndItems(for location: Location) -> Promise<(Location?, [ShoppingListItem])> {
+        return Promises.all(getDetails(for: location), getActiveItems(for: location))
     }
-}
 
-extension Location: Equatable {
-    static func == (lhs: Location, rhs: Location) -> Bool {
-        return lhs.id == rhs.id
+    private func getDetails(for location: Location) -> Promise<Location?> {
+        return LocationsService.shared.fetchLocations().then { locations in
+            locations.first(where: {$0.id == location.id })
+        }
+    }
+
+    private func getActiveItems(for location: Location) -> Promise<[ShoppingListItem]> {
+        return ShoppingListService.shared.fetchItems().then { items in
+            items.filter { $0.locationId == location.id && !$0.isCompleted }
+        }
+    }
+
+    private func displayNotification(for location: Location?, with items: [ShoppingListItem]) {
+        guard !items.isEmpty, let location = location else { return }
+        NotificationsManager.shared.showNotification(for: location, with: items)
+    }
+
+    private func handleError(_ error: Error) {
+        print(error.localizedDescription)
     }
 }

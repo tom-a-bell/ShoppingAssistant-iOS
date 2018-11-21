@@ -111,6 +111,7 @@
 		17417FAA210E08C800AF3539 /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417FA9210E08C800AF3539 /* MarkerInfoView.swift */; };
 		17417FAC210E08E300AF3539 /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17417FAB210E08E300AF3539 /* MarkerInfoView.xib */; };
 		17417FAE210E0DA400AF3539 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417FAD210E0DA400AF3539 /* UIView+Extension.swift */; };
+		176D808C214FCC3E003FD696 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D808B214FCC3E003FD696 /* Array+Extension.swift */; };
 		1774B9F7214325E400D1BF9A /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9F6214325E400D1BF9A /* NotificationsManager.swift */; };
 		1774B9FE2143BDB500D1BF9A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9FD2143BDB500D1BF9A /* String+Extension.swift */; };
 		1774BA002144AB5200D1BF9A /* ActivityIndicatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */; };
@@ -317,6 +318,7 @@
 		17417FA9210E08C800AF3539 /* MarkerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
 		17417FAB210E08E300AF3539 /* MarkerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
 		17417FAD210E0DA400AF3539 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		176D808B214FCC3E003FD696 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		1774B9F6214325E400D1BF9A /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		1774B9F92143373600D1BF9A /* Waitrose.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Waitrose.gpx; path = "Shopping AssistantUITests/Waitrose.gpx"; sourceTree = SOURCE_ROOT; };
 		1774B9FA21433DB600D1BF9A /* Sainsburys.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Sainsburys.gpx; path = "Shopping AssistantUITests/Sainsburys.gpx"; sourceTree = SOURCE_ROOT; };
@@ -484,6 +486,7 @@
 		171722ED213F47620024AA6B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				176D808B214FCC3E003FD696 /* Array+Extension.swift */,
 				1774B9FD2143BDB500D1BF9A /* String+Extension.swift */,
 			);
 			path = Extensions;
@@ -1026,6 +1029,7 @@
 				1774B9F7214325E400D1BF9A /* NotificationsManager.swift in Sources */,
 				1714D4132115D509006E2D8C /* LocationMarker.swift in Sources */,
 				1714D4112115BDD7006E2D8C /* LocationsViewModel.swift in Sources */,
+				176D808C214FCC3E003FD696 /* Array+Extension.swift in Sources */,
 				17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */,
 				179FCAB52118C2E300C20258 /* AddShoppingListItemViewModel.swift in Sources */,
 				1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */,

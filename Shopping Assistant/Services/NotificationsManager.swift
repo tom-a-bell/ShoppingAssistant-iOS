@@ -43,30 +43,22 @@ class NotificationsManager: NSObject {
         }
 
         let content = UNMutableNotificationContent()
-        content.categoryIdentifier = NotificationCategory.multipleItems
+        content.categoryIdentifier = NotificationCategory.singleItem
         content.title = title
         content.body = body
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-
-        content.userInfo = [
-            "1": ["id": "1", "name": "Test Item 1", "lastUpdated": dateFormatter.date(from: "2018-09-06 10:21:37")!],
-            "2": ["id": "2", "name": "Test Item 2", "lastUpdated": dateFormatter.date(from: "2018-09-01 10:21:37")!],
-            "3": ["id": "3", "name": "Test Item 3", "lastUpdated": dateFormatter.date(from: "2018-08-27 13:18:37")!],
-            "4": ["id": "4", "name": "Test Item 4", "lastUpdated": dateFormatter.date(from: "2018-08-15 10:21:37")!]
-        ]
 
         let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
         addRequest(request)
     }
 
-    func addNotication(for location: Location, with items: [ShoppingListItem]) {
-        let request = Notification.createNotification(for: location, with: items)
+    func showNotification(for location: Location, with items: [ShoppingListItem]) {
+        let request = Notification.createLocalNotification(for: location, with: items)
         addRequest(request)
     }
 
-    func removeNotification(with identifier: String) {
+    func removeNotification(for location: Location) {
+        let identifier = location.id.stringValue
+        notificationCenter.removeDeliveredNotifications(withIdentifiers: [identifier])
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 

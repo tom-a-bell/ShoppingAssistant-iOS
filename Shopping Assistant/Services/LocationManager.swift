@@ -45,6 +45,21 @@ class LocationManager: NSObject {
 
         return locationPromise!
     }
+
+    func startMonitoring(_ location: Location) {
+        let region = self.region(for: location)
+        locationManager.startMonitoring(for: region)
+    }
+
+    func stopMonitoring(_ location: Location) {
+        if let region = monitoredRegion(for: location) {
+            locationManager.stopMonitoring(for: region)
+        }
+    }
+
+    private func monitoredRegion(for location: Location) -> CLRegion? {
+        return locationManager.monitoredRegions.first(where: { $0.identifier == location.id.stringValue })
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -69,6 +84,18 @@ extension LocationManager: CLLocationManagerDelegate {
         }
 
         locationManager.stopUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if let location = location(for: region) {
+            GeofenceService.shared.didEnter(location)
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if let location = location(for: region) {
+            GeofenceService.shared.didExit(location)
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
