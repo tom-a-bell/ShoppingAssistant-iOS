@@ -98,6 +98,7 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
             print("User requested more details for notification: \(response.notification.request.content.title)")
         case NotificationAction.complete.identifier:
             print("User completed the item(s) for notification: \(response.notification.request.content.title)")
+            markAllItemsCompleted(for: response.notification)
         case NotificationAction.postpone.identifier:
             print("User postponed the notification: \(response.notification.request.content.title)")
         default:
@@ -105,6 +106,17 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
         }
 
         completionHandler()
+    }
+
+    private func markAllItemsCompleted(for notification: UNNotification) {
+        let itemIds = getItemIds(from: notification)
+        ShoppingListService.shared.markItemsCompleted(with: itemIds)
+    }
+
+    private func getItemIds(from notification: UNNotification) -> [UUID] {
+        return notification.request.content.userInfo.values
+            .compactMap { NotificationItem(from: $0) }
+            .compactMap { UUID(uuidString: $0.id) }
     }
 
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,

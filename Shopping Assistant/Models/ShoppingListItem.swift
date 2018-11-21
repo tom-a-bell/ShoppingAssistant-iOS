@@ -69,8 +69,14 @@ extension ShoppingListItem {
         return status == .completed
     }
 
+    mutating func markCompleted() {
+        status = .completed
+        updatedTime = Date()
+    }
+
     mutating func toggleStatus() {
         status = status == .active ? .completed : .active
+        updatedTime = Date()
     }
 }
 

@@ -30,6 +30,12 @@ class ShoppingListService {
         return Promise(items)
     }
 
+    public func findItems(with ids: [UUID]) -> Promise<[ShoppingListItem]> {
+        return fetchItems().then { items in
+            return items.filter { ids.contains($0.id) }
+        }
+    }
+
     public func addItem(_ item: ShoppingListItem) -> Promise<Void> {
         guard let record = createRecord(from: item) else { return Promise.init(ParsingError()) }
         return Promise { fulfill, reject in
@@ -86,6 +92,24 @@ class ShoppingListService {
         }
     }
 
+    public func saveItems(_ items: [ShoppingListItem]) -> Promise<Void> {
+        let records = createRecords(from: items)
+        return Promise { fulfill, reject in
+            records.forEach { (key, record) in
+                self.dataset.setString(record, forKey: key)
+            }
+
+            self.dataset.synchronize().continueWith { task in
+                if let error = task.error {
+                    reject(error)
+                } else {
+                    fulfill(())
+                }
+                return nil
+            }
+        }
+    }
+
     private func createItem(from json: String) -> ShoppingListItem {
         return try! ShoppingListItem.decoder.decode(ShoppingListItem.self, from: json.data(using: .utf8)!)
     }
@@ -102,6 +126,19 @@ class ShoppingListService {
     private func createRecord(from item: ShoppingListItem) -> String? {
         let json = try! ShoppingListItem.encoder.encode(item)
         return String(data: json, encoding: .utf8)
+    }
+
+    public func markItemsCompleted(with ids: [UUID]) {
+        findItems(with: ids).then(markItemsCompleted).then(saveItems)
+    }
+
+    private func markItemsCompleted(_ items: [ShoppingListItem]) -> Promise<[ShoppingListItem]> {
+        let completedItems = items.map { (item: ShoppingListItem) -> ShoppingListItem in
+            var completedItem = item
+            completedItem.markCompleted()
+            return completedItem
+        }
+        return Promise(completedItems)
     }
 }
 
