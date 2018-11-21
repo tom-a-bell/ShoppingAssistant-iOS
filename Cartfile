@@ -1,4 +1,4 @@
 github "aws/aws-sdk-ios" ~> 2.6.0
-github "google/promises" ~> 1.2.0
-github "leoneparise/GoogleMaps-Carthage" "master"
+github "alexanderkhitev/promises" "master"
+github "leoneparise/GoogleMaps-Carthage" ~> 2.7.0
 github "Moya/Moya" ~> 11.0.0
