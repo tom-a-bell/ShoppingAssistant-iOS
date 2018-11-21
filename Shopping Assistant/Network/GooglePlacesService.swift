@@ -27,7 +27,7 @@ extension GooglePlacesService: TargetType {
     var task: Task {
         switch self {
         case let .getNearbyPlaces(coordinate, radius, types, apiKey):
-            let parameters: [String : Any] = [
+            let parameters: [String: Any] = [
                 "location": "\(coordinate.latitude),\(coordinate.longitude)",
                 "types": types.joined(separator: "|"),
                 "rankby": "prominence",

@@ -76,7 +76,7 @@ class ShoppingListViewModel {
         return Promise(sortedItems)
     }
 
-    private func fetchLocationsById() -> Promise<[UUID:Location]> {
+    private func fetchLocationsById() -> Promise<[UUID: Location]> {
         return LocationsService.shared.fetchLocations().then { locations in
             locations.reduce(into: [:]) { result, location in
                 result[location.id] = location

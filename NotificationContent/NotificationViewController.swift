@@ -8,7 +8,7 @@ class NotificationViewController: UIViewController {
     @IBOutlet weak var tableSeparator: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
-    
+
     private var items: [NotificationItem] = []
 
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class NotificationViewController: UIViewController {
     }
 }
 
-extension NotificationViewController:UNNotificationContentExtension {
+extension NotificationViewController: UNNotificationContentExtension {
     func didReceive(_ notification: UNNotification) {
         locationLabel.text = notification.request.content.title
 

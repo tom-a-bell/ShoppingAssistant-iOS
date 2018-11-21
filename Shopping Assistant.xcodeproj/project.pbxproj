@@ -135,8 +135,8 @@
 		17B3E04220F920CF002F670D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04020F920CF002F670D /* Main.storyboard */; };
 		17B3E04420F920D1002F670D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04320F920D1002F670D /* Assets.xcassets */; };
 		17B3E04720F920D1002F670D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04520F920D1002F670D /* LaunchScreen.storyboard */; };
-		17B3E05220F920D1002F670D /* Shopping_AssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E05120F920D1002F670D /* Shopping_AssistantTests.swift */; };
-		17B3E05D20F920D1002F670D /* Shopping_AssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E05C20F920D1002F670D /* Shopping_AssistantUITests.swift */; };
+		17B3E05220F920D1002F670D /* ShoppingAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E05120F920D1002F670D /* ShoppingAssistantTests.swift */; };
+		17B3E05D20F920D1002F670D /* ShoppingAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E05C20F920D1002F670D /* ShoppingAssistantUITests.swift */; };
 		17B3E06B20F924DA002F670D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E06A20F924DA002F670D /* Cartfile */; };
 		17B3E06E20F9282F002F670D /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B3E06D20F9282F002F670D /* Promises.framework */; };
 		17B3E07120F92A5F002F670D /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B3E07020F92A5F002F670D /* FBLPromises.framework */; };
@@ -347,10 +347,10 @@
 		17B3E04620F920D1002F670D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17B3E04820F920D1002F670D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17B3E04D20F920D1002F670D /* Shopping AssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopping AssistantTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17B3E05120F920D1002F670D /* Shopping_AssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping_AssistantTests.swift; sourceTree = "<group>"; };
+		17B3E05120F920D1002F670D /* ShoppingAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingAssistantTests.swift; sourceTree = "<group>"; };
 		17B3E05320F920D1002F670D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17B3E05820F920D1002F670D /* Shopping AssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopping AssistantUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17B3E05C20F920D1002F670D /* Shopping_AssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping_AssistantUITests.swift; sourceTree = "<group>"; };
+		17B3E05C20F920D1002F670D /* ShoppingAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingAssistantUITests.swift; sourceTree = "<group>"; };
 		17B3E05E20F920D1002F670D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17B3E06A20F924DA002F670D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
 		17B3E06D20F9282F002F670D /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
@@ -657,7 +657,7 @@
 		17B3E05020F920D1002F670D /* Shopping AssistantTests */ = {
 			isa = PBXGroup;
 			children = (
-				17B3E05120F920D1002F670D /* Shopping_AssistantTests.swift */,
+				17B3E05120F920D1002F670D /* ShoppingAssistantTests.swift */,
 				17B3E05320F920D1002F670D /* Info.plist */,
 			);
 			path = "Shopping AssistantTests";
@@ -666,7 +666,7 @@
 		17B3E05B20F920D1002F670D /* Shopping AssistantUITests */ = {
 			isa = PBXGroup;
 			children = (
-				17B3E05C20F920D1002F670D /* Shopping_AssistantUITests.swift */,
+				17B3E05C20F920D1002F670D /* ShoppingAssistantUITests.swift */,
 				17B3E05E20F920D1002F670D /* Info.plist */,
 			);
 			path = "Shopping AssistantUITests";
@@ -1066,7 +1066,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17B3E05220F920D1002F670D /* Shopping_AssistantTests.swift in Sources */,
+				17B3E05220F920D1002F670D /* ShoppingAssistantTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1074,7 +1074,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17B3E05D20F920D1002F670D /* Shopping_AssistantUITests.swift in Sources */,
+				17B3E05D20F920D1002F670D /* ShoppingAssistantUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,7 +40,7 @@ class LocationManager: NSObject {
 
     func getCurrentLocation() -> Promise<CLLocation> {
         if let locationPromise = locationPromise { return locationPromise }
-        
+
         locationPromise = Promise<CLLocation>.pending()
         locationManager.requestWhenInUseAuthorization()
 

@@ -24,8 +24,7 @@ class GoogleMapsService {
                         let successResponse = try response.filterSuccessfulStatusCodes()
                         let placesResponse = try self.convertToPlacesResponse(successResponse)
                         fulfill(placesResponse.results)
-                    }
-                    catch {
+                    } catch {
                         let responseError = self.createResponseError(response)
                         reject(responseError)
                     }
@@ -46,6 +45,7 @@ class GoogleMapsService {
         return ResponseError(statusCode: response.statusCode, message: errorMessage)
     }
 
+    // swiftlint:disable identifier_name
     private struct ErrorResponse: Decodable {
         let Message: String?
         let message: String?

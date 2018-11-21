@@ -70,9 +70,9 @@ class NotificationsManager: NSObject {
     private func setNotificationCategories() {
         let actions = NotificationAction.allActions()
         let singleItem = UNNotificationCategory(identifier: NotificationCategory.singleItem, actions: actions, intentIdentifiers: [], options: [])
-        let multipleItems = UNNotificationCategory(identifier: NotificationCategory.multipleItems, actions: actions, intentIdentifiers: [], options: [])
+        let multiItems = UNNotificationCategory(identifier: NotificationCategory.multipleItems, actions: actions, intentIdentifiers: [], options: [])
 
-        notificationCenter.setNotificationCategories([singleItem, multipleItems])
+        notificationCenter.setNotificationCategories([singleItem, multiItems])
     }
 
     private func addRequest(_ request: UNNotificationRequest) {

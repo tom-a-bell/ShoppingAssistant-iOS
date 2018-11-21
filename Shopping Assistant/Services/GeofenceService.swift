@@ -5,7 +5,7 @@ class GeofenceService {
 
     static let shared = GeofenceService()
 
-    func updateLocationMonitoring(for items:[ShoppingListItem]) -> Promise<Void> {
+    func updateLocationMonitoring(for items: [ShoppingListItem]) -> Promise<Void> {
         let locationsWithItems = items.compactMap { $0.location }.removingDuplicates()
         let updateMonitoringForLocations = { locations in self.updateMonitoring(for: locations, locationsToMonitor: locationsWithItems) }
         return LocationsService.shared.fetchLocations().then(updateMonitoringForLocations)

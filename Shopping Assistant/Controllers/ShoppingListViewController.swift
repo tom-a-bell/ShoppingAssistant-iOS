@@ -114,8 +114,7 @@ extension ShoppingListViewController: UITableViewDelegate {
     private func contextualToggleDoneAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
         var item = viewModel.items[indexPath.row]
         let title = item.isCompleted ? "Undo" : "Done"
-        let action = UIContextualAction(style: .normal, title: title)
-        { (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+        let action = UIContextualAction(style: .normal, title: title) { (_: UIContextualAction, _: UIView, completionHandler: (Bool) -> Void) in
             item.toggleStatus()
             self.viewModel.items[indexPath.row] = item
             self.tableView.reloadRows(at: [indexPath], with: .none)
@@ -128,8 +127,7 @@ extension ShoppingListViewController: UITableViewDelegate {
     }
 
     private func contextualDeleteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
-        return UIContextualAction(style: .destructive, title: "Delete")
-        { (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+        return UIContextualAction(style: .destructive, title: "Delete") { (_: UIContextualAction, _: UIView, completionHandler: (Bool) -> Void) in
             self.viewModel.items.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .left)
             completionHandler(true)

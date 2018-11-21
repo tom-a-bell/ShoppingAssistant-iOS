@@ -3,6 +3,7 @@ import AWSCore
 import AWSCognito
 import Promises
 
+// swiftlint:disable unused_closure_parameter
 class ShoppingListService {
 
     static let shared = ShoppingListService()
@@ -114,7 +115,7 @@ class ShoppingListService {
         return try! ShoppingListItem.decoder.decode(ShoppingListItem.self, from: json.data(using: .utf8)!)
     }
 
-    private func createRecords(from items: [ShoppingListItem]) -> [String : String] {
+    private func createRecords(from items: [ShoppingListItem]) -> [String: String] {
         return items.reduce(into: [:]) { result, item in
             let key = item.id.stringValue
             if let record = self.createRecord(from: item) {

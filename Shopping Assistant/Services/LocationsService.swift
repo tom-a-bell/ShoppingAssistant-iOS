@@ -3,6 +3,7 @@ import AWSCore
 import AWSCognito
 import Promises
 
+// swiftlint:disable unused_closure_parameter
 class LocationsService {
 
     static let shared = LocationsService()
