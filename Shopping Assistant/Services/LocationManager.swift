@@ -25,7 +25,7 @@ class LocationManager: NSObject {
     }
 
     func initialize() {
-        print("Location manager initialized")
+        Log.info("Location manager initialized")
         locationManager.allowsBackgroundLocationUpdates = true
     }
 
@@ -100,11 +100,11 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        print("Monitoring failed for region \(region?.identifier ?? "unknown"): \(error)")
+        Log.error("Monitoring failed for region \(region?.identifier ?? "unknown"):", error: error)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location Manager failed: \(error)")
+        Log.error("Location Manager failed:", error: error)
     }
 }
 

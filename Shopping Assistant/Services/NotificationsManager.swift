@@ -78,9 +78,9 @@ class NotificationsManager: NSObject {
     private func addRequest(_ request: UNNotificationRequest) {
         notificationCenter.add(request) { error in
             if let error = error {
-                print(error.localizedDescription)
+                Log.error("Error adding notification:", error: error)
             } else {
-                print("Added notification for: \(request.content.title)")
+                Log.info("Added notification for: \(request.content.title)")
             }
         }
     }
@@ -91,18 +91,18 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
                                        withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:
-            print("User opened the app from notification: \(response.notification.request.content.title)")
+            Log.info("User opened the app from notification: \(response.notification.request.content.title)")
         case UNNotificationDismissActionIdentifier:
-            print("User dismissed the notification: \(response.notification.request.content.title)")
+            Log.info("User dismissed the notification: \(response.notification.request.content.title)")
         case NotificationAction.view.identifier:
-            print("User requested more details for notification: \(response.notification.request.content.title)")
+            Log.info("User requested more details for notification: \(response.notification.request.content.title)")
         case NotificationAction.complete.identifier:
-            print("User completed the item(s) for notification: \(response.notification.request.content.title)")
+            Log.info("User completed the item(s) for notification: \(response.notification.request.content.title)")
             markAllItemsCompleted(for: response.notification)
         case NotificationAction.postpone.identifier:
-            print("User postponed the notification: \(response.notification.request.content.title)")
+            Log.info("User postponed the notification: \(response.notification.request.content.title)")
         default:
-            print("Unknown action (\(response.actionIdentifier)) for notification: \(response.notification.request.content.title)")
+            Log.error("Unknown action (\(response.actionIdentifier)) for notification: \(response.notification.request.content.title)")
         }
 
         completionHandler()

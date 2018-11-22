@@ -118,6 +118,12 @@
 		1774BA022144B33400D1BF9A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA012144B33400D1BF9A /* BaseViewController.swift */; };
 		1774BA042144B88500D1BF9A /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1774BA032144B88500D1BF9A /* ErrorPresentable.swift */; };
 		177837CB21A602AF00D9ADAE /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837CA21A602AF00D9ADAE /* Dictionary+Extension.swift */; };
+		177837CD21A623F300D9ADAE /* LoggingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837CC21A623F300D9ADAE /* LoggingConfiguration.swift */; };
+		177837CF21A625CA00D9ADAE /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837CE21A625CA00D9ADAE /* Log.swift */; };
+		177837D121A6CD8E00D9ADAE /* JustLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177837D021A6CD8E00D9ADAE /* JustLog.framework */; };
+		177837D321A6D2CA00D9ADAE /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177837D221A6D2CA00D9ADAE /* CocoaAsyncSocket.framework */; };
+		177837D521A6D5D700D9ADAE /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177837D421A6D5D700D9ADAE /* SwiftyBeaver.framework */; };
+		177837D721A75A3300D9ADAE /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837D621A75A3300D9ADAE /* Bundle+Extension.swift */; };
 		1781E5BC2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1781E5BD2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
@@ -330,6 +336,12 @@
 		1774BA012144B33400D1BF9A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1774BA032144B88500D1BF9A /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
 		177837CA21A602AF00D9ADAE /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		177837CC21A623F300D9ADAE /* LoggingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingConfiguration.swift; sourceTree = "<group>"; };
+		177837CE21A625CA00D9ADAE /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		177837D021A6CD8E00D9ADAE /* JustLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JustLog.framework; path = Carthage/Build/iOS/JustLog.framework; sourceTree = "<group>"; };
+		177837D221A6D2CA00D9ADAE /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		177837D421A6D5D700D9ADAE /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		177837D621A75A3300D9ADAE /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		1781E5BB2149C8B30087D531 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
@@ -465,6 +477,9 @@
 				171BF57120F96B5700E4378E /* Alamofire.framework in Frameworks */,
 				171BF57320F96C0300E4378E /* Result.framework in Frameworks */,
 				173415C020F94C2B00080C48 /* Moya.framework in Frameworks */,
+				177837D321A6D2CA00D9ADAE /* CocoaAsyncSocket.framework in Frameworks */,
+				177837D521A6D5D700D9ADAE /* SwiftyBeaver.framework in Frameworks */,
+				177837D121A6CD8E00D9ADAE /* JustLog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				176D808B214FCC3E003FD696 /* Array+Extension.swift */,
+				177837D621A75A3300D9ADAE /* Bundle+Extension.swift */,
 				177837CA21A602AF00D9ADAE /* Dictionary+Extension.swift */,
 				1774B9FD2143BDB500D1BF9A /* String+Extension.swift */,
 			);
@@ -550,6 +566,7 @@
 				1714D41421170541006E2D8C /* LocationsService.swift */,
 				1774B9F6214325E400D1BF9A /* NotificationsManager.swift */,
 				179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */,
+				177837CE21A625CA00D9ADAE /* Log.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -742,6 +759,9 @@
 				171BF57020F96B5600E4378E /* Alamofire.framework */,
 				171BF57220F96C0300E4378E /* Result.framework */,
 				173415BF20F94C2B00080C48 /* Moya.framework */,
+				177837D221A6D2CA00D9ADAE /* CocoaAsyncSocket.framework */,
+				177837D421A6D5D700D9ADAE /* SwiftyBeaver.framework */,
+				177837D021A6CD8E00D9ADAE /* JustLog.framework */,
 				17B7641021472CE700A53861 /* UserNotifications.framework */,
 				17B7641221472CE700A53861 /* UserNotificationsUI.framework */,
 			);
@@ -755,6 +775,7 @@
 				17D6E71621014FC60000AFCE /* Release.xcconfig */,
 				17D6E717210154830000AFCE /* AWSConfiguration.swift */,
 				17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */,
+				177837CC21A623F300D9ADAE /* LoggingConfiguration.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -989,6 +1010,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaAsyncSocket.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/JustLog.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -1000,6 +1024,9 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Moya.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CocoaAsyncSocket.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyBeaver.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/JustLog.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1022,6 +1049,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B3E03F20F920CF002F670D /* HomeViewController.swift in Sources */,
+				177837D721A75A3300D9ADAE /* Bundle+Extension.swift in Sources */,
+				177837CD21A623F300D9ADAE /* LoggingConfiguration.swift in Sources */,
 				17417F90210D2D3F00AF3539 /* GoogleConfiguration.swift in Sources */,
 				17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */,
 				17417F99210DDEC300AF3539 /* PlaceMarker.swift in Sources */,
@@ -1043,6 +1072,7 @@
 				179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */,
 				1714D419211723E0006E2D8C /* FindLocationViewModel.swift in Sources */,
 				178E6DCF21487B37006FE914 /* Notification.swift in Sources */,
+				177837CF21A625CA00D9ADAE /* Log.swift in Sources */,
 				1714D418211723E0006E2D8C /* FindLocationViewController.swift in Sources */,
 				1714D40B2115B9C6006E2D8C /* Location.swift in Sources */,
 				17417F9E210DE51900AF3539 /* GooglePlace.swift in Sources */,

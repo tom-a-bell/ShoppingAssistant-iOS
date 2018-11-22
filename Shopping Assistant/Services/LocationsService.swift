@@ -11,7 +11,7 @@ class LocationsService {
     private let dataset = AWSCognito.default().openOrCreateDataset("Locations")
 
     public func fetchLocations() -> Promise<[Location]> {
-        print("Fetching saved locations...")
+        Log.info("Fetching saved locations...")
         return Promise<[Location]> { fulfill, reject in
             self.dataset.synchronize().continueWith { task in
                 if let error = task.error {
@@ -26,7 +26,7 @@ class LocationsService {
     }
 
     public func fetchCachedLocations() -> Promise<[Location]> {
-        print("Fetching cached locations...")
+        Log.info("Fetching cached locations...")
         let locations = self.dataset.getAll().map { (key, value) in self.createLocation(from: value) }
         return Promise(locations)
     }

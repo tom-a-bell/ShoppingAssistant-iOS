@@ -65,12 +65,12 @@ class AmazonClientManager: NSObject {
     }
 
     private func loginWithAmazon() {
-        print("Logging in with Amazon...")
+        Log.info("Logging in with Amazon...")
         AIMobileLib.authorizeUser(forScopes: ["profile"], delegate: self)
     }
 
     private func logoutFromAmazon() {
-        print("Logging out from Amazon...")
+        Log.info("Logging out from Amazon...")
         AIMobileLib.clearAuthorizationState(self)
     }
 
@@ -103,7 +103,7 @@ class AmazonClientManager: NSObject {
     }
 
     private func initializeClient(withToken token: Any) -> AWSCognitoCredentialsProvider {
-        print("Initializing client...")
+        Log.info("Initializing client...")
 
         AWSDDLog.sharedInstance.logLevel = .verbose
 
@@ -137,7 +137,7 @@ extension AmazonClientManager: AIAuthenticationDelegate {
     }
 
     func requestDidFail(_ errorResponse: APIError!) {
-        print("Error logging in with Amazon:", errorResponse.error.message)
+        Log.error("Error logging in with Amazon: \(errorResponse.error.message ?? "no message")")
         let error = AmazonApiResponseError(errorResponse)
 
         if loginInProgress, let loginPromise = loginPromise {

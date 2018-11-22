@@ -22,14 +22,14 @@ class GeofenceService {
     }
 
     func didEnter(_ location: Location) {
-        print("Entering location with ID: \(location.id)")
+        Log.info("Entering location with ID: \(location.id)")
         getDetailsAndItems(for: location)
             .then(displayNotification)
             .catch(handleError)
     }
 
     func didExit(_ location: Location) {
-        print("Exiting location with ID: \(location.id)")
+        Log.info("Exiting location with ID: \(location.id)")
         NotificationsManager.shared.removeNotification(for: location)
     }
 
@@ -54,7 +54,7 @@ class GeofenceService {
         NotificationsManager.shared.showNotification(for: location, with: items)
     }
 
-    private func handleError(_ error: Error) {
-        print(error.localizedDescription)
+    private func handleError(error: Error) {
+        Log.error("Error fetching notification content:", error: error)
     }
 }

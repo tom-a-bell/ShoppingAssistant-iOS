@@ -11,7 +11,7 @@ class ShoppingListService {
     private let dataset = AWSCognito.default().openOrCreateDataset("ShoppingList")
 
     public func fetchItems() -> Promise<[ShoppingListItem]> {
-        print("Fetching shopping list items...")
+        Log.info("Fetching shopping list items...")
         return Promise<[ShoppingListItem]> { fulfill, reject in
             self.dataset.synchronize().continueWith { task in
                 if let error = task.error {
@@ -26,7 +26,7 @@ class ShoppingListService {
     }
 
     public func fetchCachedItems() -> Promise<[ShoppingListItem]> {
-        print("Fetching cached shopping list items...")
+        Log.info("Fetching cached shopping list items...")
         let items = self.dataset.getAll().map { (key, value) in self.createItem(from: value) }
         return Promise(items)
     }

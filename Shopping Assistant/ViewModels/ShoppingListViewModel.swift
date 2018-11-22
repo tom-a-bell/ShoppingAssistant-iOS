@@ -28,7 +28,7 @@ class ShoppingListViewModel {
     }
 
     public func didEndEditing() {
-        print("Saving shopping list items...")
+        Log.info("Saving shopping list items...")
         delegate?.activityDidStart()
         ShoppingListService.shared.updateItems(items)
             .then {

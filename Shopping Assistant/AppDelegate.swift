@@ -7,6 +7,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Log.configure()
+
         GoogleMapsService.shared.initialize()
         LocationManager.shared.initialize()
 
@@ -32,9 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information
-        // to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore
+        // your application to its current state in case it is terminated later. If your application supports background execution, this method is
+        // called instead of applicationWillTerminate: when the user quits.
+
+        Log.forceSendLogs(application)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -48,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
+
+        Log.forceSendLogs(application)
     }
 }
 
@@ -77,6 +83,8 @@ extension AppDelegate {
     }
 
     func handleError(error: Error) {
+        Log.error("Error while requesting authorization:", error: error)
+
         let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .default)
 
