@@ -42,9 +42,14 @@ class LocationManager: NSObject {
         if let locationPromise = locationPromise { return locationPromise }
 
         locationPromise = Promise<CLLocation>.pending()
-        locationManager.requestWhenInUseAuthorization()
+        locationServicesAreAvailable ? locationManager.startUpdatingLocation() : locationManager.requestWhenInUseAuthorization()
 
         return locationPromise!
+    }
+
+    private var locationServicesAreAvailable: Bool {
+        let status = CLLocationManager.authorizationStatus()
+        return status == .authorizedWhenInUse || status == .authorizedAlways
     }
 
     func startMonitoring(_ location: Location) {

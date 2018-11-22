@@ -13,39 +13,30 @@ class MapViewModel: NSObject {
 
     public var mapCentre: CLLocation?
 
-    private let locationManager = CLLocationManager()
-
     init(centredAt location: CLLocation? = nil) {
         mapCentre = location
     }
 
     public func onViewDidLoad() {
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-
         if let location = mapCentre {
             delegate?.centreMapOn(location)
         }
+
+        LocationManager.shared.getCurrentLocation()
+            .then(updateCurrentLocation)
+            .catch(handleError)
     }
 
     public func mapDidCentreAt(_ location: CLLocation) {
         mapCentre = location
     }
-}
 
-// MARK: - CLLocationManagerDelegate
-extension MapViewModel: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        guard status == .authorizedWhenInUse else { return }
-
-        locationManager.startUpdatingLocation()
+    private func updateCurrentLocation(location: CLLocation) {
+        delegate?.centreMapOn(mapCentre ?? location)
         delegate?.enableCurrentLocation()
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-
-        locationManager.stopUpdatingLocation()
-        delegate?.centreMapOn(mapCentre ?? location)
+    private func handleError(error: Error) {
+        delegate?.showError(error)
     }
 }
