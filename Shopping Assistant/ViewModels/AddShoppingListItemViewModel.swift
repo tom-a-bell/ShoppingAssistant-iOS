@@ -30,6 +30,7 @@ class AddShoppingListItemViewModel {
     }
 
     public func didSaveItem() {
+        Log.info("Saving shopping list item...")
         delegate?.activityDidStart()
         ShoppingListService.shared.addItem(item)
             .then { _ in
