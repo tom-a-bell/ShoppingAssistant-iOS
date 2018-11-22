@@ -24,6 +24,11 @@ class ShoppingListViewController: BaseViewController {
         viewModel.onViewWillAppear()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.onViewWillDisappear()
+    }
+
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.setEditing(!tableView.isEditing, animated: true)

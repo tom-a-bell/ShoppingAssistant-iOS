@@ -16,7 +16,13 @@ class ShoppingListViewModel {
     }
 
     public func onViewWillAppear() {
+        selectedItem = nil
         fetchItems()
+    }
+
+    public func onViewWillDisappear() {
+        guard selectedItem == nil else { return }
+        didEndEditing()
     }
 
     public func didSelectItem(_ item: ShoppingListItem) {
