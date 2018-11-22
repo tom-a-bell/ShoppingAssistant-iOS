@@ -1,19 +1,18 @@
 import Foundation
 import Promises
 
-protocol ShoppingListViewModelDelegate: ActivityIndicatable, ErrorPresentable {
+protocol ShoppingListViewModelDelegate: AnyObject, ActivityIndicatable, ErrorPresentable {
     func didLoadItems()
 }
 
 class ShoppingListViewModel {
 
-    public var delegate: ShoppingListViewModelDelegate?
+    public weak var delegate: ShoppingListViewModelDelegate?
 
     public var items: [ShoppingListItem] = []
     public var selectedItem: ShoppingListItem?
 
-    public func onViewDidLoad() {
-    }
+    public func onViewDidLoad() {}
 
     public func onViewWillAppear() {
         selectedItem = nil
@@ -49,14 +48,10 @@ class ShoppingListViewModel {
     private func fetchItems() {
         delegate?.activityDidStart()
         ShoppingListService.shared.fetchItems()
-            .then { items in
-                self.populateItems(items)
-            }.then { items in
-                self.sortItems(items)
-            }.then { items in
-                self.items = items
-                self.delegate?.didLoadItems()
-            }.catch { error in
+            .then(populateItems)
+            .then(sortItems)
+            .then(displayItems)
+            .catch { error in
                 self.delegate?.showError(error)
             }.always {
                 self.delegate?.activityDidStop()
@@ -80,6 +75,11 @@ class ShoppingListViewModel {
         }
         let sortedItems = items.sorted(by: completedThenByLastUpdated)
         return Promise(sortedItems)
+    }
+
+    private func displayItems(_ items: [ShoppingListItem]) {
+        self.items = items
+        delegate?.didLoadItems()
     }
 
     private func fetchLocationsById() -> Promise<[UUID: Location]> {
