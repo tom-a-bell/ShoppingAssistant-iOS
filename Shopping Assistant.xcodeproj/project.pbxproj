@@ -905,9 +905,9 @@
 			projectRoot = "";
 			targets = (
 				17B3E03820F920CF002F670D /* Shopping Assistant */,
+				178E6DBD21486E0B006FE914 /* NotificationContent */,
 				17B3E04C20F920D1002F670D /* Shopping AssistantTests */,
 				17B3E05720F920D1002F670D /* Shopping AssistantUITests */,
-				178E6DBD21486E0B006FE914 /* NotificationContent */,
 			);
 		};
 /* End PBXProject section */
@@ -1372,7 +1372,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3WDE8X48TV;
+				DEVELOPMENT_TEAM = 3XHD9SVKHL;
 				INFOPLIST_FILE = "Shopping AssistantTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1393,7 +1393,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3WDE8X48TV;
+				DEVELOPMENT_TEAM = 3XHD9SVKHL;
 				INFOPLIST_FILE = "Shopping AssistantTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1413,7 +1413,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3WDE8X48TV;
+				DEVELOPMENT_TEAM = 3XHD9SVKHL;
 				INFOPLIST_FILE = "Shopping AssistantUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1433,7 +1433,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3WDE8X48TV;
+				DEVELOPMENT_TEAM = 3XHD9SVKHL;
 				INFOPLIST_FILE = "Shopping AssistantUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
