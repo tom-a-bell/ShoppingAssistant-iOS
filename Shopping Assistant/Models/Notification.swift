@@ -32,7 +32,7 @@ struct Notification {
 
     private static func notificationContent(for location: Location, with items: [ShoppingListItem]) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         content.categoryIdentifier = category(for: items)
         content.userInfo = userInfo(for: items)
         content.title = title(for: location)
@@ -75,14 +75,10 @@ enum NotificationCategory {
     static let multipleItems = "multipleItems"
 }
 
-enum NotificationAction: String {
+enum NotificationAction: String, CaseIterable {
     case view
     case complete
     case postpone
-
-    static var allCases: [NotificationAction] {
-        return [.view, .complete, .postpone]
-    }
 }
 
 extension NotificationAction {

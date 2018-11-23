@@ -89,7 +89,7 @@ extension ShoppingListViewController: UITableViewDelegate {
         viewModel.didDeselectItem()
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let item = viewModel.items[indexPath.row]
         if editingStyle == .delete {
             viewModel.didRemove(item)
