@@ -96,6 +96,7 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
             Log.info("User dismissed the notification: \(response.notification.request.content.title)")
         case NotificationAction.view.identifier:
             Log.info("User requested more details for notification: \(response.notification.request.content.title)")
+            navigateToShoppingList(for: response.notification)
         case NotificationAction.complete.identifier:
             Log.info("User completed the item(s) for notification: \(response.notification.request.content.title)")
             markAllItemsCompleted(for: response.notification)
@@ -108,6 +109,11 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
         completionHandler()
     }
 
+    private func navigateToShoppingList(for notification: UNNotification) {
+        let locationId = UUID(from: notification.request.identifier)
+        NavigationService.shared.navigateToShoppingList(withLocationId: locationId)
+    }
+
     private func markAllItemsCompleted(for notification: UNNotification) {
         let itemIds = getItemIds(from: notification)
         ShoppingListService.shared.markItemsCompleted(with: itemIds)
@@ -116,7 +122,7 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
     private func getItemIds(from notification: UNNotification) -> [UUID] {
         return notification.request.content.userInfo.values
             .compactMap { NotificationItem(from: $0) }
-            .compactMap { UUID(uuidString: $0.id) }
+            .compactMap { UUID(from: $0.id) }
     }
 
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,

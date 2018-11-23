@@ -127,7 +127,7 @@ extension LocationManager {
     }
 
     func location(for region: CLRegion) -> Location? {
-        guard let region = region as? CLCircularRegion, let id = UUID(uuidString: region.identifier) else { return nil }
+        guard let region = region as? CLCircularRegion, let id = UUID(from: region.identifier) else { return nil }
 
         let coordinate = Coordinate(latitude: region.center.latitude, longitude: region.center.longitude)
         return Location(id: id, name: "Region", placeId: "", coordinate: coordinate, radius: region.radius)

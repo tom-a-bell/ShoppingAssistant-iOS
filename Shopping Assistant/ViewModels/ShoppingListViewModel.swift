@@ -9,22 +9,31 @@ class ShoppingListViewModel {
 
     public weak var delegate: ShoppingListViewModelDelegate?
 
-    public var items: [ShoppingListItem] = []
     public var selectedItem: ShoppingListItem?
+    public var selectedLocationId: UUID?
+
+    private var allItems: [ShoppingListItem] = []
+
+    public var items: [ShoppingListItem] {
+        return selectedLocationId == nil ? allItems : allItems.filter { $0.locationId == selectedLocationId }
+    }
 
     public func onViewDidLoad() {}
 
     public func onViewWillAppear() {
+        selectedLocationId = NavigationService.shared.getShoppingListLocationId()
+        NavigationService.shared.didNavigateToShoppingList()
         selectedItem = nil
         fetchItems()
     }
 
     public func onViewWillDisappear() {
         guard selectedItem == nil else { return }
+        selectedLocationId = nil
         didEndEditing()
     }
 
-    public func didSelectItem(_ item: ShoppingListItem) {
+    public func didSelect(_ item: ShoppingListItem) {
         selectedItem = item
     }
 
@@ -32,17 +41,24 @@ class ShoppingListViewModel {
         selectedItem = nil
     }
 
+    public func didUpdate(_ item: ShoppingListItem) {
+        guard let index = allItems.firstIndex(of: item) else { return }
+        allItems[index] = item
+    }
+
+    public func didRemove(_ item: ShoppingListItem) {
+        allItems.removeFirst(item)
+    }
+
+    public func didMove(_ item: ShoppingListItem, to index: Int) {
+        guard let index = allItems.firstIndex(of: items[index]) else { return }
+        allItems.removeFirst(item)
+        allItems.insert(item, at: index)
+    }
+
     public func didEndEditing() {
         Log.info("Saving shopping list items...")
-        delegate?.activityDidStart()
-        ShoppingListService.shared.updateItems(items)
-            .then {
-                GeofenceService.shared.updateLocationMonitoring(for: self.items)
-            }.catch { error in
-                self.delegate?.showError(error)
-            }.always {
-                self.delegate?.activityDidStop()
-        }
+        updateItems()
     }
 
     private func fetchItems() {
@@ -51,11 +67,16 @@ class ShoppingListViewModel {
             .then(populateItems)
             .then(sortItems)
             .then(displayItems)
-            .catch { error in
-                self.delegate?.showError(error)
-            }.always {
-                self.delegate?.activityDidStop()
-        }
+            .catch(handleError)
+            .always(stopActivity)
+    }
+
+    private func updateItems() {
+        delegate?.activityDidStart()
+        ShoppingListService.shared.updateItems(allItems)
+            .then(updateLocationMonitoring)
+            .catch(handleError)
+            .always(stopActivity)
     }
 
     private func populateItems(_ items: [ShoppingListItem]) -> Promise<[ShoppingListItem]> {
@@ -78,7 +99,7 @@ class ShoppingListViewModel {
     }
 
     private func displayItems(_ items: [ShoppingListItem]) {
-        self.items = items
+        self.allItems = items
         delegate?.didLoadItems()
     }
 
@@ -88,5 +109,17 @@ class ShoppingListViewModel {
                 result[location.id] = location
             }
         }
+    }
+
+    private func updateLocationMonitoring() -> Promise<Void> {
+        return GeofenceService.shared.updateLocationMonitoring(for: allItems)
+    }
+
+    private func handleError(error: Error) {
+        delegate?.showError(error)
+    }
+
+    private func stopActivity() {
+        delegate?.activityDidStop()
     }
 }

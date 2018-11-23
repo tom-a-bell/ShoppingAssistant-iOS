@@ -80,12 +80,18 @@ extension ShoppingListItem {
     }
 }
 
-enum Status: String, Codable {
-    case active, completed
+extension ShoppingListItem: Equatable {
+    static func == (lhs: ShoppingListItem, rhs: ShoppingListItem) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
-extension UUID {
-    var stringValue: String {
-        return uuidString.lowercased()
+extension ShoppingListItem: Hashable {
+    var hashValue: Int {
+        return id.hashValue
     }
+}
+
+enum Status: String, Codable {
+    case active, completed
 }

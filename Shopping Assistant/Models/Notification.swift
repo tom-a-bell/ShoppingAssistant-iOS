@@ -104,7 +104,7 @@ extension NotificationAction {
     var action: UNNotificationAction {
         switch self {
         case .view:
-            return UNNotificationAction(identifier: identifier, title: title, options: [])
+            return UNNotificationAction(identifier: identifier, title: title, options: [.foreground])
         case .complete:
             return UNNotificationAction(identifier: identifier, title: title, options: [])
         case .postpone:

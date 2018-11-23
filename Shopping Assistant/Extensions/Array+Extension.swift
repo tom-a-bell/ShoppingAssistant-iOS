@@ -13,3 +13,17 @@ extension Array where Element: Hashable {
         self = self.removingDuplicates()
     }
 }
+
+extension Array where Element: Equatable {
+    mutating func removeFirst(_ element: Element) {
+        if let index = firstIndex(of: element) {
+            remove(at: index)
+        }
+    }
+
+    mutating func removeLast(_ element: Element) {
+        if let index = lastIndex(of: element) {
+            remove(at: index)
+        }
+    }
+}

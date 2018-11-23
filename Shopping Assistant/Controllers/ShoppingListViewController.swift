@@ -80,7 +80,7 @@ extension ShoppingListViewController: UITableViewDataSource {
 extension ShoppingListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = viewModel.items[indexPath.row]
-        viewModel.didSelectItem(item)
+        viewModel.didSelect(item)
 
         performSegue(withIdentifier: "AddItem", sender: self)
     }
@@ -90,16 +90,16 @@ extension ShoppingListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let item = viewModel.items[indexPath.row]
         if editingStyle == .delete {
-            viewModel.items.remove(at: indexPath.row)
+            viewModel.didRemove(item)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedItem = viewModel.items[sourceIndexPath.row]
-        viewModel.items.remove(at: sourceIndexPath.row)
-        viewModel.items.insert(movedItem, at: destinationIndexPath.row)
+        let item = viewModel.items[sourceIndexPath.row]
+        viewModel.didMove(item, to: destinationIndexPath.row)
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -121,7 +121,7 @@ extension ShoppingListViewController: UITableViewDelegate {
         let title = item.isCompleted ? "Undo" : "Done"
         let action = UIContextualAction(style: .normal, title: title) { (_: UIContextualAction, _: UIView, completionHandler: (Bool) -> Void) in
             item.toggleStatus()
-            self.viewModel.items[indexPath.row] = item
+            self.viewModel.didUpdate(item)
             self.tableView.reloadRows(at: [indexPath], with: .none)
             completionHandler(true)
         }
@@ -132,8 +132,9 @@ extension ShoppingListViewController: UITableViewDelegate {
     }
 
     private func contextualDeleteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let item = viewModel.items[indexPath.row]
         return UIContextualAction(style: .destructive, title: "Delete") { (_: UIContextualAction, _: UIView, completionHandler: (Bool) -> Void) in
-            self.viewModel.items.remove(at: indexPath.row)
+            self.viewModel.didRemove(item)
             self.tableView.deleteRows(at: [indexPath], with: .left)
             completionHandler(true)
         }

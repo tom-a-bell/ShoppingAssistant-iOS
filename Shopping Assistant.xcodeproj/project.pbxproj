@@ -174,6 +174,7 @@
 		17E7DBC3210D24F900E79942 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBC2210D24F900E79942 /* CoreText.framework */; };
 		17E7DBC5210D257600E79942 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBC4210D257600E79942 /* CoreData.framework */; };
 		17E7DBC7210D259600E79942 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBC6210D259600E79942 /* CoreTelephony.framework */; };
+		17FAC03B21A9F51000A418E1 /* UUID+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FAC03A21A9F51000A418E1 /* UUID+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -405,6 +406,7 @@
 		17E7DBC2210D24F900E79942 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		17E7DBC4210D257600E79942 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		17E7DBC6210D259600E79942 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		17FAC03A21A9F51000A418E1 /* UUID+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UUID+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +517,7 @@
 				177837D621A75A3300D9ADAE /* Bundle+Extension.swift */,
 				177837CA21A602AF00D9ADAE /* Dictionary+Extension.swift */,
 				1774B9FD2143BDB500D1BF9A /* String+Extension.swift */,
+				17FAC03A21A9F51000A418E1 /* UUID+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1098,6 +1101,7 @@
 				17417FAE210E0DA400AF3539 /* UIView+Extension.swift in Sources */,
 				17417FA7210E01BF00AF3539 /* GooglePlacesResponse.swift in Sources */,
 				17867275210657FA003B906D /* ShoppingListItem.swift in Sources */,
+				17FAC03B21A9F51000A418E1 /* UUID+Extension.swift in Sources */,
 				1774B9F7214325E400D1BF9A /* NotificationsManager.swift in Sources */,
 				1714D4132115D509006E2D8C /* LocationMarker.swift in Sources */,
 				1714D4112115BDD7006E2D8C /* LocationsViewModel.swift in Sources */,

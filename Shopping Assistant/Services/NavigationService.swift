@@ -12,9 +12,9 @@ class NavigationService {
 
     private var navigateToShoppingListRequested = false
     private var navigateToLocationsRequested = false
-    private var selectedLocationId: String?
+    private var selectedLocationId: UUID?
 
-    public func navigateToShoppingList(withLocationId locationId: String? = nil) {
+    public func navigateToShoppingList(withLocationId locationId: UUID? = nil) {
         navigateToShoppingListRequested = true
         selectedLocationId = locationId
 
@@ -35,7 +35,7 @@ class NavigationService {
         return navigateToLocationsRequested
     }
 
-    public func getShoppingListLocationId() -> String? {
+    public func getShoppingListLocationId() -> UUID? {
         return selectedLocationId
     }
 
