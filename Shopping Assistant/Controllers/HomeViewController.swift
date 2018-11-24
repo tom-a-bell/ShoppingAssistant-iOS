@@ -1,33 +1,29 @@
 import UIKit
-import AWSCore
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var locationsButton: UIButton!
     @IBOutlet weak var shoppingListButton: UIButton!
 
+    private let viewModel = HomeViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateButtonStates()
-        AmazonClientManager.shared.resumeSession().always(refreshUI)
+
+        viewModel.delegate = self
+        viewModel.onViewDidLoad()
     }
 
+    // MARK: - Actions
+
     @IBAction func performLogin() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        disableUI()
-        AmazonClientManager.shared.login()
-            .always(refreshUI)
-            .catch(showError)
+        viewModel.performLogin()
     }
 
     @IBAction func performLogout() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        disableUI()
-        AmazonClientManager.shared.logout()
-            .always(refreshUI)
-            .catch(showError)
+        viewModel.performLogout()
     }
 
     @IBAction func showLocations() {
@@ -37,22 +33,19 @@ class HomeViewController: UIViewController {
     @IBAction func showShoppingList() {
         performSegue(withIdentifier: "ShowShoppingList", sender: self)
     }
+}
 
-    private func disableUI() {
-        loginButton.isEnabled = false
-        logoutButton.isEnabled = false
-        locationsButton.isEnabled = false
-        shoppingListButton.isEnabled = false
+// MARK: - HomeViewModelDelegate
+extension HomeViewController: HomeViewModelDelegate {
+    func didLogin() {
+        updateButtonStates(isLoggedIn: true)
     }
 
-    private func refreshUI() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        updateButtonStates()
+    func didLogout() {
+        updateButtonStates(isLoggedIn: false)
     }
 
-    private func updateButtonStates() {
-        let isLoggedIn = AmazonClientManager.shared.isLoggedIn()
-
+    private func updateButtonStates(isLoggedIn: Bool) {
         loginButton.isHidden = isLoggedIn
         logoutButton.isHidden = !isLoggedIn
 
@@ -60,6 +53,27 @@ class HomeViewController: UIViewController {
         logoutButton.isEnabled = isLoggedIn
         locationsButton.isEnabled = isLoggedIn
         shoppingListButton.isEnabled = isLoggedIn
+    }
+}
+
+// MARK: - ActivityIndicatable
+extension HomeViewController: ActivityIndicatable {
+    func activityDidStart() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        activityIndicator.startAnimating()
+        disableButtons()
+    }
+
+    func activityDidStop() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        activityIndicator.stopAnimating()
+    }
+
+    private func disableButtons() {
+        loginButton.isEnabled = false
+        logoutButton.isEnabled = false
+        locationsButton.isEnabled = false
+        shoppingListButton.isEnabled = false
     }
 }
 
