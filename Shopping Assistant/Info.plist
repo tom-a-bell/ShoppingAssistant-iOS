@@ -41,6 +41,10 @@
 	<string>By accessing your location in the background, this app can remind you to pick up items when nearby relevant shops.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>By allowing the app access to your location, you can associate items with specific locations.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

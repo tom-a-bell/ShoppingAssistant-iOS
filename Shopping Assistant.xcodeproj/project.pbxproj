@@ -850,6 +850,11 @@
 					};
 					17B3E03820F920CF002F670D = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					17B3E04C20F920D1002F670D = {
 						CreatedOnToolsVersion = 9.4.1;

@@ -26,6 +26,7 @@ class LocationManager: NSObject {
 
     func initialize() {
         print("Location manager initialized")
+        locationManager.allowsBackgroundLocationUpdates = true
     }
 
     func requestAuthorization() -> Promise<CLAuthorizationStatus> {
