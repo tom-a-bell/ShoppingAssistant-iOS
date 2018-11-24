@@ -8,14 +8,15 @@ class GoogleMapsService {
     static let shared = GoogleMapsService()
 
     private let placesProvider = MoyaProvider<GooglePlacesService>()
+    private let apiKey = GoogleConfiguration.apiKey
 
     func initialize() {
-        GMSServices.provideAPIKey(GoogleConfiguration.apiKey)
+        GMSServices.provideAPIKey(apiKey)
     }
 
     func getNearbyPlaces(coordinate: CLLocationCoordinate2D, radius: Double, types: [String]) -> Promise<[GooglePlace]> {
         print("Finding nearby places...")
-        let getNearbyPlaces = GooglePlacesService.getNearbyPlaces(coordinate: coordinate, radius: radius, types: types, apiKey: GoogleConfiguration.apiKey)
+        let getNearbyPlaces = GooglePlacesService.getNearbyPlaces(coordinate: coordinate, radius: radius, types: types, apiKey: apiKey)
         return Promise<[GooglePlace]> { fulfill, reject in
             self.placesProvider.request(getNearbyPlaces) { result in
                 switch result {
