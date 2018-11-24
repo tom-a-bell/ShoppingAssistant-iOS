@@ -125,6 +125,9 @@
 		177837D521A6D5D700D9ADAE /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177837D421A6D5D700D9ADAE /* SwiftyBeaver.framework */; };
 		177837D721A75A3300D9ADAE /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837D621A75A3300D9ADAE /* Bundle+Extension.swift */; };
 		177837DB21A892EC00D9ADAE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DA21A892EC00D9ADAE /* HomeViewModel.swift */; };
+		177837DD21A89A7200D9ADAE /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DC21A89A7200D9ADAE /* NavigationService.swift */; };
+		177837DF21A8ABD100D9ADAE /* NavigationPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DE21A8ABD100D9ADAE /* NavigationPresentable.swift */; };
+		177837E121A8AC3600D9ADAE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837E021A8AC3600D9ADAE /* BaseNavigationController.swift */; };
 		1781E5BC2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1781E5BD2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
@@ -344,6 +347,9 @@
 		177837D421A6D5D700D9ADAE /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		177837D621A75A3300D9ADAE /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		177837DA21A892EC00D9ADAE /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		177837DC21A89A7200D9ADAE /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
+		177837DE21A8ABD100D9ADAE /* NavigationPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresentable.swift; sourceTree = "<group>"; };
+		177837E021A8AC3600D9ADAE /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		1781E5BB2149C8B30087D531 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
@@ -517,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				1774BA012144B33400D1BF9A /* BaseViewController.swift */,
+				177837E021A8AC3600D9ADAE /* BaseNavigationController.swift */,
 				17B3E03E20F920CF002F670D /* HomeViewController.swift */,
 				17417F94210D31B500AF3539 /* MapViewController.swift */,
 				1714D40E2115BDD7006E2D8C /* LocationsViewController.swift */,
@@ -567,6 +574,7 @@
 				171722F0213F52910024AA6B /* GeofenceService.swift */,
 				171722EE213F47B40024AA6B /* LocationManager.swift */,
 				1714D41421170541006E2D8C /* LocationsService.swift */,
+				177837DC21A89A7200D9ADAE /* NavigationService.swift */,
 				1774B9F6214325E400D1BF9A /* NotificationsManager.swift */,
 				179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */,
 				177837CE21A625CA00D9ADAE /* Log.swift */,
@@ -602,6 +610,7 @@
 			children = (
 				1774B9FF2144AB5200D1BF9A /* ActivityIndicatable.swift */,
 				1774BA032144B88500D1BF9A /* ErrorPresentable.swift */,
+				177837DE21A8ABD100D9ADAE /* NavigationPresentable.swift */,
 				17417FA9210E08C800AF3539 /* MarkerInfoView.swift */,
 				17417FAB210E08E300AF3539 /* MarkerInfoView.xib */,
 				17417FAD210E0DA400AF3539 /* UIView+Extension.swift */,
@@ -1076,6 +1085,7 @@
 				179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */,
 				1714D419211723E0006E2D8C /* FindLocationViewModel.swift in Sources */,
 				178E6DCF21487B37006FE914 /* Notification.swift in Sources */,
+				177837DD21A89A7200D9ADAE /* NavigationService.swift in Sources */,
 				177837CF21A625CA00D9ADAE /* Log.swift in Sources */,
 				1714D418211723E0006E2D8C /* FindLocationViewController.swift in Sources */,
 				1714D40B2115B9C6006E2D8C /* Location.swift in Sources */,
@@ -1093,8 +1103,10 @@
 				1714D4112115BDD7006E2D8C /* LocationsViewModel.swift in Sources */,
 				176D808C214FCC3E003FD696 /* Array+Extension.swift in Sources */,
 				17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */,
+				177837DF21A8ABD100D9ADAE /* NavigationPresentable.swift in Sources */,
 				179FCAB52118C2E300C20258 /* AddShoppingListItemViewModel.swift in Sources */,
 				1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */,
+				177837E121A8AC3600D9ADAE /* BaseNavigationController.swift in Sources */,
 				17417FAA210E08C800AF3539 /* MarkerInfoView.swift in Sources */,
 				173415BC20F937E600080C48 /* ShoppingListViewController.swift in Sources */,
 			);
