@@ -48,6 +48,8 @@ class ShoppingListViewModel {
 
     public func didRemove(_ item: ShoppingListItem) {
         allItems.removeFirst(item)
+        ShoppingListService.shared.deleteItem(item)
+            .catch(handleError)
     }
 
     public func didMove(_ item: ShoppingListItem, to index: Int) {

@@ -68,16 +68,11 @@ class ShoppingListService {
 
     public func updateItems(_ items: [ShoppingListItem]) -> Promise<Void> {
         guard let oldRecords = dataset.getAll() else { return Promise.init(ParsingError()) }
-        let newRecords = createRecords(from: items)
 
-        let recordsToRemove = oldRecords.subtracting(newRecords)
+        let newRecords = createRecords(from: items)
         let recordsToUpdate = newRecords.subtracting(oldRecords)
 
         return Promise { fulfill, reject in
-            recordsToRemove.forEach { (key, record) in
-                self.dataset.removeObject(forKey: key)
-            }
-
             recordsToUpdate.forEach { (key, record) in
                 self.dataset.setString(record, forKey: key)
             }
