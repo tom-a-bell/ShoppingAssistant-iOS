@@ -105,11 +105,11 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        Log.error("Monitoring failed for region \(region?.identifier ?? "unknown"):", error: error)
+        Log.error("Monitoring failed for region \(region?.identifier ?? "unknown"): \(error.localizedDescription)", error: error)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        Log.error("Location Manager failed:", error: error)
+        Log.error("Location Manager failed: \(error.localizedDescription)", error: error)
     }
 }
 

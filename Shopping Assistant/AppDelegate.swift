@@ -83,7 +83,7 @@ extension AppDelegate {
     }
 
     func handleError(error: Error) {
-        Log.error("Error while requesting authorization:", error: error)
+        Log.error("Error while requesting authorization: \(error.localizedDescription)", error: error)
 
         let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .default)

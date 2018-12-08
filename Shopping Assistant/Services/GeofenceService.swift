@@ -55,6 +55,6 @@ class GeofenceService {
     }
 
     private func handleError(error: Error) {
-        Log.error("Error fetching notification content:", error: error)
+        Log.error("Error fetching notification content: \(error.localizedDescription)", error: error)
     }
 }
