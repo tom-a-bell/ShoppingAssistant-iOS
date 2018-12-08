@@ -15,6 +15,15 @@ class AmazonClientManager: NSObject {
     private var logoutPromise: Promise<Void>?
     private var logoutInProgress = false
 
+    private override init() {
+        super.init()
+        credentialsProvider = initializeClient()
+    }
+
+    var cognitoService: AWSCognito {
+        return AWSCognito.default()
+    }
+
     // Sends the appropriate URL
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         let sourceApplication = options[.sourceApplication] as? String
@@ -102,7 +111,7 @@ class AmazonClientManager: NSObject {
         }
     }
 
-    private func initializeClient(withToken token: Any) -> AWSCognitoCredentialsProvider {
+    private func initializeClient(withToken token: Any = "") -> AWSCognitoCredentialsProvider {
         Log.info("Initializing client...")
 
         AWSDDLog.sharedInstance.logLevel = .verbose

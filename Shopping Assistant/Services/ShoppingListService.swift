@@ -1,6 +1,4 @@
 import Foundation
-import AWSCore
-import AWSCognito
 import Promises
 
 // swiftlint:disable unused_closure_parameter
@@ -8,7 +6,7 @@ class ShoppingListService {
 
     static let shared = ShoppingListService()
 
-    private let dataset = AWSCognito.default().openOrCreateDataset("ShoppingList")
+    private let dataset = AmazonClientManager.shared.cognitoService.openOrCreateDataset("ShoppingList")
 
     public func fetchItems() -> Promise<[ShoppingListItem]> {
         Log.info("Fetching shopping list items...")
