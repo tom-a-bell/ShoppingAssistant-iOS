@@ -156,6 +156,7 @@
 		17D6E71A210166C80000AFCE /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D6E719210166C80000AFCE /* LoginWithAmazon.framework */; };
 		17D6E71C210167650000AFCE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D6E71B210167650000AFCE /* Security.framework */; };
 		17D6E71E210167960000AFCE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D6E71D210167960000AFCE /* SafariServices.framework */; };
+		17DB700D21B3E43700B3471B /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB700C21B3E43700B3471B /* FileService.swift */; };
 		17E7DBA7210D210F00E79942 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBA4210D210F00E79942 /* GoogleMapsCore.framework */; };
 		17E7DBA8210D210F00E79942 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBA5210D210F00E79942 /* GoogleMaps.framework */; };
 		17E7DBA9210D210F00E79942 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBA6210D210F00E79942 /* GoogleMapsBase.framework */; };
@@ -388,6 +389,7 @@
 		17D6E71B210167650000AFCE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		17D6E71D210167960000AFCE /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		17D6E71F2101684D0000AFCE /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		17DB700C21B3E43700B3471B /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		17E7DBA4210D210F00E79942 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Carthage/Build/iOS/GoogleMapsCore.framework; sourceTree = "<group>"; };
 		17E7DBA5210D210F00E79942 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Carthage/Build/iOS/GoogleMaps.framework; sourceTree = "<group>"; };
 		17E7DBA6210D210F00E79942 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Carthage/Build/iOS/GoogleMapsBase.framework; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				177837DC21A89A7200D9ADAE /* NavigationService.swift */,
 				1774B9F6214325E400D1BF9A /* NotificationsManager.swift */,
 				179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */,
+				17DB700C21B3E43700B3471B /* FileService.swift */,
 				177837CE21A625CA00D9ADAE /* Log.swift */,
 			);
 			path = Services;
@@ -1087,6 +1090,7 @@
 				17417FA1210DF48E00AF3539 /* GooglePlacesService.swift in Sources */,
 				179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */,
 				1714D419211723E0006E2D8C /* FindLocationViewModel.swift in Sources */,
+				17DB700D21B3E43700B3471B /* FileService.swift in Sources */,
 				178E6DCF21487B37006FE914 /* Notification.swift in Sources */,
 				177837DD21A89A7200D9ADAE /* NavigationService.swift in Sources */,
 				177837CF21A625CA00D9ADAE /* Log.swift in Sources */,

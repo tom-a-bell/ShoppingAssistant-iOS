@@ -43,11 +43,13 @@ class ShoppingListViewModel {
 
     public func didUpdate(_ item: ShoppingListItem) {
         guard let index = allItems.firstIndex(of: item) else { return }
+        FileService.shared.recordUpdatedItem(item)
         allItems[index] = item
     }
 
     public func didRemove(_ item: ShoppingListItem) {
         allItems.removeFirst(item)
+        FileService.shared.recordDeletedItem(item)
         ShoppingListService.shared.deleteItem(item)
             .catch(handleError)
     }
