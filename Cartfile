@@ -1,5 +1,5 @@
 github "aws/aws-sdk-ios" ~> 2.7.0
 github "alexanderkhitev/promises" "master"
 github "leoneparise/GoogleMaps-Carthage" ~> 2.7.0
-github "justeat/JustLog" ~> 2.4.0
+github "justeat/JustLog" ~> 2.5.0
 github "Moya/Moya" ~> 12.0.0
