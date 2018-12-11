@@ -1,4 +1,6 @@
 import UIKit
+import Fabric
+import Crashlytics
 import CoreLocation
 
 @UIApplicationMain
@@ -7,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
         Log.configure()
 
         GoogleMapsService.shared.initialize()
@@ -83,7 +86,7 @@ extension AppDelegate {
     }
 
     func handleError(error: Error) {
-        Log.error("Error while requesting authorization:", error: error)
+        Log.error("Error while requesting authorization: \(error.localizedDescription)", error: error)
 
         let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .default)

@@ -6,7 +6,7 @@ protocol ErrorPresentable {
 
 extension ErrorPresentable where Self: UIViewController {
     func showError(_ error: Error) {
-        Log.error("Error encountered:", error: error)
+        Log.error("Error encountered: \(error.localizedDescription)", error: error)
 
         let title = "Error"
         let message = error.localizedDescription

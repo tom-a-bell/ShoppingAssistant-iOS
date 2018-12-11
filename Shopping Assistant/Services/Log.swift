@@ -7,7 +7,7 @@ class Log {
 
         // Default user info to be added to each log entry
         let appName = Bundle.main.displayName ?? "Unknown"
-        logger.defaultUserInfo = ["app": appName, "environment": "development"]
+        logger.defaultUserInfo = ["app": appName, "environment": "development", "session": UUID().uuidString]
 
         logger.logzioToken = LoggingConfiguration.token
         logger.logstashHost = LoggingConfiguration.host

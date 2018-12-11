@@ -78,7 +78,7 @@ class NotificationsManager: NSObject {
     private func addRequest(_ request: UNNotificationRequest) {
         notificationCenter.add(request) { error in
             if let error = error {
-                Log.error("Error adding notification:", error: error)
+                Log.error("Error adding notification: \(error.localizedDescription)", error: error)
             } else {
                 Log.info("Added notification for: \(request.content.title)")
             }

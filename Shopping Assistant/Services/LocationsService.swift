@@ -1,6 +1,4 @@
 import Foundation
-import AWSCore
-import AWSCognito
 import Promises
 
 // swiftlint:disable unused_closure_parameter
@@ -8,7 +6,7 @@ class LocationsService {
 
     static let shared = LocationsService()
 
-    private let dataset = AWSCognito.default().openOrCreateDataset("Locations")
+    private let dataset = AmazonClientManager.shared.cognitoService.openOrCreateDataset("Locations")
 
     public func fetchLocations() -> Promise<[Location]> {
         Log.info("Fetching saved locations...")
