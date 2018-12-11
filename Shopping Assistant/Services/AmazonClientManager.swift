@@ -16,7 +16,7 @@ class AmazonClientManager: NSObject {
     private var logoutInProgress = false
 
     // Sends the appropriate URL
-    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         let sourceApplication = options[.sourceApplication] as? String
         return AIMobileLib.handleOpen(url, sourceApplication: sourceApplication)
     }

@@ -890,9 +890,11 @@
 				TargetAttributes = {
 					178E6DBD21486E0B006FE914 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					17B3E03820F920CF002F670D = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -901,10 +903,12 @@
 					};
 					17B3E04C20F920D1002F670D = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 17B3E03820F920CF002F670D;
 					};
 					17B3E05720F920D1002F670D = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 17B3E03820F920CF002F670D;
 					};
 				};
@@ -1198,7 +1202,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tombell.ShoppingAssistant.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1217,7 +1221,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tombell.ShoppingAssistant.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1359,7 +1363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tombell.ShoppingAssistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Shopping Assistant/BridgingHeader.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1385,7 +1389,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tombell.ShoppingAssistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Shopping Assistant/BridgingHeader.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1405,7 +1409,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tombell.Shopping-AssistantTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shopping Assistant.app/Shopping Assistant";
 			};
@@ -1426,7 +1430,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tombell.Shopping-AssistantTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shopping Assistant.app/Shopping Assistant";
 			};
@@ -1446,7 +1450,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tombell.Shopping-AssistantUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Shopping Assistant";
 			};
@@ -1466,7 +1470,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tombell.Shopping-AssistantUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Shopping Assistant";
 			};
