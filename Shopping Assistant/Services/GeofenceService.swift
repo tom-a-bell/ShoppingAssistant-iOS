@@ -56,17 +56,17 @@ class GeofenceService {
         NotificationsManager.shared.showNotification(for: location, with: items)
     }
 
-    private func handleError(error: Error) {
-        Log.error("Error fetching notification content: \(error.localizedDescription)", error: error)
-    }
-
     private var isWithinNotificationTimePeriod: Bool {
         let calendar = Calendar.current
         let now = Date()
         let todayAt2pm = calendar.date(bySettingHour: 14, minute: 0, second: 0, of: now)!
-        let todayAt8pm = calendar.date(bySettingHour: 20, minute: 0, second: 0, of: now)!
+        let todayAt9pm = calendar.date(bySettingHour: 21, minute: 0, second: 0, of: now)!
 
         return now >= todayAt2pm
-            && now <= todayAt8pm
+            && now <= todayAt9pm
+    }
+
+    private func handleError(error: Error) {
+        Log.error("Error fetching notification content: \(error.localizedDescription)", error: error)
     }
 }
