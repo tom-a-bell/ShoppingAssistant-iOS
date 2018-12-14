@@ -6,6 +6,8 @@ class LocationManager: NSObject {
 
     static let shared = LocationManager()
 
+    var currentLocation: Location?
+
     private let locationManager = CLLocationManager()
 
     private var authorizationPromise: Promise<CLAuthorizationStatus>?
@@ -94,12 +96,14 @@ extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if let location = location(for: region) {
+            currentLocation = location
             GeofenceService.shared.didEnter(location)
         }
     }
 
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         if let location = location(for: region) {
+            currentLocation = nil
             GeofenceService.shared.didExit(location)
         }
     }

@@ -36,9 +36,11 @@ class FileService {
     }
 
     private func createRecord(for item: ShoppingListItem, withChange change: Change) -> ItemRecord {
+        let currentLocation = LocationManager.shared.currentLocation?.id.stringValue
         return ItemRecord(
             itemName: item.name,
             locationName: item.location?.name,
+            currentLocation: currentLocation,
             createdTime: item.createdTime,
             updatedTime: Date(),
             status: item.status,
@@ -79,6 +81,7 @@ class FileService {
 private struct ItemRecord: Codable {
     var itemName: String
     var locationName: String?
+    var currentLocation: String?
     var createdTime: Date
     var updatedTime: Date
     var status: Status
