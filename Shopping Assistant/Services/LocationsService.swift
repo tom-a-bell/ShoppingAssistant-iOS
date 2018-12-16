@@ -1,6 +1,7 @@
 import Foundation
 import Promises
 
+// swiftlint:disable force_try
 // swiftlint:disable unused_closure_parameter
 class LocationsService {
 
