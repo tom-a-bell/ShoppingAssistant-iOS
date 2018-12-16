@@ -1,8 +1,7 @@
 import Foundation
 
 protocol HomeViewModelDelegate: AnyObject, ActivityIndicatable, ErrorPresentable {
-    func didLogin()
-    func didLogout()
+    func showLoginModal()
 }
 
 class HomeViewModel {
@@ -10,38 +9,21 @@ class HomeViewModel {
     public weak var delegate: HomeViewModelDelegate?
 
     public func onViewDidLoad() {
-        updateLoginState()
         resumeSession()
     }
 
     public func resumeSession() {
         delegate?.activityDidStart()
         AmazonClientManager.shared.resumeSession()
-            .always(updateLoginState)
-    }
-
-    public func performLogin() {
-        delegate?.activityDidStart()
-        AmazonClientManager.shared.login()
-            .always(updateLoginState)
+            .always(updateActivityState)
             .catch(handleError)
     }
 
-    public func performLogout() {
-        delegate?.activityDidStart()
-        AmazonClientManager.shared.logout()
-            .always(updateLoginState)
-            .catch(handleError)
-    }
-
-    private func updateLoginState() {
+    private func updateActivityState() {
         delegate?.activityDidStop()
-
-        let isLoggedIn = AmazonClientManager.shared.isLoggedIn()
-        isLoggedIn ? delegate?.didLogin() : delegate?.didLogout()
     }
 
     private func handleError(error: Error) {
-        delegate?.showError(error)
+        delegate?.showLoginModal()
     }
 }

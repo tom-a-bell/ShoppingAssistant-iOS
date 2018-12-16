@@ -1,78 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ESN-cP-k4W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0jW-ba-AHU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Home-->
+        <scene sceneID="ZKc-dm-gbV">
+            <objects>
+                <tabBarController storyboardIdentifier="Home" title="Home" automaticallyAdjustsScrollViewInsets="NO" id="0jW-ba-AHU" customClass="HomeViewController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V6Z-nQ-U2s">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="defaultIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="w9w-XP-udb" kind="relationship" relationship="viewControllers" id="DDp-cN-Cjy"/>
+                        <segue destination="qn9-DE-dDL" kind="relationship" relationship="viewControllers" id="WrU-YD-RDN"/>
+                        <segue destination="MhW-Ei-L2q" kind="relationship" relationship="viewControllers" id="2dJ-Nq-PAr"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="ShowLoginModal" id="zLl-RU-3OY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5f-Lm-yzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="670"/>
+        </scene>
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Home" title="Home" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUD-bp-YBi" userLabel="Login Button">
-                                <rect key="frame" x="120" y="280" width="134" height="30"/>
+                                <rect key="frame" x="120" y="318" width="134" height="30"/>
                                 <state key="normal" title="Log in with Amazon"/>
                                 <connections>
                                     <action selector="performLogin" destination="BYZ-38-t0r" eventType="touchUpInside" id="QMJ-aZ-0XU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhK-r5-td8" userLabel="Logout Button">
-                                <rect key="frame" x="161" y="394" width="52" height="30"/>
+                                <rect key="frame" x="161" y="396" width="52" height="30"/>
                                 <state key="normal" title="Log out"/>
                                 <connections>
                                     <action selector="performLogout" destination="BYZ-38-t0r" eventType="touchUpInside" id="WRq-j3-A7Y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEN-oJ-6Cb">
-                                <rect key="frame" x="119" y="318" width="136" height="30"/>
-                                <state key="normal" title="Show Shopping List"/>
-                                <connections>
-                                    <action selector="showShoppingList" destination="BYZ-38-t0r" eventType="touchUpInside" id="HlO-c5-cfo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgn-bK-X77" userLabel="Locations Button">
-                                <rect key="frame" x="130" y="356" width="114" height="30"/>
-                                <state key="normal" title="Select Locations"/>
-                                <connections>
-                                    <action selector="showLocations" destination="BYZ-38-t0r" eventType="touchUpInside" id="E8X-mH-PAx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BEN-oJ-6Cb" firstAttribute="top" secondItem="HUD-bp-YBi" secondAttribute="bottom" constant="8" id="2WI-eR-2o4"/>
-                            <constraint firstItem="BEN-oJ-6Cb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7zq-RL-zok"/>
-                            <constraint firstItem="BEN-oJ-6Cb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q68-9p-KbV"/>
-                            <constraint firstItem="HUD-bp-YBi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R8v-Vq-DNZ"/>
-                            <constraint firstItem="AhK-r5-td8" firstAttribute="top" secondItem="tgn-bK-X77" secondAttribute="bottom" constant="8" id="ZdA-cY-gtM"/>
+                            <constraint firstItem="HUD-bp-YBi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4rU-Jw-48f"/>
+                            <constraint firstItem="HUD-bp-YBi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bN-zd-uDM"/>
                             <constraint firstItem="AhK-r5-td8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="apD-zv-2fb"/>
-                            <constraint firstItem="tgn-bK-X77" firstAttribute="top" secondItem="BEN-oJ-6Cb" secondAttribute="bottom" constant="8" id="fKX-pA-3Wp"/>
-                            <constraint firstItem="tgn-bK-X77" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2p-cB-Ml3"/>
+                            <constraint firstItem="AhK-r5-td8" firstAttribute="top" secondItem="HUD-bp-YBi" secondAttribute="bottom" constant="48" id="bIW-Vg-xOX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="fac-es-6Ad"/>
                     <connections>
-                        <outlet property="locationsButton" destination="tgn-bK-X77" id="RRq-CP-fuf"/>
                         <outlet property="loginButton" destination="HUD-bp-YBi" id="ajU-L3-fzD"/>
                         <outlet property="logoutButton" destination="AhK-r5-td8" id="sJ2-Ud-SOg"/>
-                        <outlet property="shoppingListButton" destination="BEN-oJ-6Cb" id="40Z-dt-Tbg"/>
-                        <segue destination="3Hp-sM-Qzh" kind="show" identifier="ShowShoppingList" id="7BO-Lk-MV5"/>
-                        <segue destination="qG8-E2-nxN" kind="show" identifier="ShowLocations" id="XiD-ku-JaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="690"/>
+            <point key="canvasLocation" x="800" y="1680"/>
+        </scene>
+        <!--Shopping List Root-->
+        <scene sceneID="8tc-5k-fNW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qn9-DE-dDL" userLabel="Shopping List Root" customClass="BaseNavigationController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="Tabs/ShoppingList" id="IeC-Xr-XgS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xxq-Ih-UZ7">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Hp-sM-Qzh" kind="relationship" relationship="rootViewController" id="0bo-Ll-ilm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z9y-lH-dKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2850" y="350"/>
+        </scene>
+        <!--Locations Root-->
+        <scene sceneID="Osf-Wl-C0T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w9w-XP-udb" userLabel="Locations Root" customClass="BaseNavigationController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Locations" image="Tabs/Locations" id="z69-c9-W7w"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TvN-kf-Jfq">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qG8-E2-nxN" kind="relationship" relationship="rootViewController" id="wzR-Cv-lSO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S1b-0l-CXu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2850" y="1100"/>
+        </scene>
+        <!--Settings Root-->
+        <scene sceneID="i6a-9x-79Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MhW-Ei-L2q" userLabel="Settings Root" customClass="BaseNavigationController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="Tabs/Settings" id="X4r-b3-dxc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="m3a-KN-qyM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SeB-Zv-I4c" kind="relationship" relationship="rootViewController" id="jSB-Gg-Kkk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gEY-sv-jvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2850" y="-400"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="thh-8l-xWF">
@@ -83,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="69D-5G-9lW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -118,7 +178,7 @@
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWD-HN-GVu">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="P6j-0N-KfT"/>
                                     <barButtonItem systemItem="compose" id="9PO-xt-fyD" userLabel="Add Button">
@@ -152,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dvo-rf-yXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910" y="354"/>
+            <point key="canvasLocation" x="3788" y="350"/>
         </scene>
         <!--Locations-->
         <scene sceneID="ym1-Zg-D10">
@@ -163,11 +223,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpm-ki-8MS" userLabel="Map View" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="izl-nd-3lU" userLabel="Spinner">
-                                <rect key="frame" x="169" y="347.5" width="37" height="37"/>
+                                <rect key="frame" x="169" y="322.5" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -198,7 +258,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXb-JN-NKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910" y="1066"/>
+            <point key="canvasLocation" x="3788" y="1100"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Mo1-2S-YTY">
+            <objects>
+                <viewController storyboardIdentifier="Settings" title="Settings" id="SeB-Zv-I4c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sny-gc-oXF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QXb-26-c02"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="QSe-M1-Grx" userLabel="Navigation Item"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bx0-qw-31y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3788" y="-400"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="qUq-m2-KBw">
@@ -209,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60h-47-AvI" userLabel="Background">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-Il-RU7" userLabel="Name Field">
@@ -284,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrk-qh-b3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2969" y="354"/>
+            <point key="canvasLocation" x="4726" y="350"/>
         </scene>
         <!--Find Locations-->
         <scene sceneID="Rm4-pX-vxF">
@@ -295,11 +371,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huN-Br-0fJ" userLabel="Map View" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bQd-iP-cS7" userLabel="Spinner">
-                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                                <rect key="frame" x="169" y="322.5" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -330,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ic-AK-oqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2969" y="1066"/>
+            <point key="canvasLocation" x="4726" y="1100"/>
         </scene>
         <!--Add Location-->
         <scene sceneID="osZ-gI-5qg">
@@ -341,11 +417,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZP-aK-5Bz" userLabel="Map View" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SnW-CO-XeN" userLabel="Spinner">
-                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                                <rect key="frame" x="169" y="322.5" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -375,27 +451,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgA-kV-mJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460" y="1934"/>
-        </scene>
-        <!--Base Navigation Controller-->
-        <scene sceneID="F5F-ZW-qnR">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ESN-cP-k4W" customClass="BaseNavigationController" customModule="Shopping_Assistant" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H8k-zI-o7C">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RP7-iN-xLO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2aq-bG-0yQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="60" y="690.40479760119945"/>
+            <point key="canvasLocation" x="4257" y="2000"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Tabs/Locations" width="30" height="30"/>
+        <image name="Tabs/Settings" width="30" height="30"/>
+        <image name="Tabs/ShoppingList" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vio-Qe-K7Q"/>
     </inferredMetricsTieBreakers>

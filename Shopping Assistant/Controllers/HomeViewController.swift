@@ -1,80 +1,46 @@
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeViewController: UITabBarController {
 
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var locationsButton: UIButton!
-    @IBOutlet weak var shoppingListButton: UIButton!
+    @IBInspectable var defaultIndex: Int = 1
 
     private let viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        selectedIndex = defaultIndex
+
         viewModel.delegate = self
         viewModel.onViewDidLoad()
-    }
-
-    // MARK: - Actions
-
-    @IBAction func performLogin() {
-        viewModel.performLogin()
-    }
-
-    @IBAction func performLogout() {
-        viewModel.performLogout()
-    }
-
-    @IBAction func showLocations() {
-        performSegue(withIdentifier: "ShowLocations", sender: self)
-    }
-
-    @IBAction func showShoppingList() {
-        performSegue(withIdentifier: "ShowShoppingList", sender: self)
     }
 }
 
 // MARK: - HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {
-    func didLogin() {
-        updateButtonStates(isLoggedIn: true)
-    }
-
-    func didLogout() {
-        updateButtonStates(isLoggedIn: false)
-    }
-
-    private func updateButtonStates(isLoggedIn: Bool) {
-        loginButton.isHidden = isLoggedIn
-        logoutButton.isHidden = !isLoggedIn
-
-        loginButton.isEnabled = !isLoggedIn
-        logoutButton.isEnabled = isLoggedIn
-        locationsButton.isEnabled = isLoggedIn
-        shoppingListButton.isEnabled = isLoggedIn
+    func showLoginModal() {
+        performSegue(withIdentifier: "ShowLoginModal", sender: self)
     }
 }
 
 // MARK: - ActivityIndicatable
 extension HomeViewController: ActivityIndicatable {
-    func activityDidStart() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        activityIndicator.startAnimating()
-        disableButtons()
-    }
+    var activityIndicator: UIActivityIndicatorView {
+        if let selectedNavigationController = selectedViewController as? BaseNavigationController,
+            let currentlyVisibleController = selectedNavigationController.visibleViewController as? BaseViewController {
+            return currentlyVisibleController.activityIndicator
+        }
 
-    func activityDidStop() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        activityIndicator.stopAnimating()
-    }
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.center = view.center
+        activityIndicator.style = .whiteLarge
+        activityIndicator.color = .darkGray
 
-    private func disableButtons() {
-        loginButton.isEnabled = false
-        logoutButton.isEnabled = false
-        locationsButton.isEnabled = false
-        shoppingListButton.isEnabled = false
-    }
+        view.addSubview(activityIndicator)
+
+        return activityIndicator
+   }
 }
 
 // MARK: - ErrorPresentable

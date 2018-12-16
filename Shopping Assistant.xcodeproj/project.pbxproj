@@ -126,7 +126,7 @@
 		177837D321A6D2CA00D9ADAE /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177837D221A6D2CA00D9ADAE /* CocoaAsyncSocket.framework */; };
 		177837D521A6D5D700D9ADAE /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177837D421A6D5D700D9ADAE /* SwiftyBeaver.framework */; };
 		177837D721A75A3300D9ADAE /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837D621A75A3300D9ADAE /* Bundle+Extension.swift */; };
-		177837DB21A892EC00D9ADAE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DA21A892EC00D9ADAE /* HomeViewModel.swift */; };
+		177837DB21A892EC00D9ADAE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DA21A892EC00D9ADAE /* LoginViewModel.swift */; };
 		177837DD21A89A7200D9ADAE /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DC21A89A7200D9ADAE /* NavigationService.swift */; };
 		177837DF21A8ABD100D9ADAE /* NavigationPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DE21A8ABD100D9ADAE /* NavigationPresentable.swift */; };
 		177837E121A8AC3600D9ADAE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837E021A8AC3600D9ADAE /* BaseNavigationController.swift */; };
@@ -146,7 +146,7 @@
 		179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */; };
 		179FCAB52118C2E300C20258 /* AddShoppingListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */; };
 		17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03C20F920CF002F670D /* AppDelegate.swift */; };
-		17B3E03F20F920CF002F670D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03E20F920CF002F670D /* HomeViewController.swift */; };
+		17B3E03F20F920CF002F670D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03E20F920CF002F670D /* LoginViewController.swift */; };
 		17B3E04220F920CF002F670D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04020F920CF002F670D /* Main.storyboard */; };
 		17B3E04420F920D1002F670D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04320F920D1002F670D /* Assets.xcassets */; };
 		17B3E04720F920D1002F670D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04520F920D1002F670D /* LaunchScreen.storyboard */; };
@@ -179,6 +179,8 @@
 		17E7DBC3210D24F900E79942 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBC2210D24F900E79942 /* CoreText.framework */; };
 		17E7DBC5210D257600E79942 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBC4210D257600E79942 /* CoreData.framework */; };
 		17E7DBC7210D259600E79942 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E7DBC6210D259600E79942 /* CoreTelephony.framework */; };
+		17F1673721C66012005598D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1673621C66012005598D4 /* HomeViewController.swift */; };
+		17F1673921C660C6005598D4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1673821C660C6005598D4 /* HomeViewModel.swift */; };
 		17FAC03B21A9F51000A418E1 /* UUID+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FAC03A21A9F51000A418E1 /* UUID+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -354,7 +356,7 @@
 		177837D221A6D2CA00D9ADAE /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		177837D421A6D5D700D9ADAE /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		177837D621A75A3300D9ADAE /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
-		177837DA21A892EC00D9ADAE /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		177837DA21A892EC00D9ADAE /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		177837DC21A89A7200D9ADAE /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		177837DE21A8ABD100D9ADAE /* NavigationPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresentable.swift; sourceTree = "<group>"; };
 		177837E021A8AC3600D9ADAE /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -373,7 +375,7 @@
 		179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewModel.swift; sourceTree = "<group>"; };
 		17B3E03920F920CF002F670D /* Shopping Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B3E03C20F920CF002F670D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		17B3E03E20F920CF002F670D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		17B3E03E20F920CF002F670D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17B3E04120F920CF002F670D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17B3E04320F920D1002F670D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17B3E04620F920D1002F670D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -416,6 +418,8 @@
 		17E7DBC2210D24F900E79942 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		17E7DBC4210D257600E79942 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		17E7DBC6210D259600E79942 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		17F1673621C66012005598D4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		17F1673821C660C6005598D4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		17FAC03A21A9F51000A418E1 /* UUID+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UUID+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -537,9 +541,10 @@
 		173415B720F9350F00080C48 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1774BA012144B33400D1BF9A /* BaseViewController.swift */,
 				177837E021A8AC3600D9ADAE /* BaseNavigationController.swift */,
-				17B3E03E20F920CF002F670D /* HomeViewController.swift */,
+				1774BA012144B33400D1BF9A /* BaseViewController.swift */,
+				17F1673621C66012005598D4 /* HomeViewController.swift */,
+				17B3E03E20F920CF002F670D /* LoginViewController.swift */,
 				17417F94210D31B500AF3539 /* MapViewController.swift */,
 				1714D40E2115BDD7006E2D8C /* LocationsViewController.swift */,
 				1714D4062115B822006E2D8C /* AddLocationViewController.swift */,
@@ -570,7 +575,8 @@
 		173415BA20F935D400080C48 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				177837DA21A892EC00D9ADAE /* HomeViewModel.swift */,
+				17F1673821C660C6005598D4 /* HomeViewModel.swift */,
+				177837DA21A892EC00D9ADAE /* LoginViewModel.swift */,
 				17417F96210D3EFD00AF3539 /* MapViewModel.swift */,
 				1714D40F2115BDD7006E2D8C /* LocationsViewModel.swift */,
 				1714D4072115B822006E2D8C /* AddLocationViewModel.swift */,
@@ -1104,12 +1110,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17B3E03F20F920CF002F670D /* HomeViewController.swift in Sources */,
+				17B3E03F20F920CF002F670D /* LoginViewController.swift in Sources */,
 				177837D721A75A3300D9ADAE /* Bundle+Extension.swift in Sources */,
 				177837CD21A623F300D9ADAE /* LoggingConfiguration.swift in Sources */,
 				17417F90210D2D3F00AF3539 /* GoogleConfiguration.swift in Sources */,
 				17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */,
-				177837DB21A892EC00D9ADAE /* HomeViewModel.swift in Sources */,
+				177837DB21A892EC00D9ADAE /* LoginViewModel.swift in Sources */,
 				17417F99210DDEC300AF3539 /* PlaceMarker.swift in Sources */,
 				171722EF213F47B40024AA6B /* LocationManager.swift in Sources */,
 				1774BA002144AB5200D1BF9A /* ActivityIndicatable.swift in Sources */,
@@ -1130,6 +1136,7 @@
 				179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */,
 				1714D419211723E0006E2D8C /* FindLocationViewModel.swift in Sources */,
 				177A389721C5D1F800198C71 /* LocationClassifier.mlmodel in Sources */,
+				17F1673921C660C6005598D4 /* HomeViewModel.swift in Sources */,
 				17DB700D21B3E43700B3471B /* FileService.swift in Sources */,
 				178E6DCF21487B37006FE914 /* Notification.swift in Sources */,
 				177837DD21A89A7200D9ADAE /* NavigationService.swift in Sources */,
@@ -1148,6 +1155,7 @@
 				17FAC03B21A9F51000A418E1 /* UUID+Extension.swift in Sources */,
 				1774B9F7214325E400D1BF9A /* NotificationsManager.swift in Sources */,
 				1714D4132115D509006E2D8C /* LocationMarker.swift in Sources */,
+				17F1673721C66012005598D4 /* HomeViewController.swift in Sources */,
 				1714D4112115BDD7006E2D8C /* LocationsViewModel.swift in Sources */,
 				176D808C214FCC3E003FD696 /* Array+Extension.swift in Sources */,
 				17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */,
