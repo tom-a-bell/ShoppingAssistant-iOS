@@ -130,6 +130,8 @@
 		177837DD21A89A7200D9ADAE /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DC21A89A7200D9ADAE /* NavigationService.swift */; };
 		177837DF21A8ABD100D9ADAE /* NavigationPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837DE21A8ABD100D9ADAE /* NavigationPresentable.swift */; };
 		177837E121A8AC3600D9ADAE /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177837E021A8AC3600D9ADAE /* BaseNavigationController.swift */; };
+		177A389721C5D1F800198C71 /* LocationClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 177A389621C5D1F800198C71 /* LocationClassifier.mlmodel */; };
+		177A389921C5D27600198C71 /* PredictionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177A389821C5D27600198C71 /* PredictionService.swift */; };
 		1781E5BC2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1781E5BD2149C8B40087D531 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E5BB2149C8B30087D531 /* NotificationItem.swift */; };
 		1786727221064684003B906D /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786727121064684003B906D /* ShoppingListViewModel.swift */; };
@@ -356,6 +358,8 @@
 		177837DC21A89A7200D9ADAE /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		177837DE21A8ABD100D9ADAE /* NavigationPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresentable.swift; sourceTree = "<group>"; };
 		177837E021A8AC3600D9ADAE /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		177A389621C5D1F800198C71 /* LocationClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LocationClassifier.mlmodel; sourceTree = "<group>"; };
+		177A389821C5D27600198C71 /* PredictionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionService.swift; sourceTree = "<group>"; };
 		1781E5BB2149C8B30087D531 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		1786727121064684003B906D /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		17867274210657FA003B906D /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
@@ -588,6 +592,7 @@
 				177837DC21A89A7200D9ADAE /* NavigationService.swift */,
 				1774B9F6214325E400D1BF9A /* NotificationsManager.swift */,
 				179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */,
+				177A389821C5D27600198C71 /* PredictionService.swift */,
 				17DB700C21B3E43700B3471B /* FileService.swift */,
 				177837CE21A625CA00D9ADAE /* Log.swift */,
 			);
@@ -633,6 +638,7 @@
 		17867273210657A8003B906D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				177A389621C5D1F800198C71 /* LocationClassifier.mlmodel */,
 				17417F9D210DE51900AF3539 /* GooglePlace.swift */,
 				17417FA6210E01BF00AF3539 /* GooglePlacesResponse.swift */,
 				17417F98210DDEC300AF3539 /* PlaceMarker.swift */,
@@ -1117,11 +1123,13 @@
 				1774BA022144B33400D1BF9A /* BaseViewController.swift in Sources */,
 				17417FA5210DFCBD00AF3539 /* ResponseError.swift in Sources */,
 				1714D4082115B822006E2D8C /* AddLocationViewController.swift in Sources */,
+				177A389921C5D27600198C71 /* PredictionService.swift in Sources */,
 				17417F97210D3EFD00AF3539 /* MapViewModel.swift in Sources */,
 				171722F1213F52910024AA6B /* GeofenceService.swift in Sources */,
 				17417FA1210DF48E00AF3539 /* GooglePlacesService.swift in Sources */,
 				179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */,
 				1714D419211723E0006E2D8C /* FindLocationViewModel.swift in Sources */,
+				177A389721C5D1F800198C71 /* LocationClassifier.mlmodel in Sources */,
 				17DB700D21B3E43700B3471B /* FileService.swift in Sources */,
 				178E6DCF21487B37006FE914 /* Notification.swift in Sources */,
 				177837DD21A89A7200D9ADAE /* NavigationService.swift in Sources */,

@@ -66,13 +66,24 @@ extension ShoppingListViewController: UITableViewDataSource {
 
         let item = viewModel.items[indexPath.row]
         cell.textLabel?.text = item.name.capitalized
-        cell.detailTextLabel?.text = item.location?.name
         cell.accessoryType = item.isCompleted ? .checkmark : .none
+
+        if let location = item.location {
+            cell.detailTextLabel?.text = location.name
+        } else if let suggestedLocation = PredictionService.shared.predictedLocation(for: item) {
+            cell.detailTextLabel?.attributedText = suggestedLocationLabel(for: suggestedLocation)
+        }
 
         cell.editingAccessoryType = .none
         cell.selectionStyle = .none
 
         return cell
+    }
+
+    private func suggestedLocationLabel(for suggestedLocation: String) -> NSAttributedString {
+        let labelText = "Suggested: \(suggestedLocation)"
+        let labelAttributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        return NSAttributedString(string: labelText, attributes: labelAttributes)
     }
 }
 
