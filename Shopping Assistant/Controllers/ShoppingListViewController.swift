@@ -3,7 +3,6 @@ import UIKit
 class ShoppingListViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addButton: UIBarButtonItem!
 
     private let viewModel = ShoppingListViewModel()
 
@@ -15,8 +14,6 @@ class ShoppingListViewController: BaseViewController {
 
         viewModel.delegate = self
         viewModel.onViewDidLoad()
-
-        navigationItem.rightBarButtonItem = editButtonItem
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -27,11 +24,6 @@ class ShoppingListViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.onViewWillDisappear()
-    }
-
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        tableView.setEditing(!tableView.isEditing, animated: true)
     }
 
     // MARK: - Navigation
@@ -98,19 +90,6 @@ extension ShoppingListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         viewModel.didDeselectItem()
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let item = viewModel.items[indexPath.row]
-        if editingStyle == .delete {
-            viewModel.didRemove(item)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let item = viewModel.items[sourceIndexPath.row]
-        viewModel.didMove(item, to: destinationIndexPath.row)
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="69D-5G-9lW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -177,35 +177,24 @@
                                     <outlet property="delegate" destination="3Hp-sM-Qzh" id="f5B-RJ-w5j"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWD-HN-GVu">
-                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="P6j-0N-KfT"/>
-                                    <barButtonItem systemItem="compose" id="9PO-xt-fyD" userLabel="Add Button">
-                                        <connections>
-                                            <action selector="addItem" destination="3Hp-sM-Qzh" id="EDF-cf-cNd"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EhH-hk-M3N" firstAttribute="bottom" secondItem="lWD-HN-GVu" secondAttribute="bottom" id="GuQ-ZK-Ed0"/>
-                            <constraint firstItem="lWD-HN-GVu" firstAttribute="top" secondItem="69D-5G-9lW" secondAttribute="bottom" id="LnJ-rq-MJD"/>
-                            <constraint firstItem="lWD-HN-GVu" firstAttribute="leading" secondItem="EhH-hk-M3N" secondAttribute="leading" id="TTE-DU-Prs"/>
                             <constraint firstItem="69D-5G-9lW" firstAttribute="leading" secondItem="EhH-hk-M3N" secondAttribute="leading" id="d8T-ur-gUe"/>
                             <constraint firstItem="69D-5G-9lW" firstAttribute="trailing" secondItem="EhH-hk-M3N" secondAttribute="trailing" id="ex2-Jb-tvB"/>
-                            <constraint firstItem="lWD-HN-GVu" firstAttribute="trailing" secondItem="EhH-hk-M3N" secondAttribute="trailing" id="kNy-Tv-7Jx"/>
+                            <constraint firstItem="69D-5G-9lW" firstAttribute="bottom" secondItem="EhH-hk-M3N" secondAttribute="bottom" id="kNy-Tv-7Jx"/>
                             <constraint firstItem="69D-5G-9lW" firstAttribute="top" secondItem="EhH-hk-M3N" secondAttribute="top" id="qjP-1L-NPj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EhH-hk-M3N"/>
                     </view>
                     <navigationItem key="navigationItem" title="Shopping List" id="FEp-rA-jdI" userLabel="Navigation Item">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="pYL-xW-913" userLabel="Edit Button"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pYL-xW-913" userLabel="Add Button">
+                            <connections>
+                                <action selector="addItem" destination="3Hp-sM-Qzh" id="5zZ-T1-uG2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="9PO-xt-fyD" id="Got-c1-f5P"/>
                         <outlet property="tableView" destination="69D-5G-9lW" id="qTD-5W-Ujq"/>
                         <segue destination="Mhz-q2-5h4" kind="show" identifier="AddItem" id="cpe-kF-lOH"/>
                     </connections>
@@ -243,7 +232,7 @@
                         <viewLayoutGuide key="safeArea" id="1Qd-K0-N2f"/>
                     </view>
                     <navigationItem key="navigationItem" title="Locations" id="nNo-Cr-Y04" userLabel="Navigation Item">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kgg-hy-Ebc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kgg-hy-Ebc" userLabel="Add Button">
                             <connections>
                                 <action selector="addLocation" destination="qG8-E2-nxN" id="F9s-wY-gVu"/>
                             </connections>

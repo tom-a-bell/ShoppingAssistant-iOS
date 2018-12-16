@@ -13,6 +13,8 @@ class AddShoppingListItemViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = viewModel.item.name.isEmpty ? "Add Item" : "Edit Item"
+
         viewModel.delegate = self
         viewModel.onViewDidLoad()
 
