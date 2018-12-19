@@ -288,7 +288,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me at a specific location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsg-ro-Knb" userLabel="Location Label">
-                                <rect key="frame" x="16" y="139" width="247" height="21"/>
+                                <rect key="frame" x="16" y="139" width="278" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -314,6 +314,7 @@
                             <constraint firstItem="60h-47-AvI" firstAttribute="bottom" secondItem="oFP-62-kt4" secondAttribute="bottom" id="A87-WI-9a1"/>
                             <constraint firstItem="oFP-62-kt4" firstAttribute="trailing" secondItem="BwO-dV-iVe" secondAttribute="trailing" constant="16" id="B32-iP-y4m"/>
                             <constraint firstItem="Yem-kB-VVn" firstAttribute="trailing" secondItem="oFP-62-kt4" secondAttribute="trailing" id="POI-AC-TJb"/>
+                            <constraint firstItem="BwO-dV-iVe" firstAttribute="leading" secondItem="Gsg-ro-Knb" secondAttribute="trailing" constant="16" id="S0K-qs-HIY"/>
                             <constraint firstItem="BwO-dV-iVe" firstAttribute="centerY" secondItem="Gsg-ro-Knb" secondAttribute="centerY" id="UQE-LX-Zsp"/>
                             <constraint firstItem="Ao0-Q3-Obk" firstAttribute="top" secondItem="BwO-dV-iVe" secondAttribute="bottom" constant="24" id="WMI-cY-P3R"/>
                             <constraint firstItem="Yem-kB-VVn" firstAttribute="top" secondItem="wrl-Il-RU7" secondAttribute="bottom" constant="16" id="d1X-5o-fOh"/>
