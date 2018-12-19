@@ -23,6 +23,8 @@ class GeofenceService {
 
     func didEnter(_ location: Location) {
         Log.info("Entering location with ID: \(location.id)")
+        guard isWithinNotificationTimePeriod else { return }
+
         getDetailsAndItems(for: location)
             .then(displayNotification)
             .catch(handleError)
@@ -52,6 +54,16 @@ class GeofenceService {
     private func displayNotification(for location: Location?, with items: [ShoppingListItem]) {
         guard !items.isEmpty, let location = location else { return }
         NotificationsManager.shared.showNotification(for: location, with: items)
+    }
+
+    private var isWithinNotificationTimePeriod: Bool {
+        let calendar = Calendar.current
+        let now = Date()
+        let todayAt2pm = calendar.date(bySettingHour: 14, minute: 0, second: 0, of: now)!
+        let todayAt9pm = calendar.date(bySettingHour: 21, minute: 0, second: 0, of: now)!
+
+        return now >= todayAt2pm
+            && now <= todayAt9pm
     }
 
     private func handleError(error: Error) {
