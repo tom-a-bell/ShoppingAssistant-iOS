@@ -1,0 +1,18 @@
+variables:
+  h1: Arial:title1
+  primaryColor: 1C7492
+styles:
+  UINavigationBar:
+    prefersLargeTitles: true
+    translucent: false
+    barStyle: black
+    barTintColor: $primaryColor
+    tintColor: white
+    titleColor: white
+    largeTitleColor: white
+  UITabBar:
+    tintColor: $primaryColor
+  UIButton:
+    titleColor: $primaryColor
+  UISwitch:
+    onTintColor: $primaryColor

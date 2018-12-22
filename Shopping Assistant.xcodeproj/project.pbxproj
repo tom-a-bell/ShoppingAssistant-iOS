@@ -98,6 +98,10 @@
 		171BF57320F96C0300E4378E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171BF57220F96C0300E4378E /* Result.framework */; };
 		173415BC20F937E600080C48 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173415BB20F937E600080C48 /* ShoppingListViewController.swift */; };
 		173415C020F94C2B00080C48 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173415BF20F94C2B00080C48 /* Moya.framework */; };
+		1739B1C121CD88AC00CF260C /* Style.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 1739B1C021CD88AC00CF260C /* Style.yaml */; };
+		1739B1C321CD8A6600CF260C /* Stylist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1739B1C221CD8A6600CF260C /* Stylist.framework */; };
+		1739B1C521CD8DCA00CF260C /* KZFileWatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1739B1C421CD8DC900CF260C /* KZFileWatchers.framework */; };
+		1739B1C721CD8EC800CF260C /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1739B1C621CD8EC800CF260C /* Yams.framework */; };
 		17417F90210D2D3F00AF3539 /* GoogleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */; };
 		17417F93210D2F2000AF3539 /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F92210D2F2000AF3539 /* GoogleMapsService.swift */; };
 		17417F95210D31B500AF3539 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F94210D31B500AF3539 /* MapViewController.swift */; };
@@ -145,6 +149,7 @@
 		179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */; };
 		179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */; };
 		179FCAB52118C2E300C20258 /* AddShoppingListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */; };
+		17B128C721D0E50E0063AC4E /* Stylist+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B128C621D0E50E0063AC4E /* Stylist+Extension.swift */; };
 		17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03C20F920CF002F670D /* AppDelegate.swift */; };
 		17B3E03F20F920CF002F670D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03E20F920CF002F670D /* LoginViewController.swift */; };
 		17B3E04220F920CF002F670D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04020F920CF002F670D /* Main.storyboard */; };
@@ -152,7 +157,6 @@
 		17B3E04720F920D1002F670D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E04520F920D1002F670D /* LaunchScreen.storyboard */; };
 		17B3E05220F920D1002F670D /* ShoppingAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E05120F920D1002F670D /* ShoppingAssistantTests.swift */; };
 		17B3E05D20F920D1002F670D /* ShoppingAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E05C20F920D1002F670D /* ShoppingAssistantUITests.swift */; };
-		17B3E06B20F924DA002F670D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 17B3E06A20F924DA002F670D /* Cartfile */; };
 		17B3E06E20F9282F002F670D /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B3E06D20F9282F002F670D /* Promises.framework */; };
 		17B3E07120F92A5F002F670D /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B3E07020F92A5F002F670D /* FBLPromises.framework */; };
 		17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D6E712210149BC0000AFCE /* AmazonClientManager.swift */; };
@@ -324,6 +328,10 @@
 		171BF57220F96C0300E4378E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		173415BB20F937E600080C48 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		173415BF20F94C2B00080C48 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
+		1739B1C021CD88AC00CF260C /* Style.yaml */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = text; path = Style.yaml; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
+		1739B1C221CD8A6600CF260C /* Stylist.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stylist.framework; path = Carthage/Build/iOS/Stylist.framework; sourceTree = "<group>"; };
+		1739B1C421CD8DC900CF260C /* KZFileWatchers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KZFileWatchers.framework; path = Carthage/Build/iOS/KZFileWatchers.framework; sourceTree = "<group>"; };
+		1739B1C621CD8EC800CF260C /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = Carthage/Build/iOS/Yams.framework; sourceTree = "<group>"; };
 		17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleConfiguration.swift; sourceTree = "<group>"; };
 		17417F92210D2F2000AF3539 /* GoogleMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsService.swift; sourceTree = "<group>"; };
 		17417F94210D31B500AF3539 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -373,6 +381,7 @@
 		179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListService.swift; sourceTree = "<group>"; };
 		179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewController.swift; sourceTree = "<group>"; };
 		179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewModel.swift; sourceTree = "<group>"; };
+		17B128C621D0E50E0063AC4E /* Stylist+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stylist+Extension.swift"; sourceTree = "<group>"; };
 		17B3E03920F920CF002F670D /* Shopping Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B3E03C20F920CF002F670D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B3E03E20F920CF002F670D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -506,6 +515,9 @@
 				177837D121A6CD8E00D9ADAE /* JustLog.framework in Frameworks */,
 				1771612B21BBEB1400A92A28 /* Fabric.framework in Frameworks */,
 				1771612C21BBEB1400A92A28 /* Crashlytics.framework in Frameworks */,
+				1739B1C521CD8DCA00CF260C /* KZFileWatchers.framework in Frameworks */,
+				1739B1C321CD8A6600CF260C /* Stylist.framework in Frameworks */,
+				1739B1C721CD8EC800CF260C /* Yams.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				17B3E04320F920D1002F670D /* Assets.xcassets */,
+				1739B1C021CD88AC00CF260C /* Style.yaml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -637,6 +650,7 @@
 				17417FA9210E08C800AF3539 /* MarkerInfoView.swift */,
 				17417FAB210E08E300AF3539 /* MarkerInfoView.xib */,
 				17417FAD210E0DA400AF3539 /* UIView+Extension.swift */,
+				17B128C621D0E50E0063AC4E /* Stylist+Extension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -802,6 +816,9 @@
 				177837D021A6CD8E00D9ADAE /* JustLog.framework */,
 				1771612921BBEB1400A92A28 /* Fabric.framework */,
 				1771612A21BBEB1400A92A28 /* Crashlytics.framework */,
+				1739B1C421CD8DC900CF260C /* KZFileWatchers.framework */,
+				1739B1C221CD8A6600CF260C /* Stylist.framework */,
+				1739B1C621CD8EC800CF260C /* Yams.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -968,11 +985,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17B3E04720F920D1002F670D /* LaunchScreen.storyboard in Resources */,
 				17B3E04420F920D1002F670D /* Assets.xcassets in Resources */,
-				17417FAC210E08E300AF3539 /* MarkerInfoView.xib in Resources */,
-				17B3E06B20F924DA002F670D /* Cartfile in Resources */,
 				17B3E04220F920CF002F670D /* Main.storyboard in Resources */,
+				17B3E04720F920D1002F670D /* LaunchScreen.storyboard in Resources */,
+				17417FAC210E08E300AF3539 /* MarkerInfoView.xib in Resources */,
+				1739B1C121CD88AC00CF260C /* Style.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1075,6 +1092,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CocoaAsyncSocket.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JustLog.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KZFileWatchers.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Stylist.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Yams.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -1089,6 +1109,9 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CocoaAsyncSocket.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyBeaver.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/JustLog.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/KZFileWatchers.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Stylist.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Yams.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1155,6 +1178,7 @@
 				17FAC03B21A9F51000A418E1 /* UUID+Extension.swift in Sources */,
 				1774B9F7214325E400D1BF9A /* NotificationsManager.swift in Sources */,
 				1714D4132115D509006E2D8C /* LocationMarker.swift in Sources */,
+				17B128C721D0E50E0063AC4E /* Stylist+Extension.swift in Sources */,
 				17F1673721C66012005598D4 /* HomeViewController.swift in Sources */,
 				1714D4112115BDD7006E2D8C /* LocationsViewModel.swift in Sources */,
 				176D808C214FCC3E003FD696 /* Array+Extension.swift in Sources */,

@@ -2,6 +2,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import CoreLocation
+import Stylist
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationsManager.shared.requestAuthorization()
             .then(handleNotificationAuthorizationResponse)
             .catch(handleError)
+
+        Stylist.shared.loadTheme()
 
         return true
     }
