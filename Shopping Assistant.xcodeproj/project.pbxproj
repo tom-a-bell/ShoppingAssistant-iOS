@@ -102,6 +102,8 @@
 		1739B1C321CD8A6600CF260C /* Stylist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1739B1C221CD8A6600CF260C /* Stylist.framework */; };
 		1739B1C521CD8DCA00CF260C /* KZFileWatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1739B1C421CD8DC900CF260C /* KZFileWatchers.framework */; };
 		1739B1C721CD8EC800CF260C /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1739B1C621CD8EC800CF260C /* Yams.framework */; };
+		1739B1CA21CE9C8700CF260C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739B1C821CE9C8700CF260C /* SettingsViewController.swift */; };
+		1739B1CB21CE9C8700CF260C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739B1C921CE9C8700CF260C /* SettingsViewModel.swift */; };
 		17417F90210D2D3F00AF3539 /* GoogleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */; };
 		17417F93210D2F2000AF3539 /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F92210D2F2000AF3539 /* GoogleMapsService.swift */; };
 		17417F95210D31B500AF3539 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17417F94210D31B500AF3539 /* MapViewController.swift */; };
@@ -332,6 +334,8 @@
 		1739B1C221CD8A6600CF260C /* Stylist.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stylist.framework; path = Carthage/Build/iOS/Stylist.framework; sourceTree = "<group>"; };
 		1739B1C421CD8DC900CF260C /* KZFileWatchers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KZFileWatchers.framework; path = Carthage/Build/iOS/KZFileWatchers.framework; sourceTree = "<group>"; };
 		1739B1C621CD8EC800CF260C /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = Carthage/Build/iOS/Yams.framework; sourceTree = "<group>"; };
+		1739B1C821CE9C8700CF260C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1739B1C921CE9C8700CF260C /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		17417F8F210D2D3F00AF3539 /* GoogleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleConfiguration.swift; sourceTree = "<group>"; };
 		17417F92210D2F2000AF3539 /* GoogleMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsService.swift; sourceTree = "<group>"; };
 		17417F94210D31B500AF3539 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -563,6 +567,7 @@
 				1714D416211723E0006E2D8C /* FindLocationViewController.swift */,
 				173415BB20F937E600080C48 /* ShoppingListViewController.swift */,
 				179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */,
+				1739B1C821CE9C8700CF260C /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -596,6 +601,7 @@
 				1714D417211723E0006E2D8C /* FindLocationViewModel.swift */,
 				1786727121064684003B906D /* ShoppingListViewModel.swift */,
 				179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */,
+				1739B1C921CE9C8700CF260C /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1138,6 +1144,7 @@
 				177837CD21A623F300D9ADAE /* LoggingConfiguration.swift in Sources */,
 				17417F90210D2D3F00AF3539 /* GoogleConfiguration.swift in Sources */,
 				17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */,
+				1739B1CB21CE9C8700CF260C /* SettingsViewModel.swift in Sources */,
 				177837DB21A892EC00D9ADAE /* LoginViewModel.swift in Sources */,
 				17417F99210DDEC300AF3539 /* PlaceMarker.swift in Sources */,
 				171722EF213F47B40024AA6B /* LocationManager.swift in Sources */,
@@ -1156,6 +1163,7 @@
 				17417F97210D3EFD00AF3539 /* MapViewModel.swift in Sources */,
 				171722F1213F52910024AA6B /* GeofenceService.swift in Sources */,
 				17417FA1210DF48E00AF3539 /* GooglePlacesService.swift in Sources */,
+				1739B1CA21CE9C8700CF260C /* SettingsViewController.swift in Sources */,
 				179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */,
 				1714D419211723E0006E2D8C /* FindLocationViewModel.swift in Sources */,
 				177A389721C5D1F800198C71 /* LocationClassifier.mlmodel in Sources */,
