@@ -29,6 +29,7 @@ class LoginViewController: BaseViewController {
 extension LoginViewController: LoginViewModelDelegate {
     func didLogin() {
         updateButtonStates(isLoggedIn: true)
+        dismiss(animated: true)
     }
 
     func didLogout() {
