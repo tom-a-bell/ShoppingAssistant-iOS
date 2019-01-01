@@ -3,6 +3,7 @@ import Promises
 
 protocol ShoppingListViewModelDelegate: AnyObject, ActivityIndicatable, ErrorPresentable {
     func didLoadItems()
+    func didUpdate(_ item: ShoppingListItem)
 }
 
 class ShoppingListViewModel {
@@ -15,7 +16,15 @@ class ShoppingListViewModel {
     private var allItems: [ShoppingListItem] = []
 
     public var items: [ShoppingListItem] {
-        return selectedLocationId == nil ? allItems : allItems.filter { $0.locationId == selectedLocationId }
+        return allItems.filter { selectedLocationId == nil || $0.locationId == selectedLocationId }.sorted(by: completedThenByLastUpdated)
+    }
+
+    public var activeItems: [ShoppingListItem] {
+        return items.filter { $0.status == .active }
+    }
+
+    public var completedItems: [ShoppingListItem] {
+        return items.filter { $0.status == .completed }
     }
 
     public func onViewDidLoad() {}
@@ -30,7 +39,7 @@ class ShoppingListViewModel {
     public func onViewWillDisappear() {
         guard selectedItem == nil else { return }
         selectedLocationId = nil
-        didEndEditing()
+        updateItems()
     }
 
     public func didSelect(_ item: ShoppingListItem) {
@@ -42,9 +51,13 @@ class ShoppingListViewModel {
     }
 
     public func didUpdate(_ item: ShoppingListItem) {
-        guard let index = allItems.firstIndex(of: item) else { return }
+        allItems.removeFirst(item)
+
         FileService.shared.recordUpdatedItem(item)
-        allItems[index] = item
+        ShoppingListService.shared.updateItems([item])
+            .then(updateLocationMonitoring)
+            .then { self.delegate?.didUpdate(item) }
+            .catch(handleError)
     }
 
     public func didRemove(_ item: ShoppingListItem) {
@@ -54,15 +67,8 @@ class ShoppingListViewModel {
             .catch(handleError)
     }
 
-    public func didMove(_ item: ShoppingListItem, to index: Int) {
-        guard let index = allItems.firstIndex(of: items[index]) else { return }
-        allItems.removeFirst(item)
-        allItems.insert(item, at: index)
-    }
-
-    public func didEndEditing() {
-        Log.info("Saving shopping list items...")
-        updateItems()
+    public func didInsert(_ item: ShoppingListItem) {
+        allItems.insert(item, at: 0)
     }
 
     private func fetchItems() {
@@ -95,9 +101,6 @@ class ShoppingListViewModel {
     }
 
     private func sortItems(_ items: [ShoppingListItem]) -> Promise<[ShoppingListItem]> {
-        let completedThenByLastUpdated: (ShoppingListItem, ShoppingListItem) -> (Bool) = {
-            return $0.isCompleted == $1.isCompleted ? $0.updatedTime > $1.updatedTime : $1.isCompleted
-        }
         let sortedItems = items.sorted(by: completedThenByLastUpdated)
         return Promise(sortedItems)
     }
@@ -125,5 +128,9 @@ class ShoppingListViewModel {
 
     private func stopActivity() {
         delegate?.activityDidStop()
+    }
+
+    private let completedThenByLastUpdated: (ShoppingListItem, ShoppingListItem) -> (Bool) = {
+        return $0.isCompleted == $1.isCompleted ? $0.updatedTime > $1.updatedTime : $1.isCompleted
     }
 }

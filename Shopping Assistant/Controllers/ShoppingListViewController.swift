@@ -46,17 +46,50 @@ class ShoppingListViewController: BaseViewController {
 // MARK: - UITableViewDataSource
 extension ShoppingListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.completedItems.isEmpty ? 1 : 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.items.count
+        switch section {
+        case 0:
+            return viewModel.activeItems.count
+        case 1:
+            return viewModel.completedItems.count
+        default:
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return CGFloat.leastNonzeroMagnitude
+        default:
+            return 30
+        }
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return "Completed"
+        default:
+            return nil
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingListItemCell", for: indexPath)
 
-        let item = viewModel.items[indexPath.row]
+        let item = itemForRowAt(indexPath)
         cell.textLabel?.text = item.name.capitalized
         cell.accessoryType = item.isCompleted ? .checkmark : .none
 
@@ -77,12 +110,23 @@ extension ShoppingListViewController: UITableViewDataSource {
         let labelAttributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         return NSAttributedString(string: labelText, attributes: labelAttributes)
     }
+
+    private func itemForRowAt(_ indexPath: IndexPath) -> ShoppingListItem {
+        switch indexPath.section {
+        case 0:
+            return viewModel.activeItems[indexPath.row]
+        case 1:
+            return viewModel.completedItems[indexPath.row]
+        default:
+            return viewModel.items[indexPath.row]
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
 extension ShoppingListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = viewModel.items[indexPath.row]
+        let item = itemForRowAt(indexPath)
         viewModel.didSelect(item)
 
         performSegue(withIdentifier: "AddItem", sender: self)
@@ -103,16 +147,11 @@ extension ShoppingListViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [deleteAction, snoozeAction])
     }
 
-    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        viewModel.didEndEditing()
-    }
-
     private func contextualToggleDoneAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
-        var item = viewModel.items[indexPath.row]
+        var item = itemForRowAt(indexPath)
         let handler: UIContextualAction.Handler = { action, view, completionHandler in
             item.toggleStatus()
             self.viewModel.didUpdate(item)
-            self.tableView.reloadRows(at: [indexPath], with: .none)
             completionHandler(true)
         }
 
@@ -124,7 +163,7 @@ extension ShoppingListViewController: UITableViewDelegate {
     }
 
     private func contextualDeleteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
-        let item = viewModel.items[indexPath.row]
+        let item = itemForRowAt(indexPath)
         let handler: UIContextualAction.Handler = { action, view, completionHandler in
             self.viewModel.didRemove(item)
             self.tableView.deleteRows(at: [indexPath], with: .left)
@@ -149,6 +188,20 @@ extension ShoppingListViewController: UITableViewDelegate {
 extension ShoppingListViewController: ShoppingListViewModelDelegate {
     func didLoadItems() {
         tableView.reloadData()
+    }
+
+    func didUpdateItems() {
+        let sections = viewModel.completedItems.isEmpty ? [0] : [0, 1]
+        tableView.reloadSections(IndexSet(sections), with: .fade)
+    }
+
+    func didUpdate(_ item: ShoppingListItem) {
+        tableView.reloadData()
+        viewModel.didInsert(item)
+//        let section = item.isCompleted ? 1 : 0
+//        tableView.reloadSections(IndexSet([section]), with: .fade)
+        let indexPath = item.isCompleted ? IndexPath(row: 0, section: 0) : IndexPath(row: 0, section: 1)
+        tableView.insertRows(at: [indexPath], with: .bottom)
     }
 }
 
