@@ -151,6 +151,7 @@
 		179A7F6B2117C7DB00C764E6 /* ShoppingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */; };
 		179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */; };
 		179FCAB52118C2E300C20258 /* AddShoppingListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */; };
+		17B128C521D0236D0063AC4E /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B128C421D0236D0063AC4E /* UIButton+Extension.swift */; };
 		17B128C721D0E50E0063AC4E /* Stylist+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B128C621D0E50E0063AC4E /* Stylist+Extension.swift */; };
 		17B3E03D20F920CF002F670D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03C20F920CF002F670D /* AppDelegate.swift */; };
 		17B3E03F20F920CF002F670D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E03E20F920CF002F670D /* LoginViewController.swift */; };
@@ -385,6 +386,7 @@
 		179A7F6A2117C7DB00C764E6 /* ShoppingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListService.swift; sourceTree = "<group>"; };
 		179FCAB22118C2E300C20258 /* AddShoppingListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewController.swift; sourceTree = "<group>"; };
 		179FCAB32118C2E300C20258 /* AddShoppingListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingListItemViewModel.swift; sourceTree = "<group>"; };
+		17B128C421D0236D0063AC4E /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		17B128C621D0E50E0063AC4E /* Stylist+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stylist+Extension.swift"; sourceTree = "<group>"; };
 		17B3E03920F920CF002F670D /* Shopping Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B3E03C20F920CF002F670D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 				17417FA9210E08C800AF3539 /* MarkerInfoView.swift */,
 				17417FAB210E08E300AF3539 /* MarkerInfoView.xib */,
 				17417FAD210E0DA400AF3539 /* UIView+Extension.swift */,
+				17B128C421D0236D0063AC4E /* UIButton+Extension.swift */,
 				17B128C621D0E50E0063AC4E /* Stylist+Extension.swift */,
 			);
 			path = Views;
@@ -1178,6 +1181,7 @@
 				1714D41521170541006E2D8C /* LocationsService.swift in Sources */,
 				1714D4102115BDD7006E2D8C /* LocationsViewController.swift in Sources */,
 				179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */,
+				17B128C521D0236D0063AC4E /* UIButton+Extension.swift in Sources */,
 				17417FA3210DF50700AF3539 /* String+Network.swift in Sources */,
 				177837CB21A602AF00D9ADAE /* Dictionary+Extension.swift in Sources */,
 				17417FAE210E0DA400AF3539 /* UIView+Extension.swift in Sources */,

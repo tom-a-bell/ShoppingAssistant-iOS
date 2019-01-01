@@ -14,5 +14,11 @@ styles:
     tintColor: $primaryColor
   UIButton:
     titleColor: $primaryColor
+  UIButton.primary:
+    font: system:18
+    titleColor: white
+    backgroundColor: $primaryColor
+    contentEdgeInsets: 8
+    cornerRadius: 5
   UISwitch:
     onTintColor: $primaryColor

@@ -47,6 +47,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUD-bp-YBi" userLabel="Login Button">
                                 <rect key="frame" x="120" y="318" width="134" height="30"/>
                                 <state key="normal" title="Log in with Amazon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="primary"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="performLogin" destination="BYZ-38-t0r" eventType="touchUpInside" id="QMJ-aZ-0XU"/>
                                 </connections>
@@ -266,6 +269,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Sv-Ce-Wmy" userLabel="Logout Button">
                                 <rect key="frame" x="161.5" y="556" width="52" height="30"/>
                                 <state key="normal" title="Log out"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="primary"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
