@@ -93,13 +93,14 @@ extension ShoppingListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let completeAction = self.contextualToggleDoneAction(forRowAtIndexPath: indexPath)
+        let completeAction = contextualToggleDoneAction(forRowAtIndexPath: indexPath)
         return UISwipeActionsConfiguration(actions: [completeAction])
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = self.contextualDeleteAction(forRowAtIndexPath: indexPath)
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let deleteAction = contextualDeleteAction(forRowAtIndexPath: indexPath)
+        let snoozeAction = contextualSnoozeAction(forRowAtIndexPath: indexPath)
+        return UISwipeActionsConfiguration(actions: [deleteAction, snoozeAction])
     }
 
     func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
@@ -108,26 +109,39 @@ extension ShoppingListViewController: UITableViewDelegate {
 
     private func contextualToggleDoneAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
         var item = viewModel.items[indexPath.row]
-        let title = item.isCompleted ? "Undo" : "Done"
-        let action = UIContextualAction(style: .normal, title: title) { (_: UIContextualAction, _: UIView, completionHandler: (Bool) -> Void) in
+        let handler: UIContextualAction.Handler = { action, view, completionHandler in
             item.toggleStatus()
             self.viewModel.didUpdate(item)
             self.tableView.reloadRows(at: [indexPath], with: .none)
             completionHandler(true)
         }
 
-        action.image = UIImage(named: "Checkmark")
-        action.backgroundColor = item.isCompleted ? UIColor.gray : UIColor.purple
-        return action
+        let image = UIImage(named: "Actions/Checkmark")
+        let title = item.isCompleted ? "Undo" : "Done"
+        let color = item.isCompleted ? .gray : UIColor.init(hexString: "1C7492")
+
+        return UIContextualAction(withHandler: handler, style: .normal, title: title, image: image, backgroundColor: color)
     }
 
     private func contextualDeleteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
         let item = viewModel.items[indexPath.row]
-        return UIContextualAction(style: .destructive, title: "Delete") { (_: UIContextualAction, _: UIView, completionHandler: (Bool) -> Void) in
+        let handler: UIContextualAction.Handler = { action, view, completionHandler in
             self.viewModel.didRemove(item)
             self.tableView.deleteRows(at: [indexPath], with: .left)
             completionHandler(true)
         }
+
+        let image = UIImage(named: "Actions/Trash")
+        return UIContextualAction(withHandler: handler, style: .destructive, title: "Delete", image: image, backgroundColor: .red)
+    }
+
+    private func contextualSnoozeAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let handler: UIContextualAction.Handler = { action, view, completionHandler in
+            completionHandler(true)
+        }
+
+        let image = UIImage(named: "Actions/Alarm")
+        return UIContextualAction(withHandler: handler, style: .normal, title: "Snooze", image: image, backgroundColor: .orange)
     }
 }
 

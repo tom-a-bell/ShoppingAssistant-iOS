@@ -162,6 +162,7 @@
 		17B3E05D20F920D1002F670D /* ShoppingAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3E05C20F920D1002F670D /* ShoppingAssistantUITests.swift */; };
 		17B3E06E20F9282F002F670D /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B3E06D20F9282F002F670D /* Promises.framework */; };
 		17B3E07120F92A5F002F670D /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B3E07020F92A5F002F670D /* FBLPromises.framework */; };
+		17D43BD821D8427D000AD3E9 /* UIContextualAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D43BD721D8427D000AD3E9 /* UIContextualAction+Extension.swift */; };
 		17D6E713210149BC0000AFCE /* AmazonClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D6E712210149BC0000AFCE /* AmazonClientManager.swift */; };
 		17D6E718210154830000AFCE /* AWSConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D6E717210154830000AFCE /* AWSConfiguration.swift */; };
 		17D6E71A210166C80000AFCE /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D6E719210166C80000AFCE /* LoginWithAmazon.framework */; };
@@ -406,6 +407,7 @@
 		17B3E07020F92A5F002F670D /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
 		17B7641021472CE700A53861 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		17B7641221472CE700A53861 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		17D43BD721D8427D000AD3E9 /* UIContextualAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContextualAction+Extension.swift"; sourceTree = "<group>"; };
 		17D6E712210149BC0000AFCE /* AmazonClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonClientManager.swift; sourceTree = "<group>"; };
 		17D6E71521014F770000AFCE /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		17D6E71621014FC60000AFCE /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 				17417FAB210E08E300AF3539 /* MarkerInfoView.xib */,
 				17417FAD210E0DA400AF3539 /* UIView+Extension.swift */,
 				17B128C421D0236D0063AC4E /* UIButton+Extension.swift */,
+				17D43BD721D8427D000AD3E9 /* UIContextualAction+Extension.swift */,
 				17B128C621D0E50E0063AC4E /* Stylist+Extension.swift */,
 			);
 			path = Views;
@@ -1178,6 +1181,7 @@
 				1714D418211723E0006E2D8C /* FindLocationViewController.swift in Sources */,
 				1714D40B2115B9C6006E2D8C /* Location.swift in Sources */,
 				17417F9E210DE51900AF3539 /* GooglePlace.swift in Sources */,
+				17D43BD821D8427D000AD3E9 /* UIContextualAction+Extension.swift in Sources */,
 				1714D41521170541006E2D8C /* LocationsService.swift in Sources */,
 				1714D4102115BDD7006E2D8C /* LocationsViewController.swift in Sources */,
 				179FCAB42118C2E300C20258 /* AddShoppingListItemViewController.swift in Sources */,
